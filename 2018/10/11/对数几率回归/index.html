@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="我们使用sigmod函数作为“广义线性模型”的单调可微函数g（.），得到$$ y=\frac {1}{1+e^{-(w^T x+b)}} \qquad (1)$$上式可变换为$$ ln \frac{y}{1-y}=w^Tx+b \qquad (2) $$若将y视为样本x作为正例的可能性，则1-y是其反例的可能性。两者的比值\( \frac{y}{1-y} \)称为几率，反映了x作为正例的相对可能性">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-11T13:06:31.240Z">
+<meta property="og:updated_time" content="2018-10-12T08:16:46.327Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="对数几率回归">
 <meta name="twitter:description" content="我们使用sigmod函数作为“广义线性模型”的单调可微函数g（.），得到$$ y=\frac {1}{1+e^{-(w^T x+b)}} \qquad (1)$$上式可变换为$$ ln \frac{y}{1-y}=w^Tx+b \qquad (2) $$若将y视为样本x作为正例的可能性，则1-y是其反例的可能性。两者的比值\( \frac{y}{1-y} \)称为几率，反映了x作为正例的相对可能性">
@@ -648,7 +648,7 @@
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
 
 
 
@@ -701,6 +701,43 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
   
 
 
