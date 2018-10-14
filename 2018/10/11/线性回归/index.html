@@ -7,7 +7,7 @@
 
 <html class="theme-next pisces use-motion" lang="">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -79,18 +79,21 @@
 
 
 
-<meta name="description" content="我们使用sigmod函数作为“广义线性模型”的单调可微函数g（.），得到$$ y=\frac {1}{1+e^{-(w^T x+b)}} \qquad (1)$$上式可变换为$$ ln \frac{y}{1-y}=w^Tx+b \qquad (2) $$若将y视为样本x作为正例的可能性，则1-y是其反例的可能性。两者的比值\( \frac{y}{1-y} \)称为几率，反映了x作为正例的相对可能性">
+<meta name="description" content="对数几率回归我们使用sigmod函数作为“广义线性模型”的单调可微函数g（.），得到$$ y=\frac {1}{1+e^{-(w^T x+b)}} \qquad (1)$$上式可变换为$$ ln \frac{y}{1-y}=w^Tx+b \qquad (2) $$若将y视为样本x作为正例的可能性，则1-y是其反例的可能性。两者的比值\( \frac{y}{1-y} \)称为几率，反映了x作为正例">
 <meta name="keywords" content="线性回归,对数几率回归">
 <meta property="og:type" content="article">
 <meta property="og:title" content="线性回归">
 <meta property="og:url" content="http://yoursite.com/2018/10/11/线性回归/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="我们使用sigmod函数作为“广义线性模型”的单调可微函数g（.），得到$$ y=\frac {1}{1+e^{-(w^T x+b)}} \qquad (1)$$上式可变换为$$ ln \frac{y}{1-y}=w^Tx+b \qquad (2) $$若将y视为样本x作为正例的可能性，则1-y是其反例的可能性。两者的比值\( \frac{y}{1-y} \)称为几率，反映了x作为正例的相对可能性">
+<meta property="og:description" content="对数几率回归我们使用sigmod函数作为“广义线性模型”的单调可微函数g（.），得到$$ y=\frac {1}{1+e^{-(w^T x+b)}} \qquad (1)$$上式可变换为$$ ln \frac{y}{1-y}=w^Tx+b \qquad (2) $$若将y视为样本x作为正例的可能性，则1-y是其反例的可能性。两者的比值\( \frac{y}{1-y} \)称为几率，反映了x作为正例">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-14T06:11:09.960Z">
+<meta property="og:image" content="http://yoursite.com/images/p54.jpg">
+<meta property="og:image" content="http://yoursite.com/images/p59.jpg">
+<meta property="og:updated_time" content="2018-10-14T14:04:46.618Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线性回归">
-<meta name="twitter:description" content="我们使用sigmod函数作为“广义线性模型”的单调可微函数g（.），得到$$ y=\frac {1}{1+e^{-(w^T x+b)}} \qquad (1)$$上式可变换为$$ ln \frac{y}{1-y}=w^Tx+b \qquad (2) $$若将y视为样本x作为正例的可能性，则1-y是其反例的可能性。两者的比值\( \frac{y}{1-y} \)称为几率，反映了x作为正例的相对可能性">
+<meta name="twitter:description" content="对数几率回归我们使用sigmod函数作为“广义线性模型”的单调可微函数g（.），得到$$ y=\frac {1}{1+e^{-(w^T x+b)}} \qquad (1)$$上式可变换为$$ ln \frac{y}{1-y}=w^Tx+b \qquad (2) $$若将y视为样本x作为正例的可能性，则1-y是其反例的可能性。两者的比值\( \frac{y}{1-y} \)称为几率，反映了x作为正例">
+<meta name="twitter:image" content="http://yoursite.com/images/p54.jpg">
 
 
 
@@ -126,7 +129,7 @@
 
 
 
-  <title>线性回归 | Hexo</title>
+  <title>线性回归 | Hexo</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -145,7 +148,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -342,11 +345,21 @@
       
 
       
-        <p>我们使用sigmod函数作为“广义线性模型”的单调可微函数g（.），得到<br>$$ y=\frac {1}{1+e^{-(w^T x+b)}} \qquad (1)$$<br>上式可变换为<br>$$ ln \frac{y}{1-y}=w^Tx+b \qquad (2) $$<br>若将y视为样本x作为正例的可能性，则1-y是其反例的可能性。两者的比值\( \frac{y}{1-y} \)称为几率，反映了x作为正例的相对可能性，对几率去对数得到对数几率<br>$$ ln \frac {y}{1-y}    $$ </p>
+        <h1 id="对数几率回归"><a href="#对数几率回归" class="headerlink" title="对数几率回归"></a>对数几率回归</h1><p>我们使用sigmod函数作为“广义线性模型”的单调可微函数g（.），得到<br>$$ y=\frac {1}{1+e^{-(w^T x+b)}} \qquad (1)$$<br>上式可变换为<br>$$ ln \frac{y}{1-y}=w^Tx+b \qquad (2) $$<br>若将y视为样本x作为正例的可能性，则1-y是其反例的可能性。两者的比值\( \frac{y}{1-y} \)称为几率，反映了x作为正例的相对可能性，对几率去对数得到对数几率<br>$$ ln \frac {y}{1-y}    $$ </p>
 <p>由（2）式可知，实际上是用线性回归模型的预测结果去逼近真是标记的对数几率，其模型称为“<strong>对数几率回归</strong>”</p>
 <p>我们来看如何求w和b，我们把（1）式的y视为类后验概率估计p(y=1|x)，在（2）式重写为</p>
 <p>$$ ln \frac {p(y=1|x)}{p(y=0|x)} =w^Tx+b $$</p>
 <p>显然有<br>$$ p(y=1|x)=\frac{e^{w^T x+b}}{1+e^{w^T x+b}} $$<br>$$ p(y=0|x)=\frac{1}{1+e^{w^T x+b}} $$</p>
+<p>设P(Y=1|x)=g(x),P(Y=0|x)=1-g(x)<br>使用极大似然法来估计w和b，给定数据集\( {(x_i,y_i)}^{m}<em>{i=1}, \)似然函数是<br>$$ \prod^m\</em>{i=1} [g] [] $$</p>
+<p><br></p>
+<ul>
+<li><strong>西瓜书 54页3.7和3.8推导公式</strong></li>
+</ul>
+<p><img src="/images/p54.jpg" width="480" align="center/"></p>
+<ul>
+<li><strong>西瓜书59页 3.27推导公式</strong></li>
+</ul>
+<p><img src="/images/p59.jpg" width="480" align="center/"></p>
 
       
     </div>
@@ -388,10 +401,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/13/hello-world/" rel="prev" title="Hello World">
-                Hello World <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -443,8 +452,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -459,7 +477,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -504,6 +522,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#对数几率回归"><span class="nav-number">1.</span> <span class="nav-text">对数几率回归</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -724,7 +758,24 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
   
 
 
