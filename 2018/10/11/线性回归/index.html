@@ -89,7 +89,8 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/images/p54.jpg">
 <meta property="og:image" content="http://yoursite.com/images/p59.jpg">
-<meta property="og:updated_time" content="2018-10-14T14:44:51.257Z">
+<meta property="og:image" content="http://pgmz9e1an.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181015204258.jpg">
+<meta property="og:updated_time" content="2018-10-15T12:59:11.247Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线性回归">
 <meta name="twitter:description" content="对数几率回归我们使用sigmod函数作为“广义线性模型”的单调可微函数g（.），得到 y=\frac {1}{1+e^{-(w^T x+b)}} \qquad (1)上式可变换为 ln \frac{y}{1-y}=w^Tx+b \qquad (2)若将y视为样本x作为正例的可能性，则1-y是其反例的可能性。两者的比值\( \frac{y}{1-y} \)称为几率，反映了x作为正例的相对可能性，对几">
@@ -352,8 +353,8 @@
 <p>我们来看如何求w和b，我们把（1）式的y视为类后验概率估计p(y=1|x)，在（2）式重写为</p>
 <script type="math/tex; mode=display">ln \frac {p(y=1|x)}{p(y=0|x)} =w^Tx+b</script><p>显然有</p>
 <script type="math/tex; mode=display">p(y=1|x)=\frac{e^{w^T x+b}}{1+e^{w^T x+b}}</script><script type="math/tex; mode=display">p(y=0|x)=\frac{1}{1+e^{w^T x+b}}</script><p>对于给定的数据集\( {(x_i,y_i)}^N_{i=1},y \in {0,1} \),可以应用极大似然估计估计模型参数，从而得到逻辑回归模型<br>设P(Y=1|x)=g(x),P(Y=0|x)=1-g(x)<br>似然函数为</p>
-<script type="math/tex; mode=display">\prod^N_{i=1} [g(x_i)]^y_i [1-g(x_i)]^(1-y_i)</script><p>对数似然函数为</p>
-<script type="math/tex; mode=display">L(w)=\Sigma ^N_{i=1} [y_ilogg(x_i)+(1-y_i)log(1-g(x_i))]</script><script type="math/tex; mode=display">=\Sigma^N_{i=1}[y_ilog \frac {g(x_i)}{1-g(x_i)} + log(1-g(x_i))]</script><script type="math/tex; mode=display">=\Sigma^N_{i=1}[y_i (w*x_i)-log(1+\exp(w \ast x_i))]</script><p>对L(w)求最大值，得到w的估计值,常用梯度下降和牛顿法解决</p>
+<script type="math/tex; mode=display">\prod^N_{i=1} [g(x_i)]^y_i [1-g(x_i)]^{1-y_i}</script><p>对数似然函数为</p>
+<script type="math/tex; mode=display">L(w)=\Sigma ^N_{i=1} [y_ilog(x_i)+(1-y_i)log(1-g(x_i))]</script><script type="math/tex; mode=display">=\Sigma^N_{i=1}[y_ilog \frac {g(x_i)}{1-g(x_i)} + log(1-g(x_i))]</script><script type="math/tex; mode=display">=\Sigma^N_{i=1}[y_i (w*x_i)-log(1+\exp(w \ast x_i))]</script><p>对L(w)求最大值，得到w的估计值,常用梯度下降和牛顿法解决</p>
 <p><br></p>
 <ul>
 <li><strong>西瓜书 54页3.7和3.8推导公式</strong></li>
@@ -363,6 +364,7 @@
 <li><strong>西瓜书59页 3.27推导公式</strong></li>
 </ul>
 <p><img src="/images/p59.jpg" width="480" align="center/"></p>
+<p><img src="http://pgmz9e1an.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181015204258.jpg" width="480" align="center/"></p>
 
       
     </div>
@@ -395,15 +397,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/11/测试/" rel="next" title="测试">
-                <i class="fa fa-chevron-left"></i> 测试
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/15/决策树/" rel="prev" title="决策树">
+                决策树 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -480,7 +482,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -502,7 +504,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
