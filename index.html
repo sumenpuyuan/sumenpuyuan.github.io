@@ -342,7 +342,7 @@
       
         
           
-           (:height=”50%” width=”50%”)Input: [-2,1,-3,4,-1,2,1,-5,4],Output: 6Explanation: [4,-1,2,1] has the largest sum = 6.1234567891011121314151617181920212
+          Input: [-2,1,-3,4,-1,2,1,-5,4],Output: 6Explanation: [4,-1,2,1] has the largest sum = 6.123456789101112131415161718192021222324#include&lt;iostream&gt
           ...
           <!--noindex-->
           <div class="post-button text-center">
@@ -542,7 +542,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/10/11/线性回归/" itemprop="url">线性回归</a></h1>
+                <a class="post-title-link" href="/2018/10/11/线性回归/" itemprop="url">线性模型</a></h1>
         
 
         <div class="post-meta">
@@ -616,9 +616,9 @@
       
         
           
-          对数几率回归我们使用sigmod函数作为“广义线性模型”的单调可微函数g（.），得到
-y=\frac {1}{1+e^{-(w^T x+b)}} \qquad (1)上式可变换为
-ln \frac{y}{1-y}=w^Tx+b \qquad (2)若将y视为样本x作为正例的可能性，则1-y是其反例的
+          1.基本形式给定有d个属性描述的示例\(x=(x_1:x_2……x_d)\),其中Xi是x在第i个属性上的取值，线性模型试图学得一个通过属性的线性组合来进行预测的函数，即
+f(x)=w_1x_1+w_2x_2+……+w_dx_d+b一般向量形式写成
+f(x)=w^Tx+b2.线性回归我们先考一种最简
           ...
           <!--noindex-->
           <div class="post-button text-center">

@@ -79,21 +79,21 @@
 
 
 
-<meta name="description" content="对数几率回归我们使用sigmod函数作为“广义线性模型”的单调可微函数g（.），得到 y=\frac {1}{1+e^{-(w^T x+b)}} \qquad (1)上式可变换为 ln \frac{y}{1-y}=w^Tx+b \qquad (2)若将y视为样本x作为正例的可能性，则1-y是其反例的可能性。两者的比值\( \frac{y}{1-y} \)称为几率，反映了x作为正例的相对可能性，对几">
+<meta name="description" content="1.基本形式给定有d个属性描述的示例\(x=(x_1:x_2……x_d)\),其中Xi是x在第i个属性上的取值，线性模型试图学得一个通过属性的线性组合来进行预测的函数，即 f(x)=w_1x_1+w_2x_2+……+w_dx_d+b一般向量形式写成 f(x)=w^Tx+b2.线性回归我们先考一种最简单的情况，x只有一种属性，即假设函数为 f(x_i)=wx_i+b选择均方误差作为性能度量，试图使方">
 <meta name="keywords" content="线性回归,对数几率回归">
 <meta property="og:type" content="article">
-<meta property="og:title" content="线性回归">
+<meta property="og:title" content="线性模型">
 <meta property="og:url" content="http://yoursite.com/2018/10/11/线性回归/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="对数几率回归我们使用sigmod函数作为“广义线性模型”的单调可微函数g（.），得到 y=\frac {1}{1+e^{-(w^T x+b)}} \qquad (1)上式可变换为 ln \frac{y}{1-y}=w^Tx+b \qquad (2)若将y视为样本x作为正例的可能性，则1-y是其反例的可能性。两者的比值\( \frac{y}{1-y} \)称为几率，反映了x作为正例的相对可能性，对几">
+<meta property="og:description" content="1.基本形式给定有d个属性描述的示例\(x=(x_1:x_2……x_d)\),其中Xi是x在第i个属性上的取值，线性模型试图学得一个通过属性的线性组合来进行预测的函数，即 f(x)=w_1x_1+w_2x_2+……+w_dx_d+b一般向量形式写成 f(x)=w^Tx+b2.线性回归我们先考一种最简单的情况，x只有一种属性，即假设函数为 f(x_i)=wx_i+b选择均方误差作为性能度量，试图使方">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/images/p54.jpg">
 <meta property="og:image" content="http://yoursite.com/images/p59.jpg">
 <meta property="og:image" content="http://pgmz9e1an.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181015204258.jpg">
-<meta property="og:updated_time" content="2018-10-15T12:59:11.247Z">
+<meta property="og:updated_time" content="2018-10-16T13:05:55.752Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="线性回归">
-<meta name="twitter:description" content="对数几率回归我们使用sigmod函数作为“广义线性模型”的单调可微函数g（.），得到 y=\frac {1}{1+e^{-(w^T x+b)}} \qquad (1)上式可变换为 ln \frac{y}{1-y}=w^Tx+b \qquad (2)若将y视为样本x作为正例的可能性，则1-y是其反例的可能性。两者的比值\( \frac{y}{1-y} \)称为几率，反映了x作为正例的相对可能性，对几">
+<meta name="twitter:title" content="线性模型">
+<meta name="twitter:description" content="1.基本形式给定有d个属性描述的示例\(x=(x_1:x_2……x_d)\),其中Xi是x在第i个属性上的取值，线性模型试图学得一个通过属性的线性组合来进行预测的函数，即 f(x)=w_1x_1+w_2x_2+……+w_dx_d+b一般向量形式写成 f(x)=w^Tx+b2.线性回归我们先考一种最简单的情况，x只有一种属性，即假设函数为 f(x_i)=wx_i+b选择均方误差作为性能度量，试图使方">
 <meta name="twitter:image" content="http://yoursite.com/images/p54.jpg">
 
 
@@ -130,7 +130,7 @@
 
 
 
-  <title>线性回归 | Hexo</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>线性模型 | Hexo</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -274,7 +274,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">线性回归</h1>
+          <h1 class="post-title" itemprop="name headline">线性模型</h1>
         
 
         <div class="post-meta">
@@ -346,7 +346,12 @@
       
 
       
-        <h1 id="对数几率回归"><a href="#对数几率回归" class="headerlink" title="对数几率回归"></a>对数几率回归</h1><p>我们使用sigmod函数作为“广义线性模型”的单调可微函数g（.），得到</p>
+        <h1 id="1-基本形式"><a href="#1-基本形式" class="headerlink" title="1.基本形式"></a>1.基本形式</h1><p>给定有d个属性描述的示例\(x=(x_1:x_2……x_d)\),其中Xi是x在第i个属性上的取值，线性模型试图学得一个通过属性的线性组合来进行预测的函数，即</p>
+<script type="math/tex; mode=display">f(x)=w_1x_1+w_2x_2+……+w_dx_d+b</script><p>一般向量形式写成</p>
+<script type="math/tex; mode=display">f(x)=w^Tx+b</script><h1 id="2-线性回归"><a href="#2-线性回归" class="headerlink" title="2.线性回归"></a>2.线性回归</h1><p>我们先考一种最简单的情况，x只有一种属性，即假设函数为</p>
+<script type="math/tex; mode=display">f(x_i)=wx_i+b</script><p>选择均方误差作为性能度量，试图使方差最下，即</p>
+<script type="math/tex; mode=display">(w^*,b^*)=arg min(w,b)=\Sigma^m_{i=1}(f(x_i)-y_i)^2</script><script type="math/tex; mode=display">=arg min(w,b)\Sigma^m_{i=1}(y_i-wx_i-b)^2</script><p>基于均方误差进行模型求解的方法称为最小二乘法，我们将损失函数分别对w和b求导得<br><a href="#ercheng"><font color="red">接下来点击这里</font></a></p>
+<h1 id="3-对数几率回归"><a href="#3-对数几率回归" class="headerlink" title="3.对数几率回归"></a>3.对数几率回归</h1><p>我们使用sigmod函数作为“广义线性模型”的单调可微函数g（.），得到</p>
 <script type="math/tex; mode=display">y=\frac {1}{1+e^{-(w^T x+b)}} \qquad (1)</script><p>上式可变换为</p>
 <script type="math/tex; mode=display">ln \frac{y}{1-y}=w^Tx+b \qquad (2)</script><p>若将y视为样本x作为正例的可能性，则1-y是其反例的可能性。两者的比值\( \frac{y}{1-y} \)称为几率，反映了x作为正例的相对可能性，对几率去对数得到对数几率</p>
 <script type="math/tex; mode=display">ln \frac {y}{1-y}</script><p>由（2）式可知，实际上是用线性回归模型的预测结果去逼近真是标记的对数几率，其模型称为“<strong>对数几率回归</strong>”</p>
@@ -356,6 +361,7 @@
 <script type="math/tex; mode=display">\prod^N_{i=1} [g(x_i)]^y_i [1-g(x_i)]^{1-y_i}</script><p>对数似然函数为</p>
 <script type="math/tex; mode=display">L(w)=\Sigma ^N_{i=1} [y_ilog(x_i)+(1-y_i)log(1-g(x_i))]</script><script type="math/tex; mode=display">=\Sigma^N_{i=1}[y_ilog \frac {g(x_i)}{1-g(x_i)} + log(1-g(x_i))]</script><script type="math/tex; mode=display">=\Sigma^N_{i=1}[y_i (w*x_i)-log(1+\exp(w \ast x_i))]</script><p>对L(w)求最大值，得到w的估计值,常用梯度下降和牛顿法解决</p>
 <p><br></p>
+<p><div id="ercheng"></div></p>
 <ul>
 <li><strong>西瓜书 54页3.7和3.8推导公式</strong></li>
 </ul>
@@ -364,7 +370,9 @@
 <li><strong>西瓜书59页 3.27推导公式</strong></li>
 </ul>
 <p><img src="/images/p59.jpg" width="480" align="center/"></p>
-<p><img src="http://pgmz9e1an.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181015204258.jpg" width="480" align="center/"></p>
+<ul>
+<li><strong>p55 3.10</strong><br><img src="http://pgmz9e1an.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181015204258.jpg" width="480" align="center/"></li>
+</ul>
 
       
     </div>
@@ -537,7 +545,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#对数几率回归"><span class="nav-number">1.</span> <span class="nav-text">对数几率回归</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-基本形式"><span class="nav-number">1.</span> <span class="nav-text">1.基本形式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-线性回归"><span class="nav-number">2.</span> <span class="nav-text">2.线性回归</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-对数几率回归"><span class="nav-number">3.</span> <span class="nav-text">3.对数几率回归</span></a></li></ol></div>
             
 
           </div>
