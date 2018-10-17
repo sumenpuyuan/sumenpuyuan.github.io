@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="">
+<html class="theme-next mist use-motion" lang="">
 <head>
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -79,14 +79,19 @@
 
 
 
+<meta name="description" content="基本流程三种情况导致递归返回  当前节点包含的样本完全属于同一类别，无需划分 当前属性集为空，或是所有样本在所有属性上取值相同，无法划分 当前节点包含样本集合为空，不能划分  第二种情况，把当前节点标记为叶节点，将其类别设定为该节点所含样本最多的类别 第三种情况，当前设为叶子节点，类别设为其父节点样本最多的类别 划分选择难点在第八行，即选择最优划分属性，一般而言我们希望随着划分的进行，分支节点所包">
 <meta property="og:type" content="article">
 <meta property="og:title" content="决策树">
 <meta property="og:url" content="http://yoursite.com/2018/10/15/决策树/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="基本流程三种情况导致递归返回  当前节点包含的样本完全属于同一类别，无需划分 当前属性集为空，或是所有样本在所有属性上取值相同，无法划分 当前节点包含样本集合为空，不能划分  第二种情况，把当前节点标记为叶节点，将其类别设定为该节点所含样本最多的类别 第三种情况，当前设为叶子节点，类别设为其父节点样本最多的类别 划分选择难点在第八行，即选择最优划分属性，一般而言我们希望随着划分的进行，分支节点所包">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-15T02:59:23.169Z">
+<meta property="og:image" content="http://pgmz9e1an.bkt.clouddn.com/2018-10-17_221227.png">
+<meta property="og:updated_time" content="2018-10-17T14:22:28.621Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="决策树">
+<meta name="twitter:description" content="基本流程三种情况导致递归返回  当前节点包含的样本完全属于同一类别，无需划分 当前属性集为空，或是所有样本在所有属性上取值相同，无法划分 当前节点包含样本集合为空，不能划分  第二种情况，把当前节点标记为叶节点，将其类别设定为该节点所含样本最多的类别 第三种情况，当前设为叶子节点，类别设为其父节点样本最多的类别 划分选择难点在第八行，即选择最优划分属性，一般而言我们希望随着划分的进行，分支节点所包">
+<meta name="twitter:image" content="http://pgmz9e1an.bkt.clouddn.com/2018-10-17_221227.png">
 
 
 
@@ -94,7 +99,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
+    scheme: 'Mist',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -289,6 +294,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -316,7 +343,18 @@
       
 
       
-        
+        <h1 id="基本流程"><a href="#基本流程" class="headerlink" title="基本流程"></a>基本流程</h1><p><img src="http://pgmz9e1an.bkt.clouddn.com/2018-10-17_221227.png" width="640"><br>三种情况导致递归返回</p>
+<ol>
+<li>当前节点包含的样本完全属于同一类别，无需划分</li>
+<li>当前属性集为空，或是所有样本在所有属性上取值相同，无法划分</li>
+<li>当前节点包含样本集合为空，不能划分</li>
+</ol>
+<p>第二种情况，把当前节点标记为叶节点，将其类别设定为该节点所含样本最多的类别</p>
+<p>第三种情况，当前设为叶子节点，类别设为其父节点样本最多的类别</p>
+<h1 id="划分选择"><a href="#划分选择" class="headerlink" title="划分选择"></a>划分选择</h1><p>难点在第八行，即选择最优划分属性，一般而言我们希望随着划分的进行，分支节点所包含的样本尽可能属于同一类，即节点纯度越来越高</p>
+<h2 id="信息增益"><a href="#信息增益" class="headerlink" title="信息增益"></a>信息增益</h2><p><strong>信息熵</strong><br>假定当前样本集合D中第k类样本所占比例是Pk（k=1,2……y）,则信息熵定义为</p>
+<script type="math/tex; mode=display">Ent(D)=-\Sigma^y_{k=1} p_k log_2p_k</script><p>ENT（D）越小，D的纯度越高 </p>
+
       
     </div>
     
@@ -404,8 +442,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -466,6 +513,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本流程"><span class="nav-number">1.</span> <span class="nav-text">基本流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#划分选择"><span class="nav-number">2.</span> <span class="nav-text">划分选择</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#信息增益"><span class="nav-number">2.1.</span> <span class="nav-text">信息增益</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -497,7 +560,7 @@
 
 
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
 
 
 
@@ -596,13 +659,6 @@
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
