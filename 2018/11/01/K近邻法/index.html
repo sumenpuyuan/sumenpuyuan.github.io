@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="线性回归,对数几率回归," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,23 +79,14 @@
 
 
 
-<meta name="description" content="1.基本形式给定有d个属性描述的示例\(x=(x_1:x_2……x_d)\),其中Xi是x在第i个属性上的取值，线性模型试图学得一个通过属性的线性组合来进行预测的函数，即 f(x)=w_1x_1+w_2x_2+……+w_dx_d+b一般向量形式写成 f(x)=w^Tx+b2.线性回归2.1 x只有一种属性我们先考一种最简单的情况，x只有一种属性，即假设函数为 f(x_i)=wx_i+b选择均方误差">
-<meta name="keywords" content="线性回归,对数几率回归">
 <meta property="og:type" content="article">
-<meta property="og:title" content="线性模型">
-<meta property="og:url" content="http://yoursite.com/2018/10/11/线性回归/index.html">
+<meta property="og:title" content="K近邻法">
+<meta property="og:url" content="http://yoursite.com/2018/11/01/K近邻法/index.html">
 <meta property="og:site_name" content="苏门蒲沅">
-<meta property="og:description" content="1.基本形式给定有d个属性描述的示例\(x=(x_1:x_2……x_d)\),其中Xi是x在第i个属性上的取值，线性模型试图学得一个通过属性的线性组合来进行预测的函数，即 f(x)=w_1x_1+w_2x_2+……+w_dx_d+b一般向量形式写成 f(x)=w^Tx+b2.线性回归2.1 x只有一种属性我们先考一种最简单的情况，x只有一种属性，即假设函数为 f(x_i)=wx_i+b选择均方误差">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/images/p54.jpg">
-<meta property="og:image" content="http://yoursite.com/images/p59.jpg">
-<meta property="og:image" content="http://pgmz9e1an.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181015204258.jpg">
-<meta property="og:image" content="http://pgmz9e1an.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181021150851.jpg">
-<meta property="og:updated_time" content="2018-10-21T07:09:46.986Z">
+<meta property="og:updated_time" content="2018-11-01T09:04:17.329Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="线性模型">
-<meta name="twitter:description" content="1.基本形式给定有d个属性描述的示例\(x=(x_1:x_2……x_d)\),其中Xi是x在第i个属性上的取值，线性模型试图学得一个通过属性的线性组合来进行预测的函数，即 f(x)=w_1x_1+w_2x_2+……+w_dx_d+b一般向量形式写成 f(x)=w^Tx+b2.线性回归2.1 x只有一种属性我们先考一种最简单的情况，x只有一种属性，即假设函数为 f(x_i)=wx_i+b选择均方误差">
-<meta name="twitter:image" content="http://yoursite.com/images/p54.jpg">
+<meta name="twitter:title" content="K近邻法">
 
 
 
@@ -125,13 +116,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/11/线性回归/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/01/K近邻法/"/>
 
 
 
 
 
-  <title>线性模型 | 苏门蒲沅</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>K近邻法 | 苏门蒲沅</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -258,7 +249,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/11/线性回归/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/01/K近邻法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -275,7 +266,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">线性模型</h1>
+          <h1 class="post-title" itemprop="name headline">K近邻法</h1>
         
 
         <div class="post-meta">
@@ -287,8 +278,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-11T20:10:07+08:00">
-                2018-10-11
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-01T17:04:17+08:00">
+                2018-11-01
               </time>
             
 
@@ -297,28 +288,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -347,43 +316,7 @@
       
 
       
-        <h1 id="1-基本形式"><a href="#1-基本形式" class="headerlink" title="1.基本形式"></a>1.基本形式</h1><p>给定有d个属性描述的示例\(x=(x_1:x_2……x_d)\),其中Xi是x在第i个属性上的取值，线性模型试图学得一个通过属性的线性组合来进行预测的函数，即</p>
-<script type="math/tex; mode=display">f(x)=w_1x_1+w_2x_2+……+w_dx_d+b</script><p>一般向量形式写成</p>
-<script type="math/tex; mode=display">f(x)=w^Tx+b</script><h1 id="2-线性回归"><a href="#2-线性回归" class="headerlink" title="2.线性回归"></a>2.线性回归</h1><h2 id="2-1-x只有一种属性"><a href="#2-1-x只有一种属性" class="headerlink" title="2.1 x只有一种属性"></a>2.1 x只有一种属性</h2><p>我们先考一种最简单的情况，x只有一种属性，即假设函数为</p>
-<script type="math/tex; mode=display">f(x_i)=wx_i+b</script><p>选择均方误差作为性能度量，试图使方差最下，即</p>
-<script type="math/tex; mode=display">(w^*,b^*)=arg min(w,b)=\Sigma^m_{i=1}(f(x_i)-y_i)^2</script><script type="math/tex; mode=display">=arg min(w,b)\Sigma^m_{i=1}(y_i-wx_i-b)^2</script><p>基于均方误差进行模型求解的方法称为最小二乘法，我们将损失函数分别对w和b求导得<br><a href="#ercheng"><font color="red">接下来点击这里</font></a></p>
-<h2 id="2-2-x有d个属性"><a href="#2-2-x有d个属性" class="headerlink" title="2.2 x有d个属性"></a>2.2 x有d个属性</h2><p>此时我们试图学得</p>
-<script type="math/tex; mode=display">f(x_i)=w^Tx_i+b  \qquad make \qquad f(x_i) \approx y_i</script><p>这称为“多元线性回归”</p>
-<p>类似的，可以用最小二乘法对w和b进行估计，我们把w和b吸收入向量形式\( w^+=(w;b) \),相应的把数据集D表示为一个m*(d+1)大小的矩阵X，我们需要求如下式子</p>
-<script type="math/tex; mode=display">w^(+*)=arg min(w^+)(y-Xw^+)^T(y-Xw^+)</script><p>上式对w求导，得到</p>
-<script type="math/tex; mode=display">\frac{ \partial E_w}{\partial w}=2X^T(Xw-y)</script><p><a href="#qiudao"><font color="red">这一步的求解参考这里</font></a></p>
-<ol>
-<li>当\(X^TX\)为满秩矩阵或正定矩阵时，上式为0可得<script type="math/tex; mode=display">w^*=(X^TX)^{-1}X^Ty</script></li>
-<li>如果不是，那么可能解出多个w，此时由学习算法的归纳偏好决定，常见的做法是引入正则化</li>
-</ol>
-<h1 id="3-对数几率回归"><a href="#3-对数几率回归" class="headerlink" title="3.对数几率回归"></a>3.对数几率回归</h1><p>我们使用sigmod函数作为“广义线性模型”的单调可微函数g（.），得到</p>
-<script type="math/tex; mode=display">y=\frac {1}{1+e^{-(w^T x+b)}} \qquad (1)</script><p>上式可变换为</p>
-<script type="math/tex; mode=display">ln \frac{y}{1-y}=w^Tx+b \qquad (2)</script><p>若将y视为样本x作为正例的可能性，则1-y是其反例的可能性。两者的比值\( \frac{y}{1-y} \)称为几率，反映了x作为正例的相对可能性，对几率去对数得到对数几率</p>
-<script type="math/tex; mode=display">ln \frac {y}{1-y}</script><p>由（2）式可知，实际上是用线性回归模型的预测结果去逼近真是标记的对数几率，其模型称为“<strong>对数几率回归</strong>”</p>
-<p>我们来看如何求w和b，我们把（1）式的y视为类后验概率估计p(y=1|x)，在（2）式重写为</p>
-<script type="math/tex; mode=display">ln \frac {p(y=1|x)}{p(y=0|x)} =w^Tx+b</script><p>显然有</p>
-<script type="math/tex; mode=display">p(y=1|x)=\frac{e^{w^T x+b}}{1+e^{w^T x+b}}</script><script type="math/tex; mode=display">p(y=0|x)=\frac{1}{1+e^{w^T x+b}}</script><p>对于给定的数据集\( {(x_i,y_i)}^N_{i=1},y \in {0,1} \),可以应用极大似然估计估计模型参数，从而得到逻辑回归模型<br>设P(Y=1|x)=g(x),P(Y=0|x)=1-g(x)<br>似然函数为</p>
-<script type="math/tex; mode=display">\prod^N_{i=1} [g(x_i)]^y_i [1-g(x_i)]^{1-y_i}</script><p>对数似然函数为</p>
-<script type="math/tex; mode=display">L(w)=\Sigma ^N_{i=1} [y_ilog(x_i)+(1-y_i)log(1-g(x_i))]</script><script type="math/tex; mode=display">=\Sigma^N_{i=1}[y_ilog \frac {g(x_i)}{1-g(x_i)} + log(1-g(x_i))]</script><script type="math/tex; mode=display">=\Sigma^N_{i=1}[y_i (w*x_i)-log(1+\exp(w \ast x_i))]</script><p>对L(w)求最大值，得到w的估计值,常用梯度下降和牛顿法解决</p>
-<p><br></p>
-<p><div id="ercheng"></div></p>
-<ul>
-<li><strong>西瓜书 54页3.7和3.8推导公式</strong></li>
-</ul>
-<p><img src="/images/p54.jpg" width="480" align="center/"></p>
-<ul>
-<li><strong>西瓜书59页 3.27推导公式</strong></li>
-</ul>
-<p><img src="/images/p59.jpg" width="480" align="center/"></p>
-<ul>
-<li><strong>p55 3.10</strong><br><div id="qiudao"><img src="http://pgmz9e1an.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181015204258.jpg" width="480" align="center/"></div><br><strong> 算法形式</strong><br><img src="http://pgmz9e1an.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181021150851.jpg" width="640"></li>
-</ul>
-
+        
       
     </div>
     
@@ -398,14 +331,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/线性回归/" rel="tag"># 线性回归</a>
-          
-            <a href="/tags/对数几率回归/" rel="tag"># 对数几率回归</a>
-          
-        </div>
-      
 
       
       
@@ -415,14 +340,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/10/27/提升方法/" rel="next" title="提升方法">
+                <i class="fa fa-chevron-left"></i> 提升方法
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/10/15/决策树/" rel="prev" title="决策树">
-                决策树 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/11/01/vijosP1006晴天小猪历险记/" rel="prev" title="vijosP1006晴天小猪历险记">
+                vijosP1006晴天小猪历险记 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -475,17 +404,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -545,22 +465,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-基本形式"><span class="nav-number">1.</span> <span class="nav-text">1.基本形式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-线性回归"><span class="nav-number">2.</span> <span class="nav-text">2.线性回归</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-x只有一种属性"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 x只有一种属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-x有d个属性"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 x有d个属性</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-对数几率回归"><span class="nav-number">3.</span> <span class="nav-text">3.对数几率回归</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
