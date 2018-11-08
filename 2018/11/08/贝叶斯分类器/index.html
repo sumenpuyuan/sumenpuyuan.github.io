@@ -79,13 +79,25 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="苏门蒲沅">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+<meta name="description" content="朴素贝叶斯法朴素贝叶斯基本原理  朴素贝叶斯基本算法 处理连续属性对连续属性可考虑概率密度函数，假定\(p(x_i|c)~N(\mu_{c,i},\sigma^2_{c,i})\),其中\(\mu_{c,i},\sigma^2_{c,i}\)分别是第c类样本在第i个属性上取值的均值和平方，则有 p(x_i|c)=\frac{1}{\sqrt{2\pi}\sigma_{c,i}} exp(-\fra">
+<meta property="og:type" content="article">
+<meta property="og:title" content="贝叶斯分类器">
+<meta property="og:url" content="http://yoursite.com/2018/11/08/贝叶斯分类器/index.html">
 <meta property="og:site_name" content="苏门蒲沅">
+<meta property="og:description" content="朴素贝叶斯法朴素贝叶斯基本原理  朴素贝叶斯基本算法 处理连续属性对连续属性可考虑概率密度函数，假定\(p(x_i|c)~N(\mu_{c,i},\sigma^2_{c,i})\),其中\(\mu_{c,i},\sigma^2_{c,i}\)分别是第c类样本在第i个属性上取值的均值和平方，则有 p(x_i|c)=\frac{1}{\sqrt{2\pi}\sigma_{c,i}} exp(-\fra">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/images/bayes1.jpg">
+<meta property="og:image" content="http://yoursite.com/images/bayes2.png">
+<meta property="og:image" content="http://yoursite.com/images/xishi1.png">
+<meta property="og:image" content="http://yoursite.com/images/xishi2.png">
+<meta property="og:image" content="http://yoursite.com/images/xishi3.png">
+<meta property="og:image" content="http://yoursite.com/images/tongshi1.png">
+<meta property="og:image" content="http://yoursite.com/images/tongshi2.png">
+<meta property="og:updated_time" content="2018-11-08T08:33:51.850Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="苏门蒲沅">
+<meta name="twitter:title" content="贝叶斯分类器">
+<meta name="twitter:description" content="朴素贝叶斯法朴素贝叶斯基本原理  朴素贝叶斯基本算法 处理连续属性对连续属性可考虑概率密度函数，假定\(p(x_i|c)~N(\mu_{c,i},\sigma^2_{c,i})\),其中\(\mu_{c,i},\sigma^2_{c,i}\)分别是第c类样本在第i个属性上取值的均值和平方，则有 p(x_i|c)=\frac{1}{\sqrt{2\pi}\sigma_{c,i}} exp(-\fra">
+<meta name="twitter:image" content="http://yoursite.com/images/bayes1.jpg">
 
 
 
@@ -115,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2018/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/08/贝叶斯分类器/"/>
 
 
 
 
 
-  <title>Archive | 苏门蒲沅</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>贝叶斯分类器 | 苏门蒲沅</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -140,7 +152,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-archive">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -234,333 +246,168 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/08/贝叶斯分类器/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="苏门蒲沅">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">贝叶斯分类器</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-08T15:36:37+08:00">
+                2018-11-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        Um..! 8 posts in total. Keep on posting.
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2018">2018</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/08/贝叶斯分类器/" itemprop="url">
-              
-                <span itemprop="name">贝叶斯分类器</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-11-08T15:36:37+08:00"
-              content="2018-11-08" >
-          11-08
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+          
 
+        </div>
+      </header>
+    
 
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/01/vijosP1006晴天小猪历险记/" itemprop="url">
-              
-                <span itemprop="name">vijosP1006晴天小猪历险记</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-11-01T21:08:25+08:00"
-              content="2018-11-01" >
-          11-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/11/01/K近邻法/" itemprop="url">
-              
-                <span itemprop="name">K近邻法</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-11-01T17:04:17+08:00"
-              content="2018-11-01" >
-          11-01
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/10/27/提升方法/" itemprop="url">
-              
-                <span itemprop="name">提升方法</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-27T23:47:03+08:00"
-              content="2018-10-27" >
-          10-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
+        <h1 id="朴素贝叶斯法"><a href="#朴素贝叶斯法" class="headerlink" title="朴素贝叶斯法"></a>朴素贝叶斯法</h1><h2 id="朴素贝叶斯基本原理"><a href="#朴素贝叶斯基本原理" class="headerlink" title="朴素贝叶斯基本原理"></a>朴素贝叶斯基本原理</h2><p> <img src="/images/bayes1.jpg" width="640"></p>
+<h2 id="朴素贝叶斯基本算法"><a href="#朴素贝叶斯基本算法" class="headerlink" title="朴素贝叶斯基本算法"></a>朴素贝叶斯基本算法</h2><p><img src="/images/bayes2.png" width="640"></p>
+<h3 id="处理连续属性"><a href="#处理连续属性" class="headerlink" title="处理连续属性"></a>处理连续属性</h3><p>对连续属性可考虑概率密度函数，假定\(p(x_i|c)~N(\mu_{c,i},\sigma^2_{c,i})\),其中\(\mu_{c,i},\sigma^2_{c,i}\)分别是第c类样本在第i个属性上取值的均值和平方，则有</p>
+<script type="math/tex; mode=display">p(x_i|c)=\frac{1}{\sqrt{2\pi}\sigma_{c,i}} exp(-\frac{(x_i-\mu_c,i)^2}{2\sigma^2_{c,i}})</script><h3 id="西瓜书实例"><a href="#西瓜书实例" class="headerlink" title="西瓜书实例"></a>西瓜书实例</h3><p><img src="/images/xishi1.png" width="640"><br><img src="/images/xishi2.png" width="640"><br><img src="/images/xishi3.png" width="640"></p>
+<h3 id="统计学习实例"><a href="#统计学习实例" class="headerlink" title="统计学习实例"></a>统计学习实例</h3><p><img src="/images/tongshi1.png" width="640"><br><img src="/images/tongshi2.png" width="640"></p>
+<h3 id="拉普拉斯修正"><a href="#拉普拉斯修正" class="headerlink" title="拉普拉斯修正"></a>拉普拉斯修正</h3><p>用极大似然估计可能会出现所要估计的概率值为0的情况，这回影响到后验概率的计算结果，是分类产生偏差。在估计概率时通常进行‘平滑’，常用拉普拉斯修正。具体来说，令N表示训练集D中可能的类别数，Ni表示第i个属性可能的取值数，则</p>
+<script type="math/tex; mode=display">\hat P(c)=\frac{|D_c|+1}{|D|+N}</script><script type="math/tex; mode=display">\hat P(x_i|c)=\frac{|D_{c,x_i}|+1}{|D_c|+N_i}</script>
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/10/19/支持向量机/" itemprop="url">
-              
-                <span itemprop="name">支持向量机</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-19T20:24:12+08:00"
-              content="2018-10-19" >
-          10-19
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/10/15/Leetcode53最大子序列和/" itemprop="url">
-              
-                <span itemprop="name">Leetcode53最大子序列和</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-15T18:36:14+08:00"
-              content="2018-10-15" >
-          10-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/10/15/决策树/" itemprop="url">
-              
-                <span itemprop="name">决策树</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-15T10:59:23+08:00"
-              content="2018-10-15" >
-          10-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/10/11/线性回归/" itemprop="url">
-              
-                <span itemprop="name">线性模型</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-10-11T20:10:07+08:00"
-              content="2018-10-11" >
-          10-11
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/01/vijosP1006晴天小猪历险记/" rel="next" title="vijosP1006晴天小猪历险记">
+                <i class="fa fa-chevron-left"></i> vijosP1006晴天小猪历险记
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -568,6 +415,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -588,8 +439,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -649,6 +509,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#朴素贝叶斯法"><span class="nav-number">1.</span> <span class="nav-text">朴素贝叶斯法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#朴素贝叶斯基本原理"><span class="nav-number">1.1.</span> <span class="nav-text">朴素贝叶斯基本原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#朴素贝叶斯基本算法"><span class="nav-number">1.2.</span> <span class="nav-text">朴素贝叶斯基本算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#处理连续属性"><span class="nav-number">1.2.1.</span> <span class="nav-text">处理连续属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#西瓜书实例"><span class="nav-number">1.2.2.</span> <span class="nav-text">西瓜书实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#统计学习实例"><span class="nav-number">1.2.3.</span> <span class="nav-text">统计学习实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拉普拉斯修正"><span class="nav-number">1.2.4.</span> <span class="nav-text">拉普拉斯修正</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -785,6 +661,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
