@@ -79,26 +79,17 @@
 
 
 
-<meta name="description" content="线性可支持向量机与硬间隔最大化线性可支持向量机训练集\(D={(x_1,y_1),(x_2,y_2)……(x_m,y_m)},\qquad y_i \in {-1,+1}\)能将样本分开的超平面有很多，我们应该用哪个在样本空间中，划分超平面可通过如下线性方程来描述 w^Tx+b=0其中w是法向量，决定了超平面的方向，b为位移项，决定了超平面和原点之间的距离，显然超平面可被法向量w和位移确定。假设超">
+<meta name="description" content="评估方法留出法将数据集D分成两个互斥的子集，一个作为训练集，一个作为测试集 交叉验证法交叉验证法先将数据集分成k个大小相似的互斥子集，每个子集尽可能保持数据分布的一致性。 然后每次使用k-1个的子集作为训练集，剩下那个作为测试集，可获得k组训练集/测试集。最后去均值 自助法直接以自助采样法作为基础（bootsrap） 对于数据样本个数为m的数据集D，对他采样产生D‘。详细规则如下：每次随机从D中抽">
 <meta property="og:type" content="article">
-<meta property="og:title" content="支持向量机">
-<meta property="og:url" content="http://yoursite.com/2018/10/19/支持向量机/index.html">
+<meta property="og:title" content="模型评估与选择">
+<meta property="og:url" content="http://yoursite.com/2018/11/08/模型评估与选择/index.html">
 <meta property="og:site_name" content="苏门蒲沅">
-<meta property="og:description" content="线性可支持向量机与硬间隔最大化线性可支持向量机训练集\(D={(x_1,y_1),(x_2,y_2)……(x_m,y_m)},\qquad y_i \in {-1,+1}\)能将样本分开的超平面有很多，我们应该用哪个在样本空间中，划分超平面可通过如下线性方程来描述 w^Tx+b=0其中w是法向量，决定了超平面的方向，b为位移项，决定了超平面和原点之间的距离，显然超平面可被法向量w和位移确定。假设超">
+<meta property="og:description" content="评估方法留出法将数据集D分成两个互斥的子集，一个作为训练集，一个作为测试集 交叉验证法交叉验证法先将数据集分成k个大小相似的互斥子集，每个子集尽可能保持数据分布的一致性。 然后每次使用k-1个的子集作为训练集，剩下那个作为测试集，可获得k组训练集/测试集。最后去均值 自助法直接以自助采样法作为基础（bootsrap） 对于数据样本个数为m的数据集D，对他采样产生D‘。详细规则如下：每次随机从D中抽">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://pgmz9e1an.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20181020000158.png">
-<meta property="og:image" content="http://pgmz9e1an.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181024152008.jpg">
-<meta property="og:image" content="http://pgmz9e1an.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181024152013.jpg?imageMogr2/auto-orient">
-<meta property="og:image" content="http://pgmz9e1an.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181024152017.jpg">
-<meta property="og:image" content="http://pgmz9e1an.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181025104007.jpg">
-<meta property="og:image" content="http://pgmz9e1an.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181025104013.jpg">
-<meta property="og:image" content="http://pgmz9e1an.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181025104017.jpg">
-<meta property="og:image" content="http://pgmz9e1an.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181019202304.jpg">
-<meta property="og:updated_time" content="2018-10-25T02:46:57.680Z">
+<meta property="og:updated_time" content="2018-11-08T10:16:03.833Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="支持向量机">
-<meta name="twitter:description" content="线性可支持向量机与硬间隔最大化线性可支持向量机训练集\(D={(x_1,y_1),(x_2,y_2)……(x_m,y_m)},\qquad y_i \in {-1,+1}\)能将样本分开的超平面有很多，我们应该用哪个在样本空间中，划分超平面可通过如下线性方程来描述 w^Tx+b=0其中w是法向量，决定了超平面的方向，b为位移项，决定了超平面和原点之间的距离，显然超平面可被法向量w和位移确定。假设超">
-<meta name="twitter:image" content="http://pgmz9e1an.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20181020000158.png">
+<meta name="twitter:title" content="模型评估与选择">
+<meta name="twitter:description" content="评估方法留出法将数据集D分成两个互斥的子集，一个作为训练集，一个作为测试集 交叉验证法交叉验证法先将数据集分成k个大小相似的互斥子集，每个子集尽可能保持数据分布的一致性。 然后每次使用k-1个的子集作为训练集，剩下那个作为测试集，可获得k组训练集/测试集。最后去均值 自助法直接以自助采样法作为基础（bootsrap） 对于数据样本个数为m的数据集D，对他采样产生D‘。详细规则如下：每次随机从D中抽">
 
 
 
@@ -128,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/19/支持向量机/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/08/模型评估与选择/"/>
 
 
 
 
 
-  <title>支持向量机 | 苏门蒲沅</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>模型评估与选择 | 苏门蒲沅</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -261,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/19/支持向量机/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/08/模型评估与选择/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -278,7 +269,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">支持向量机</h1>
+          <h1 class="post-title" itemprop="name headline">模型评估与选择</h1>
         
 
         <div class="post-meta">
@@ -290,8 +281,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-19T20:24:12+08:00">
-                2018-10-19
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-08T17:55:49+08:00">
+                2018-11-08
               </time>
             
 
@@ -350,27 +341,14 @@
       
 
       
-        <h1 id="线性可支持向量机与硬间隔最大化"><a href="#线性可支持向量机与硬间隔最大化" class="headerlink" title="线性可支持向量机与硬间隔最大化"></a>线性可支持向量机与硬间隔最大化</h1><h2 id="线性可支持向量机"><a href="#线性可支持向量机" class="headerlink" title="线性可支持向量机"></a>线性可支持向量机</h2><p>训练集\(D={(x_1,y_1),(x_2,y_2)……(x_m,y_m)},\qquad y_i \in {-1,+1}\)能将样本分开的超平面有很多，我们应该用哪个<br><img src="http://pgmz9e1an.bkt.clouddn.com/QQ%E6%88%AA%E5%9B%BE20181020000158.png" width="640"><br>在样本空间中，划分超平面可通过如下线性方程来描述</p>
-<script type="math/tex; mode=display">w^Tx+b=0</script><p>其中w是法向量，决定了超平面的方向，b为位移项，决定了超平面和原点之间的距离，显然超平面可被法向量w和位移确定。<br>假设超平面（w,b）能将训练样本正确分类，即对于\((x_i,y_i) \in D\),若yi=+1，则有\(w^T+b&gt;0\),若yi=-1，则小于0</p>
-<h2 id="函数间隔与几何间隔"><a href="#函数间隔与几何间隔" class="headerlink" title="函数间隔与几何间隔"></a>函数间隔与几何间隔</h2><h3 id="函数间隔"><a href="#函数间隔" class="headerlink" title="函数间隔"></a>函数间隔</h3><p>对于给定的训练集D和超平面（w,b）定义超平面（w,b）关于样本点(xi,yi)的函数间隔为</p>
-<script type="math/tex; mode=display">\hat{\gamma}_i=y_i(w*x_i+b)</script><p>定义超平面（w,b）关于数据集D的函数间隔为超平面（w,b）关于D中所有样本点(xi,yi)的函数间隔的最小值，即</p>
-<script type="math/tex; mode=display">\hat{\gamma}=\min\limits_{(i=1,2……m)}\hat{\gamma}_i</script><p>函数间隔可以表示分类预测的正确性和确信度，但是选择分离超平面时，只有函数间隔还不够，因为我们只要成比例的改变w和b。超平面并没有改变，但函数间隔却变成之前的比例倍</p>
-<h3 id="几何间隔"><a href="#几何间隔" class="headerlink" title="几何间隔"></a>几何间隔</h3><p>对于给定的训练数据集T和超平面（w,b）定义超平面关于样本点(xi,yi)的几何间隔为</p>
-<script type="math/tex; mode=display">\gamma_i=y_i(\frac{w}{||w||}*x_i+\frac{b}{||w||})</script><p>定义超平面关于样本集D的几何间隔为</p>
-<script type="math/tex; mode=display">\gamma=\min\limits_{i=1,2……m}\gamma_i</script><font color="red">超平面（w,b）关于样本点(xi,yi)的几何间隔一般是实例点到超平面的带符号的距离，当样本点被超平面正确分类时就是实例点到超平面的距离</font>
-
-<p>从函数间隔与几何间隔定义，可知以下关系式</p>
-<script type="math/tex; mode=display">\gamma=\frac{\hat{\gamma}}{||w||}</script><h2 id="间隔最大化"><a href="#间隔最大化" class="headerlink" title="间隔最大化"></a>间隔最大化</h2><p><font color="red">支持向量机学习的基本想法是求解能够正确划分训练数据集并且几何间隔最大的分离超平面</font></p>
-<h3 id="最大间隔分离超平面"><a href="#最大间隔分离超平面" class="headerlink" title="最大间隔分离超平面"></a>最大间隔分离超平面</h3><p>最大几何间隔分离超平面，表示为下面的约束最优化问题</p>
-<script type="math/tex; mode=display">\max\limits_{w,b} \qquad \gamma</script><script type="math/tex; mode=display">s.t \qquad y_i{\frac{w}{||w||}*x_i+\frac{b}{||w||}}\geq\gamma,\qquad i=1,2,3,……m</script><p>考虑到几何间隔与函数间隔的关系式，这个问题可写为</p>
-<script type="math/tex; mode=display">\max\limits_{w,b} \qquad \frac{\hat{\gamma}}{||w||}</script><script type="math/tex; mode=display">s.t. \qquad y_i(w*x_i+b)\geq\hat{\gamma},\qquad i=1,2,3……m</script><p>函数间隔\(\hat{\gamma}\)的取值不影响最优化问题的解。事实上，假设将w和b按比例的改变为\(\lambda w\)和\(\lambda b\)，此时函数间隔成为\(\lambda \hat{\gamma}\)函数间隔的这一改变对上面最优化问题的不等式约束没有影响，对目标函数的优化也没有影响，也就是说，他产生了一个等价的最优化问题，这样取\(\hat{\gamma}\)=1，代入上式，且最大化\(\frac{1}{||w||}\)和最小化\(1/2 ||w||^2 \)是等价的，于是得到一下最优化问题</p>
-<script type="math/tex; mode=display">\min\limits_{w,b}\qquad\frac{1}{2}||w||^2</script><script type="math/tex; mode=display">s.t. \qquad y_i(w*x_i)-1\geq0 \qquad i=1,2,……m</script><h3 id="学习的对偶算法"><a href="#学习的对偶算法" class="headerlink" title="学习的对偶算法"></a>学习的对偶算法</h3><p><a href="#duiou"><font color="red">关于拉格朗日对偶性数学推导看这里</font></a><br><img src="http://pgmz9e1an.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181024152008.jpg" width="640"><br><img src="http://pgmz9e1an.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181024152013.jpg?imageMogr2/auto-orient" width="640"><br><img src="http://pgmz9e1an.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181024152017.jpg" width="640"></p>
-<h2 id="对偶问题"><a href="#对偶问题" class="headerlink" title="对偶问题"></a>对偶问题</h2><p>我们希望求解上式得到最大间隔划分超平面模型</p>
-<script type="math/tex; mode=display">f(x)=w^Tx+b</script><p>(1)式是一个凸二次规划问题，<a href="#zuiyou"><font color="red">一些最优化知识</font></a>使用拉格朗日乘子法得到其对偶问题，该问题的拉格朗日函数可写为</p>
-<script type="math/tex; mode=display">L(w,b,\alpha)=\frac{1}{2}||w||^2+\sum ^m_{i=1}\alpha_i(1-y_i(w^Tx_i+b)) \qquad (2)</script><p>其中\(\alpha=(\alpha_1；……\alpha_m)\)，令L(w,b,a)对w和b的偏导为0得到</p>
-<script type="math/tex; mode=display">w=\sum^m_{i=1}\alpha_iy_ix_i \qquad (3)</script><script type="math/tex; mode=display">0=\sum^m_{i=1}\alpha_i y_i\qquad(4)</script><p>把（3）式代入（2）消去w，b。在考虑（4）的约束，就得到（1）的对偶问题</p>
-<script type="math/tex; mode=display">max(\alpha)=\sum^m_{i=1}\alpha_i-1/2 \sum^m_{i=1}\sum^m_{j=1}\alpha_i\alpha_jy_iy_jx^T_ix_j</script><script type="math/tex; mode=display">s.t \sum^m_{i=1}\alpha_iy_i=0</script><script type="math/tex; mode=display">\alpha_i \geq 0,\qquad i=1,2,……m</script><p><div id="duiou"><br><img src="http://pgmz9e1an.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181025104007.jpg" width="640"><br><img src="http://pgmz9e1an.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181025104013.jpg" width="640"><br><img src="http://pgmz9e1an.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181025104017.jpg" width="640"></div></p>
-<p><div id="zuiyou"><br><img src="http://pgmz9e1an.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20181019202304.jpg" width="640"></div></p>
+        <h1 id="评估方法"><a href="#评估方法" class="headerlink" title="评估方法"></a>评估方法</h1><h2 id="留出法"><a href="#留出法" class="headerlink" title="留出法"></a>留出法</h2><p>将数据集D分成两个互斥的子集，一个作为训练集，一个作为测试集</p>
+<h2 id="交叉验证法"><a href="#交叉验证法" class="headerlink" title="交叉验证法"></a>交叉验证法</h2><p>交叉验证法先将数据集分成k个大小相似的互斥子集，每个子集尽可能保持数据分布的一致性。</p>
+<p>然后每次使用k-1个的子集作为训练集，剩下那个作为测试集，可获得k组训练集/测试集。最后去均值</p>
+<h2 id="自助法"><a href="#自助法" class="headerlink" title="自助法"></a>自助法</h2><p>直接以自助采样法作为基础（bootsrap）</p>
+<p>对于数据样本个数为m的数据集D，对他采样产生D‘。详细规则如下：每次随机从D中抽一个样本放入D’，并将这个样本再放回去D，保证它下次还可能被抽到，重复m次得到包含m个样本的D‘。显然，D中一部分样本会在D’出现，一部分不会，样本m次采样都没有被采到的概率是\((1-\frac{1}{m})^m\),取极限得到</p>
+<script type="math/tex; mode=display">\lim_{m->\infty}(1-\frac{1}{m})^m \approx 0.368</script><p>我们通过自助采样，数据集D仍有36.8%的样本不会出现在D‘中，我们用D’做训练集，D-D‘作为测试集。</p>
+<p>自助法在数据集较小，难以有效划分训练测试集时很有用。</p>
+<p>自助法改变了数据集的分布，会引入估计偏差，因此数据量充足时，留出法和交叉验证更常用</p>
 
       
     </div>
@@ -395,8 +373,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/15/Leetcode53最大子序列和/" rel="next" title="Leetcode53最大子序列和">
-                <i class="fa fa-chevron-left"></i> Leetcode53最大子序列和
+              <a href="/2018/11/08/贝叶斯分类器/" rel="next" title="贝叶斯分类器">
+                <i class="fa fa-chevron-left"></i> 贝叶斯分类器
               </a>
             
           </div>
@@ -405,8 +383,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/10/27/提升方法/" rel="prev" title="提升方法">
-                提升方法 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/11/08/神经网络/" rel="prev" title="神经网络">
+                神经网络 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -539,7 +517,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#线性可支持向量机与硬间隔最大化"><span class="nav-number">1.</span> <span class="nav-text">线性可支持向量机与硬间隔最大化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#线性可支持向量机"><span class="nav-number">1.1.</span> <span class="nav-text">线性可支持向量机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#函数间隔与几何间隔"><span class="nav-number">1.2.</span> <span class="nav-text">函数间隔与几何间隔</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#函数间隔"><span class="nav-number">1.2.1.</span> <span class="nav-text">函数间隔</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#几何间隔"><span class="nav-number">1.2.2.</span> <span class="nav-text">几何间隔</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#间隔最大化"><span class="nav-number">1.3.</span> <span class="nav-text">间隔最大化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#最大间隔分离超平面"><span class="nav-number">1.3.1.</span> <span class="nav-text">最大间隔分离超平面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#学习的对偶算法"><span class="nav-number">1.3.2.</span> <span class="nav-text">学习的对偶算法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对偶问题"><span class="nav-number">1.4.</span> <span class="nav-text">对偶问题</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#评估方法"><span class="nav-number">1.</span> <span class="nav-text">评估方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#留出法"><span class="nav-number">1.1.</span> <span class="nav-text">留出法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#交叉验证法"><span class="nav-number">1.2.</span> <span class="nav-text">交叉验证法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自助法"><span class="nav-number">1.3.</span> <span class="nav-text">自助法</span></a></li></ol></li></ol></div>
             
 
           </div>
