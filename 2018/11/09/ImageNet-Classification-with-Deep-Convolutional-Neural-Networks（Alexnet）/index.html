@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="ImageNet Classification with Deep Convolutional Neural Networks（Alexnet） 1.创新的地方（1）使用ReLu函数作为CNN的激活函数 （2）使用dropout防止过拟合 （3）使用重叠最大池化 （4）提出了LRN层 2.摘要（1）提出了一个深度卷积网络，在ImageNet LSVRC2010，top1和top5错误分别是37.5">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ImageNet Classification with Deep Convolutional Neural Networks（Alexnet）">
+<meta property="og:url" content="http://yoursite.com/2018/11/09/ImageNet-Classification-with-Deep-Convolutional-Neural-Networks（Alexnet）/index.html">
+<meta property="og:site_name" content="苏门蒲沅">
+<meta property="og:description" content="ImageNet Classification with Deep Convolutional Neural Networks（Alexnet） 1.创新的地方（1）使用ReLu函数作为CNN的激活函数 （2）使用dropout防止过拟合 （3）使用重叠最大池化 （4）提出了LRN层 2.摘要（1）提出了一个深度卷积网络，在ImageNet LSVRC2010，top1和top5错误分别是37.5">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/images/paper/alex1.png">
+<meta property="og:image" content="http://yoursite.com/images/paper/alex2.png">
+<meta property="og:image" content="http://yoursite.com/images/paper/alex3.png">
+<meta property="og:image" content="http://yoursite.com/images/paper/alex4.png">
+<meta property="og:image" content="http://yoursite.com/images/paper/alex5.jpg">
+<meta property="og:image" content="http://yoursite.com/images/paper/alex6.jpg">
+<meta property="og:image" content="http://yoursite.com/images/paper/alex7.png">
+<meta property="og:image" content="http://yoursite.com/images/paper/alex8.jpg">
+<meta property="og:image" content="http://yoursite.com/images/paper/alex9.jpg">
+<meta property="og:image" content="http://yoursite.com/images/paper/alex10.png">
+<meta property="og:image" content="http://yoursite.com/images/paper/alex11.png">
+<meta property="og:image" content="http://yoursite.com/images/paper/alex12.png">
+<meta property="og:image" content="http://yoursite.com/images/paper/alex13.jpg">
+<meta property="og:image" content="http://yoursite.com/images/paper/alex14.jpg">
+<meta property="og:image" content="http://yoursite.com/images/paper/alex15.jpg">
+<meta property="og:image" content="http://yoursite.com/images/paper/alex16.jpg">
+<meta property="og:image" content="http://yoursite.com/images/paper/alex17.png">
+<meta property="og:image" content="http://yoursite.com/images/paper/alex18.jpg">
+<meta property="og:image" content="http://yoursite.com/images/paper/alex19.png">
+<meta property="og:image" content="http://yoursite.com/images/paper/alex20.jpg">
+<meta property="og:image" content="http://yoursite.com/images/paper/alex21.jpg">
+<meta property="og:updated_time" content="2018-11-09T13:29:47.113Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ImageNet Classification with Deep Convolutional Neural Networks（Alexnet）">
+<meta name="twitter:description" content="ImageNet Classification with Deep Convolutional Neural Networks（Alexnet） 1.创新的地方（1）使用ReLu函数作为CNN的激活函数 （2）使用dropout防止过拟合 （3）使用重叠最大池化 （4）提出了LRN层 2.摘要（1）提出了一个深度卷积网络，在ImageNet LSVRC2010，top1和top5错误分别是37.5">
+<meta name="twitter:image" content="http://yoursite.com/images/paper/alex1.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/11/09/ImageNet-Classification-with-Deep-Convolutional-Neural-Networks（Alexnet）/"/>
+
+
+
+
+
+  <title>ImageNet Classification with Deep Convolutional Neural Networks（Alexnet） | 苏门蒲沅</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">苏门蒲沅</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/09/ImageNet-Classification-with-Deep-Convolutional-Neural-Networks（Alexnet）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="苏门蒲沅">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ImageNet Classification with Deep Convolutional Neural Networks（Alexnet）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-09T21:02:33+08:00">
+                2018-11-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/论文阅读/" itemprop="url" rel="index">
+                    <span itemprop="name">论文阅读</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>ImageNet Classification with Deep Convolutional Neural Networks（Alexnet）</p>
+<h1 id="1-创新的地方"><a href="#1-创新的地方" class="headerlink" title="1.创新的地方"></a>1.创新的地方</h1><p>（1）使用ReLu函数作为CNN的激活函数</p>
+<p>（2）使用dropout防止过拟合</p>
+<p>（3）使用重叠最大池化</p>
+<p>（4）提出了LRN层</p>
+<h1 id="2-摘要"><a href="#2-摘要" class="headerlink" title="2.摘要"></a>2.摘要</h1><p>（1）提出了一个深度卷积网络，在ImageNet LSVRC2010，top1和top5错误分别是37.5%、17.0%远远好于之前的表现</p>
+<p>（2）神经网络有6000万个参数，650000神经元，5个卷积层（某些卷积层后面有池化层）和三个全连接层</p>
+<p>（3）为减少全连接层的过拟合，使用了一个dropout的正则化方法</p>
+<h1 id="3-图片预处理"><a href="#3-图片预处理" class="headerlink" title="3.图片预处理"></a>3.图片预处理</h1><p>（1）大小归一化<br>将图像进行下采样到固定的256<em>256分辨率，给定一个矩形图像，首先缩放图像短边长度为256，然后从结果图像中裁剪中心的256</em>256大小的图像块<br>（2）减去像素平均值<br>所有图片的每个像素值都减去所有训练集图片的平均值</p>
+<h1 id="3-架构"><a href="#3-架构" class="headerlink" title="3.架构"></a>3.架构</h1><h2 id="3-1ReLU非线性"><a href="#3-1ReLU非线性" class="headerlink" title="3.1ReLU非线性"></a>3.1ReLU非线性</h2><p>训练速度比之前的sigmod和tanh快，并解决了之前激活函数的梯度消失问题，（详见5ReLU函数）</p>
+<h2 id="3-2局部响应归一化"><a href="#3-2局部响应归一化" class="headerlink" title="3.2局部响应归一化"></a>3.2局部响应归一化</h2><p>提出了LRN层，对局部神经元的活动创建竞争机制，使得其中响应比较大的值变得相对更大，并抑制其他反馈较小的神经元，增强了模型的泛化能力。（ps，博客上都说他其实没什么用）</p>
+<h2 id="3-3重叠池化"><a href="#3-3重叠池化" class="headerlink" title="3.3重叠池化"></a>3.3重叠池化</h2><p>在CNN中使用重叠的最大池化。此前CNN中普遍使用平均池化，AlexNet全部使用最大池化，避免平均池化的模糊化效果。并且AlexNet中提出让步长比池化核的尺寸小，这样池化层的输出之间会有重叠和覆盖，提升了特征的丰富性。Alexnet设置s=2，z=3，这个方案分别降低了top-1 0.4%，top5 0.3%的错误率。且论文提到重叠池化的模型更难过拟合。</p>
+<h2 id="3-4整体架构"><a href="#3-4整体架构" class="headerlink" title="3.4整体架构"></a>3.4整体架构</h2><p>8个带权重的层，前5层是卷积层，剩下3层是全连接层。最后一层是1000维softmax输入</p>
+<p><img src="/images/paper/alex1.png" width="640"></p>
+<p><img src="/images/paper/alex2.png" width="640"></p>
+<h2 id="3-5减少过拟合"><a href="#3-5减少过拟合" class="headerlink" title="3.5减少过拟合"></a>3.5减少过拟合</h2><h3 id="3-5-1-数据增强"><a href="#3-5-1-数据增强" class="headerlink" title="3.5.1.数据增强"></a>3.5.1.数据增强</h3><p>方法一：水平翻转和图像变换（随机裁剪）</p>
+<p>训练时：随机裁剪224<em>224的图片和进行水平翻转，所以数据增大了（250-224）平方</em>2=2048倍</p>
+<p>在测试时，网络通过提取5个224x224块（四个边角块和一个中心块）以及它们的水平翻转（因此共十个块）做预测，然后网络的softmax层对这十个块做出的预测取均值。</p>
+<p>方法二：PCA Jittering（详见7 PCA Jittering）（减少了TOP1错误率 1%以上）</p>
+<h3 id="3-5-2-dropout"><a href="#3-5-2-dropout" class="headerlink" title="3.5.2.dropout"></a>3.5.2.dropout</h3><p>训练时使用Dropout随机忽略一部分神经元，以避免模型过拟合。Dropout虽有单独的论文论述，但是AlexNet将其实用化，通过实践证实了它的效果。在AlexNet中主要是最后几个全连接层使用了Dropout。（也有论文，单独看下）<br>朴素思想：以0.5的概率让隐藏层的输出为0，失活的神经元不再进行前向传播且不参与反向传播</p>
+<p>alexnet：前两个全连接层使用dropout，会减少过拟合，但会使训练迭代次数翻一倍</p>
+<h1 id="4-学习细节"><a href="#4-学习细节" class="headerlink" title="4.学习细节"></a>4.学习细节</h1><p>随机梯度下降来训练模型，batch size为128，动量是0.9（详见6.动量），权重衰减为0.0005<br><img src="/images/paper/alex3.png" width="640"><br>使用均值是0，标准差是0.01的高斯分布对每一层的权重进行初始化。2,4,5卷积层和全连接层偏置初始化为1，其余层偏置初始化为0</p>
+<h1 id="5-ReLu函数"><a href="#5-ReLu函数" class="headerlink" title="5.ReLu函数"></a>5.ReLu函数</h1><p>AlexNet成功使用ReLU作为CNN的激活函数，并验证其效果在较深的网络超过了Sigmoid，成功解决了Sigmoid在网络较深时的梯度弥散问题。而且训练速度也比之前的sigmod和tanh快。虽然ReLU激活函数在很久之前就被提出了，但是直到AlexNet的出现才将其发扬光大。</p>
+<h2 id="5-1训练速度"><a href="#5-1训练速度" class="headerlink" title="5.1训练速度"></a>5.1训练速度</h2><p>使用ReLu的四层卷积神经网络在CIFAR-10数据集上达到25%的训练误差比使用tanh神经元的等价网络（虚线）快六倍<br><img src="/images/paper/alex4.png" width="640"></p>
+<h2 id="5-2梯度消失和梯度爆炸"><a href="#5-2梯度消失和梯度爆炸" class="headerlink" title="5.2梯度消失和梯度爆炸"></a>5.2梯度消失和梯度爆炸</h2><p><img src="/images/paper/alex5.jpg" width="640"><br>如上图所示的网络结构，我们在进行反向传播更新w1权值的时候，公式如下<br><img src="/images/paper/alex6.jpg" width="640"></p>
+<p>sigmod函数导数如下图所示<br><img src="/images/paper/alex7.png" width="640"><br>从图中可以看出最大值是0.25，所以存在一下两种现象<br><img src="/images/paper/alex8.jpg" width="640"></p>
+<h2 id="5-3-ReLu函数"><a href="#5-3-ReLu函数" class="headerlink" title="5.3 ReLu函数"></a>5.3 ReLu函数</h2><p>relu函数解决问题的方式很简单，如果偏导数是1的话就不存在爆炸与消失的问题了，relu函数图像如下<br><img src="/images/paper/alex9.jpg" width="640"><br>从上图中，我们可以很容易看出，relu函数的导数在正数部分是恒等于1的，因此在深层网络中使用relu激活函数就不会导致梯度消失和爆炸的问题。</p>
+<h1 id="6-动量"><a href="#6-动量" class="headerlink" title="6.动量"></a>6.动量</h1><p>在物理世界，球体运动是有惯性的，所以可能翻过山头达到全局最优解<br><img src="/images/paper/alex10.png" width="640"><br>把这种概念引入到梯度下降中去，每次更新时不仅考虑当前梯度影响，还要考虑上一步的梯度影响<br><img src="/images/paper/alex11.png" width="640"><br>有可能会翻过去找到全局最优解<br><img src="/images/paper/alex12.png" width="640"></p>
+<h1 id="7-PCA-Jittering"><a href="#7-PCA-Jittering" class="headerlink" title="7 PCA Jittering"></a>7 PCA Jittering</h1><h2 id="7-1PCA主成分分析"><a href="#7-1PCA主成分分析" class="headerlink" title="7.1PCA主成分分析"></a>7.1PCA主成分分析</h2><p>主成分分析（Principal components analysis，以下简称PCA）是最重要的降维方法之一。PCA顾名思义，就是找出数据里最主要的方面，用数据里最主要的方面来代替原始数据。<br>主要计算过程：<br>假设有一数组<br><img src="/images/paper/alex13.jpg" width="640"><br>第一步：分别求出x和y的平均值，对于每个样例减去均值得到<br><img src="/images/paper/alex14.jpg" width="640"><br>第二步，求协方差矩阵得到<br>这是3维的协方差形式<br><img src="/images/paper/alex15.jpg" width="640"></p>
+<p>协方差（Covariance）在概率论和统计学中用于衡量两个变量的总体误差。而方差是协方差的一种特殊情况，即当两个变量是相同的情况。（这里的方差是修正样本方差，分母是 样本数量-1）<br><img src="/images/paper/alex16.jpg" width="640"><br>协方差是衡量两个变量同时变化的变化程度。协方差大于0表示x和y若一个增，另一个也增；小于0表示一个增，一个减。如果ｘ和ｙ是统计独立的，那么二者之间的协方差就是０；但是协方差是０，并不能说明ｘ和ｙ是独立的。协方差绝对值越大，两者对彼此的影响越大，反之越小。<br>第三步：求协方差的特征值和特征向量<br><img src="/images/paper/alex17.png" width="640"><br><img src="/images/paper/alex18.jpg" width="640"><br>在数学上，特别是线性代数总，对于一个给定的矩阵A，它的特征向量v进行经过这个线性变化后，得到新的向量仍然和原来的v保持在一条直线上，但其长度或方向或许会改变，即</p>
+<p>Av=λν</p>
+<p>λ是特征值，v是特征向量<br>（1）如果矩阵可以变换成为对角矩阵，那么它的特征值就是他对角线上的元素，而特征向量就是相应的基：例如矩阵<br><img src="/images/paper/alex19.png" width="640"><br>的特征值就是2和4,2对应的特征向量就是所有形同（a，b，0）T的非零向量，4对应的特征向量是所有形同（0,0，c）T的非零向量<br>（2）对于一般的矩阵<br><img src="/images/paper/alex20.jpg" width="640"><br>第四步：将特征值按照从大到小进行排序，选择其中最大的k个，然后将其对应的特征向量分别作为列向量组成特征向量矩阵<br>第五步：将样本点投影到选取的特征向量上。假设样例数为m，特征数为n，减去均值后的样本矩阵为DataAdjust(m<em>n)，协方差矩阵是n</em>n，选取的k个特征向量组成的矩阵为EigenVectors(n<em>k)。那么投影后的数据FinalData为<br>FinalData(10</em>1) = DataAdjust(10*2矩阵) x 特征向量(-0.677873399, -0.735178656)T<br>最后结果是他<br><img src="/images/paper/alex21.jpg" width="640"><br>这样就把原始的n维降到了k维</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/09/ArcFace-Additive-Angular-Margain-Loss-for-Deep-Face-Recogniton（CVPR-2018）/" rel="next" title="ArcFace:Additive Angular Margain Loss for Deep Face Recogniton（CVPR 2018）">
+                <i class="fa fa-chevron-left"></i> ArcFace:Additive Angular Margain Loss for Deep Face Recogniton（CVPR 2018）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-创新的地方"><span class="nav-number">1.</span> <span class="nav-text">1.创新的地方</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-摘要"><span class="nav-number">2.</span> <span class="nav-text">2.摘要</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-图片预处理"><span class="nav-number">3.</span> <span class="nav-text">3.图片预处理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-架构"><span class="nav-number">4.</span> <span class="nav-text">3.架构</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1ReLU非线性"><span class="nav-number">4.1.</span> <span class="nav-text">3.1ReLU非线性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2局部响应归一化"><span class="nav-number">4.2.</span> <span class="nav-text">3.2局部响应归一化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3重叠池化"><span class="nav-number">4.3.</span> <span class="nav-text">3.3重叠池化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4整体架构"><span class="nav-number">4.4.</span> <span class="nav-text">3.4整体架构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5减少过拟合"><span class="nav-number">4.5.</span> <span class="nav-text">3.5减少过拟合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-1-数据增强"><span class="nav-number">4.5.1.</span> <span class="nav-text">3.5.1.数据增强</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-5-2-dropout"><span class="nav-number">4.5.2.</span> <span class="nav-text">3.5.2.dropout</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-学习细节"><span class="nav-number">5.</span> <span class="nav-text">4.学习细节</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-ReLu函数"><span class="nav-number">6.</span> <span class="nav-text">5.ReLu函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1训练速度"><span class="nav-number">6.1.</span> <span class="nav-text">5.1训练速度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2梯度消失和梯度爆炸"><span class="nav-number">6.2.</span> <span class="nav-text">5.2梯度消失和梯度爆炸</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-ReLu函数"><span class="nav-number">6.3.</span> <span class="nav-text">5.3 ReLu函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6-动量"><span class="nav-number">7.</span> <span class="nav-text">6.动量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7-PCA-Jittering"><span class="nav-number">8.</span> <span class="nav-text">7 PCA Jittering</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#7-1PCA主成分分析"><span class="nav-number">8.1.</span> <span class="nav-text">7.1PCA主成分分析</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>

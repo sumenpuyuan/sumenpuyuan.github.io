@@ -79,30 +79,25 @@
 
 
 
-<meta name="description" content="提升方法的adaboost提升方法基于这么一种思想，对于一个复杂人物来讲，将多个专家的判断进行适当的综合判断所得出的结论，要比其中任何一个专家单独的判断好，实际上就是三个臭皮匠顶个诸葛亮 一种直观的adaboost解释 提升树">
+<meta name="description" content="主要是模式识别的seminar的看的 简介目前深度卷积神经网络在人脸识别任务上取得了很好的效果，不同的神经网络主要在训练数据集、网络设置和损失函数三种属性有所区别， 文章据此做了相关改进，并主要有以下四个贡献 1.清洗了最大人脸公共训练数据集（MS1M）和测试数据集（MegaFace） 2.探索不同网络设置，并分析精度与速度之间的关系 3.提出了一种几何可解释的损失函数ArcFace，并优于sof">
 <meta property="og:type" content="article">
-<meta property="og:title" content="提升方法">
-<meta property="og:url" content="http://yoursite.com/2018/10/27/提升方法/index.html">
+<meta property="og:title" content="ArcFace:Additive Angular Margain Loss for Deep Face Recogniton（CVPR 2018）">
+<meta property="og:url" content="http://yoursite.com/2018/11/09/ArcFace-Additive-Angular-Margain-Loss-for-Deep-Face-Recogniton（CVPR-2018）/index.html">
 <meta property="og:site_name" content="苏门蒲沅">
-<meta property="og:description" content="提升方法的adaboost提升方法基于这么一种思想，对于一个复杂人物来讲，将多个专家的判断进行适当的综合判断所得出的结论，要比其中任何一个专家单独的判断好，实际上就是三个臭皮匠顶个诸葛亮 一种直观的adaboost解释 提升树">
+<meta property="og:description" content="主要是模式识别的seminar的看的 简介目前深度卷积神经网络在人脸识别任务上取得了很好的效果，不同的神经网络主要在训练数据集、网络设置和损失函数三种属性有所区别， 文章据此做了相关改进，并主要有以下四个贡献 1.清洗了最大人脸公共训练数据集（MS1M）和测试数据集（MegaFace） 2.探索不同网络设置，并分析精度与速度之间的关系 3.提出了一种几何可解释的损失函数ArcFace，并优于sof">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://pgmz9e1an.bkt.clouddn.com/2018-11-01_214930.png">
-<meta property="og:image" content="http://pgmz9e1an.bkt.clouddn.com/2018-11-01_215044.png">
-<meta property="og:image" content="http://pgmz9e1an.bkt.clouddn.com/2018-11-01_215112.png">
-<meta property="og:image" content="http://pgmz9e1an.bkt.clouddn.com/546ABABE-3C1C-443A-9059-F2F73EEA3C8C.jpeg">
-<meta property="og:image" content="http://pgmz9e1an.bkt.clouddn.com/B685CD1F-9D3D-4B30-98D9-311C89F4C97B.jpeg">
-<meta property="og:image" content="http://pgmz9e1an.bkt.clouddn.com/187EB007-2168-41F0-A81E-71BE7546A034.jpeg">
-<meta property="og:image" content="http://pgmz9e1an.bkt.clouddn.com/08ECBDEC-D992-4D1C-A5D8-885A4E1C145C.jpeg">
-<meta property="og:image" content="http://pgmz9e1an.bkt.clouddn.com/FB52240D-ADED-4D99-A92C-DAE34F53649E.jpeg">
-<meta property="og:image" content="http://pgmz9e1an.bkt.clouddn.com/2D5FAAA3-11CF-4C2A-8E41-4D1ED9AE7931.jpeg">
-<meta property="og:image" content="http://pgmz9e1an.bkt.clouddn.com/8691BE0A-3ABD-45A2-848B-58D715BE68B2.jpeg">
-<meta property="og:image" content="http://pgmz9e1an.bkt.clouddn.com/2DF154A7-D4F1-44D1-B8FF-A0FF2C37EB47.jpeg">
-<meta property="og:image" content="http://pgmz9e1an.bkt.clouddn.com/BA6993CF-ED4F-49A5-80CC-24543A56104E.jpeg">
-<meta property="og:updated_time" content="2018-11-01T14:27:57.984Z">
+<meta property="og:image" content="http://yoursite.com/images/paper/arc1.png">
+<meta property="og:image" content="http://yoursite.com/images/paper/arc2.png">
+<meta property="og:image" content="http://yoursite.com/images/paper/arc3.png">
+<meta property="og:image" content="http://yoursite.com/images/paper/arc4.png">
+<meta property="og:image" content="http://yoursite.com/images/paper/arc5.png">
+<meta property="og:image" content="http://yoursite.com/images/paper/arc6.png">
+<meta property="og:image" content="http://yoursite.com/images/paper/arc7.png">
+<meta property="og:updated_time" content="2018-11-09T12:59:21.953Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="提升方法">
-<meta name="twitter:description" content="提升方法的adaboost提升方法基于这么一种思想，对于一个复杂人物来讲，将多个专家的判断进行适当的综合判断所得出的结论，要比其中任何一个专家单独的判断好，实际上就是三个臭皮匠顶个诸葛亮 一种直观的adaboost解释 提升树">
-<meta name="twitter:image" content="http://pgmz9e1an.bkt.clouddn.com/2018-11-01_214930.png">
+<meta name="twitter:title" content="ArcFace:Additive Angular Margain Loss for Deep Face Recogniton（CVPR 2018）">
+<meta name="twitter:description" content="主要是模式识别的seminar的看的 简介目前深度卷积神经网络在人脸识别任务上取得了很好的效果，不同的神经网络主要在训练数据集、网络设置和损失函数三种属性有所区别， 文章据此做了相关改进，并主要有以下四个贡献 1.清洗了最大人脸公共训练数据集（MS1M）和测试数据集（MegaFace） 2.探索不同网络设置，并分析精度与速度之间的关系 3.提出了一种几何可解释的损失函数ArcFace，并优于sof">
+<meta name="twitter:image" content="http://yoursite.com/images/paper/arc1.png">
 
 
 
@@ -132,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/10/27/提升方法/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/09/ArcFace-Additive-Angular-Margain-Loss-for-Deep-Face-Recogniton（CVPR-2018）/"/>
 
 
 
 
 
-  <title>提升方法 | 苏门蒲沅</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>ArcFace:Additive Angular Margain Loss for Deep Face Recogniton（CVPR 2018） | 苏门蒲沅</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -265,7 +260,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/27/提升方法/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/09/ArcFace-Additive-Angular-Margain-Loss-for-Deep-Face-Recogniton（CVPR-2018）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -282,7 +277,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">提升方法</h1>
+          <h1 class="post-title" itemprop="name headline">ArcFace:Additive Angular Margain Loss for Deep Face Recogniton（CVPR 2018）</h1>
         
 
         <div class="post-meta">
@@ -294,8 +289,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-27T23:47:03+08:00">
-                2018-10-27
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-09T20:46:10+08:00">
+                2018-11-09
               </time>
             
 
@@ -317,8 +312,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
+                  <a href="/categories/论文阅读/" itemprop="url" rel="index">
+                    <span itemprop="name">论文阅读</span>
                   </a>
                 </span>
 
@@ -354,9 +349,25 @@
       
 
       
-        <h1 id="提升方法的adaboost"><a href="#提升方法的adaboost" class="headerlink" title="提升方法的adaboost"></a>提升方法的adaboost</h1><p>提升方法基于这么一种思想，对于一个复杂人物来讲，将多个专家的判断进行适当的综合判断所得出的结论，要比其中任何一个专家单独的判断好，实际上就是三个臭皮匠顶个诸葛亮</p>
-<p><strong>一种直观的adaboost解释</strong><br><img src="http://pgmz9e1an.bkt.clouddn.com/2018-11-01_214930.png" width="640"><br><img src="http://pgmz9e1an.bkt.clouddn.com/2018-11-01_215044.png" width="640"><br><img src="http://pgmz9e1an.bkt.clouddn.com/2018-11-01_215112.png" width="640"><br><img src="http://pgmz9e1an.bkt.clouddn.com/546ABABE-3C1C-443A-9059-F2F73EEA3C8C.jpeg" width="640"><br><img src="http://pgmz9e1an.bkt.clouddn.com/B685CD1F-9D3D-4B30-98D9-311C89F4C97B.jpeg" width="640"><br><img src="http://pgmz9e1an.bkt.clouddn.com/187EB007-2168-41F0-A81E-71BE7546A034.jpeg" width="640"><br><img src="http://pgmz9e1an.bkt.clouddn.com/08ECBDEC-D992-4D1C-A5D8-885A4E1C145C.jpeg" width="640"><br><img src="http://pgmz9e1an.bkt.clouddn.com/FB52240D-ADED-4D99-A92C-DAE34F53649E.jpeg" width="640"></p>
-<h1 id="提升树"><a href="#提升树" class="headerlink" title="提升树"></a>提升树</h1><p><img src="http://pgmz9e1an.bkt.clouddn.com/2D5FAAA3-11CF-4C2A-8E41-4D1ED9AE7931.jpeg" width="640"><br><img src="http://pgmz9e1an.bkt.clouddn.com/8691BE0A-3ABD-45A2-848B-58D715BE68B2.jpeg" width="640"><br><img src="http://pgmz9e1an.bkt.clouddn.com/2DF154A7-D4F1-44D1-B8FF-A0FF2C37EB47.jpeg" width="640"><br><img src="http://pgmz9e1an.bkt.clouddn.com/BA6993CF-ED4F-49A5-80CC-24543A56104E.jpeg" width="640"></p>
+        <p>主要是模式识别的seminar的看的</p>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>目前深度卷积神经网络在人脸识别任务上取得了很好的效果，不同的神经网络主要在训练数据集、网络设置和损失函数三种属性有所区别，</p>
+<p>文章据此做了相关改进，并主要有以下四个贡献</p>
+<p>1.清洗了最大人脸公共训练数据集（MS1M）和测试数据集（MegaFace）</p>
+<p>2.探索不同网络设置，并分析精度与速度之间的关系</p>
+<p><strong>3.提出了一种几何可解释的损失函数ArcFace，并优于softmax，SphereFace和CosineFace</strong></p>
+<p>4.在MegaFace人脸数据集上取得了最先进的表现</p>
+<h1 id="从softmax到arcFace"><a href="#从softmax到arcFace" class="headerlink" title="从softmax到arcFace"></a>从softmax到arcFace</h1><p>softmax仅能做到分类，但是我们人脸识别做的不仅仅是分类，而是相同的人尽量聚在一起，不同的人尽量分开</p>
+<p>最原始的softmax函数</p>
+<p><img src="/images/paper/arc1.png" width="640"></p>
+<p><img src="/images/paper/arc2.png" width="640"></p>
+<p>令偏置b为0，然后权重和输入的内积用上面式子表示，用L2正则化处理Wj使得||Wj||=1，L2正则化就是将Wj向量中的每个值都分别除以Wj的模，从而得到新的Wj，新的Wj的模就是1</p>
+<p><img src="/images/paper/arc3.png" width="640"></p>
+<p>然后一方面对输入xi也用L2正则化处理，同时再乘以一个scale参数s；另一方面将cos(θyi)用cos(θyi+m)替代</p>
+<p><img src="/images/paper/arc4.png" width="640"></p>
+<h1 id="几何解释"><a href="#几何解释" class="headerlink" title="几何解释"></a>几何解释</h1><p>使用二分类来证明，决策边界就是在这个边界上属于正类和属于负类的概率一样的，所以可以得到以下这个表格和图像<br><img src="/images/paper/arc5.png" width="640"></p>
+<p><img src="/images/paper/arc6.png" width="640"></p>
+<p>一些实验</p>
+<p><img src="/images/paper/arc7.png" width="640"></p>
 
       
     </div>
@@ -381,8 +392,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/19/支持向量机/" rel="next" title="支持向量机">
-                <i class="fa fa-chevron-left"></i> 支持向量机
+              <a href="/2018/11/08/神经网络/" rel="next" title="神经网络">
+                <i class="fa fa-chevron-left"></i> 神经网络
               </a>
             
           </div>
@@ -391,8 +402,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/11/01/K近邻法/" rel="prev" title="K近邻法">
-                K近邻法 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/11/09/ImageNet-Classification-with-Deep-Convolutional-Neural-Networks（Alexnet）/" rel="prev" title="ImageNet Classification with Deep Convolutional Neural Networks（Alexnet）">
+                ImageNet Classification with Deep Convolutional Neural Networks（Alexnet） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -525,7 +536,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#提升方法的adaboost"><span class="nav-number">1.</span> <span class="nav-text">提升方法的adaboost</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#提升树"><span class="nav-number">2.</span> <span class="nav-text">提升树</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#从softmax到arcFace"><span class="nav-number">2.</span> <span class="nav-text">从softmax到arcFace</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#几何解释"><span class="nav-number">3.</span> <span class="nav-text">几何解释</span></a></li></ol></div>
             
 
           </div>
