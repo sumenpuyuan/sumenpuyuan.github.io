@@ -79,17 +79,24 @@
 
 
 
-<meta name="description" content="感知机">
+<meta name="description" content="无敌超级详细版 先验知识决策树基本流程决策树是一种常见的机器学习算法。其基本思想很是简单，如下图所示我们判断一个西瓜是否是好瓜，根据生活经验，我们首先判断色泽是什么？判断色泽完后再判断根蒂是否蜷缩？然后再判断敲声是否浊响，最后我们根据这些特征的取值一步一步走到最后的叶子节点，判断它是否是好瓜 其决策树的基本算法如下图所示 显然决策树的生成是一个递归过程，在决策树算法中有三种情况会导致递归返回  当">
 <meta property="og:type" content="article">
-<meta property="og:title" content="神经网络">
-<meta property="og:url" content="http://yoursite.com/2018/11/08/神经网络/index.html">
+<meta property="og:title" content="LightGBM: A Highly Efficient Gradient Boosting Decision Tree（NIPS 2017）">
+<meta property="og:url" content="http://yoursite.com/2018/11/14/LightGBM-A-Highly-Efficient-Gradient-Boosting-Decision-Tree（NIPS-2017）/index.html">
 <meta property="og:site_name" content="苏门蒲沅">
-<meta property="og:description" content="感知机">
+<meta property="og:description" content="无敌超级详细版 先验知识决策树基本流程决策树是一种常见的机器学习算法。其基本思想很是简单，如下图所示我们判断一个西瓜是否是好瓜，根据生活经验，我们首先判断色泽是什么？判断色泽完后再判断根蒂是否蜷缩？然后再判断敲声是否浊响，最后我们根据这些特征的取值一步一步走到最后的叶子节点，判断它是否是好瓜 其决策树的基本算法如下图所示 显然决策树的生成是一个递归过程，在决策树算法中有三种情况会导致递归返回  当">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-08T14:19:30.441Z">
+<meta property="og:image" content="http://yoursite.com/images/paper/lgb01.png">
+<meta property="og:image" content="http://yoursite.com/images/paper/lgb02.png">
+<meta property="og:image" content="http://yoursite.com/images/paper/lgb03.png">
+<meta property="og:image" content="http://yoursite.com/images/paper/lgb04.png">
+<meta property="og:image" content="http://yoursite.com/images/paper/lgb05.png">
+<meta property="og:image" content="http://yoursite.com/images/paper/lgb06.png">
+<meta property="og:updated_time" content="2018-11-14T14:32:06.776Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="神经网络">
-<meta name="twitter:description" content="感知机">
+<meta name="twitter:title" content="LightGBM: A Highly Efficient Gradient Boosting Decision Tree（NIPS 2017）">
+<meta name="twitter:description" content="无敌超级详细版 先验知识决策树基本流程决策树是一种常见的机器学习算法。其基本思想很是简单，如下图所示我们判断一个西瓜是否是好瓜，根据生活经验，我们首先判断色泽是什么？判断色泽完后再判断根蒂是否蜷缩？然后再判断敲声是否浊响，最后我们根据这些特征的取值一步一步走到最后的叶子节点，判断它是否是好瓜 其决策树的基本算法如下图所示 显然决策树的生成是一个递归过程，在决策树算法中有三种情况会导致递归返回  当">
+<meta name="twitter:image" content="http://yoursite.com/images/paper/lgb01.png">
 
 
 
@@ -119,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/11/08/神经网络/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/11/14/LightGBM-A-Highly-Efficient-Gradient-Boosting-Decision-Tree（NIPS-2017）/"/>
 
 
 
 
 
-  <title>神经网络 | 苏门蒲沅</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>LightGBM: A Highly Efficient Gradient Boosting Decision Tree（NIPS 2017） | 苏门蒲沅</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -252,7 +259,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/08/神经网络/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/14/LightGBM-A-Highly-Efficient-Gradient-Boosting-Decision-Tree（NIPS-2017）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -269,7 +276,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">神经网络</h1>
+          <h1 class="post-title" itemprop="name headline">LightGBM: A Highly Efficient Gradient Boosting Decision Tree（NIPS 2017）</h1>
         
 
         <div class="post-meta">
@@ -281,8 +288,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-08T19:02:07+08:00">
-                2018-11-08
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-14T21:09:19+08:00">
+                2018-11-14
               </time>
             
 
@@ -304,8 +311,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
+                  <a href="/categories/论文阅读/" itemprop="url" rel="index">
+                    <span itemprop="name">论文阅读</span>
                   </a>
                 </span>
 
@@ -341,7 +348,31 @@
       
 
       
-        <h1 id="感知机"><a href="#感知机" class="headerlink" title="感知机"></a>感知机</h1>
+        <p><font color="red">无敌超级详细版</font></p>
+<h1 id="先验知识"><a href="#先验知识" class="headerlink" title="先验知识"></a>先验知识</h1><h2 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h2><h3 id="基本流程"><a href="#基本流程" class="headerlink" title="基本流程"></a>基本流程</h3><p>决策树是一种常见的机器学习算法。其基本思想很是简单，如下图所示<br><img src="/images/paper/lgb01.png" width="640/"><br>我们判断一个西瓜是否是好瓜，根据生活经验，我们首先判断色泽是什么？判断色泽完后再判断根蒂是否蜷缩？然后再判断敲声是否浊响，最后我们根据这些特征的取值一步一步走到最后的叶子节点，判断它是否是好瓜</p>
+<p>其决策树的基本算法如下图所示<br><img src="/images/paper/lgb02.png" width="640/"></p>
+<p>显然决策树的生成是一个递归过程，在决策树算法中有三种情况会导致递归返回</p>
+<ol>
+<li>当前节点包含的样本完全属于同一类别，无需划分</li>
+<li>当前属性集为空，或是所有样本在所有属性上取值相同，无法划分</li>
+<li>当前节点包含的样本集合为空，无法划分</li>
+</ol>
+<p>对于第2种情况，我们把当前节点标记为叶节点，并将其类别设定为该节点所含样本最多的类别</p>
+<p>对于第3种情况，同样把当前节点标记为叶节点，但其类别设定为其父节点所含样本最多的类别</p>
+<h3 id="划分选择"><a href="#划分选择" class="headerlink" title="划分选择"></a>划分选择</h3><p>我们从上图4.2算法的第8行得知，我们需要从属性集中，寻找最优划分属性，那么如何寻找最优划分属性呢？一般而言随着划分过程不断进行，我们希望决策树的分支节点所包含的样本尽可能属于同一类别，即节点的‘纯度’越来越高，基于这个思想我们可以根据每个属性划分的信息增益、信息增益率、基尼指数等属性的互相比较，来选出最优划分属性，详细属性划分选择可以观看<a href="https://sumenpuyuan.github.io/2018/10/15/%E5%86%B3%E7%AD%96%E6%A0%91/" target="_blank" rel="noopener"><font color="red">这里</font></a>，点击目录 右侧划分选择 即可</p>
+<h3 id="连续值处理"><a href="#连续值处理" class="headerlink" title="连续值处理"></a>连续值处理</h3><p>之前我们的属性值都是离散的，但是现实生活中很多属性值都是连续的，接下来讨论属性是连续值的解决方法，<strong>采用二分法对连续属性进行处理，这正是C4.5决策树算法采用的机制</strong></p>
+<p>假定样本集D和连续属性a，假定a在D上出现了n个不同的取值，<font color="red">将这些值从小到大排序</font>,记为\({a^1,a^2……，a^n}\)，基于划分点t将D分为两部分，一部分大于t一部分小于等于t。对于连续值属性，对相邻的属性取值ai与ai+1l来说，t在区间[ai,ai+1）的划分结果相同，所以产生n-1个划分点集合</p>
+<script type="math/tex; mode=display">T_a=\{\frac {a^i+a^{i+1}}{2} | 1 \leq i \leq n-1\}</script><p>我们取\(a^i,a^{i+1}\)的中位点\(\frac{a^i+a^{i+1}}{2}\)作为候选划分点，然后就可以像离散值一样来考察这些划分点。</p>
+<h3 id="回归树的生成"><a href="#回归树的生成" class="headerlink" title="回归树的生成"></a>回归树的生成</h3><p><font color="red">这里要重点看！！！,因为最原始的gbdt是基于回归树来说明的</font>，我们用CART算法来说明一颗回归树的生成过程，这是回归树算法流程<br><img src="/images/paper/lgb03.png" width="640/"><br>直接看算法不太容易看懂，我们来举一个例子进行理解</p>
+<p>假设我们有训练数据如下，目标是得到一颗最小二乘回归树<br><img src="/images/paper/lgb04.png"></p>
+<ol>
+<li>选择最优划分属性j与划分点s<br>因为只有一个属性x，因此最优切分变量就是x</li>
+</ol>
+<p>接下来考虑9个切分点[1.5,2.5,3.5,4.5,5.5,6.5,7.5,8.5,9.5],损失函数定义为\(Loss=(y,f(x))=(f(x)-y)^2\),将9个切分点一一代入下个式子，其中\(c_m=ave(y_i|x_i \in R_m)\)(即我们通过切割点将数据集分为两部分，每部分我们的预测值就是这一部分所有样本取值的平均值)</p>
+<script type="math/tex; mode=display">\min_{j,s}[\min_{c_1} \sum_{x_i \in R_1(j,s)}(y_i -c_1)^2+\min_{c_2}\sum_{x_i \in R_2(j,s)}(y_i-c_2)^2]</script><p>例如我们取s=1.5，R1={1},R2={2,3,4,5,6,7,8,9,10},这两个区域的输出值分别是<br>c1=5.56，c2=1/9（5.7+5.91+6.4+6.8+7.05+8.9+8.7+9+9.05）=7.50，得到下表<br><img src="/images/paper/lgb05.png"><br>将以上各个c1 c2带入平方误差损失函数可得下表<br><img src="/images/paper/lgb06.png"><br>显然s=6.5是，m(s)最小，因此第一个划分变量是j=x，s=6.5</p>
+<p>用选定的（j,s）对数据进行划分，并决定输出值。目前我们分的两个区域分别是R1={1,2,3,4,5,6}，R2={7,8,9,10}输出值\(c_m=ave(y_i|x_i \in R_m)\)，c1=6.24，c2=8.91，对两个子区域继续重复上述步骤，直到满足停止条件（如限制深度或叶子结点个数）</p>
+<p><font color="red">可以看出我们每次划分最优属性与最优切割点，都需要遍历所有属性，所有切割点，所有训练样本，这一步骤是很耗时的</font></p>
+<h2 id="集成学习"><a href="#集成学习" class="headerlink" title="集成学习"></a>集成学习</h2><h3 id="Adaboost"><a href="#Adaboost" class="headerlink" title="Adaboost"></a>Adaboost</h3><h3 id="Boosting-Tree"><a href="#Boosting-Tree" class="headerlink" title="Boosting Tree"></a>Boosting Tree</h3><h3 id="GBDT"><a href="#GBDT" class="headerlink" title="GBDT"></a>GBDT</h3><h1 id="论文开始"><a href="#论文开始" class="headerlink" title="论文开始"></a>论文开始</h1>
       
     </div>
     
@@ -365,8 +396,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/08/模型评估与选择/" rel="next" title="模型评估与选择">
-                <i class="fa fa-chevron-left"></i> 模型评估与选择
+              <a href="/2018/11/09/ImageNet-Classification-with-Deep-Convolutional-Neural-Networks（Alexnet）/" rel="next" title="ImageNet Classification with Deep Convolutional Neural Networks（Alexnet）">
+                <i class="fa fa-chevron-left"></i> ImageNet Classification with Deep Convolutional Neural Networks（Alexnet）
               </a>
             
           </div>
@@ -374,10 +405,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/11/09/ArcFace-Additive-Angular-Margain-Loss-for-Deep-Face-Recogniton（CVPR-2018）/" rel="prev" title="ArcFace:Additive Angular Margain Loss for Deep Face Recogniton（CVPR 2018）">
-                ArcFace:Additive Angular Margain Loss for Deep Face Recogniton（CVPR 2018） <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -509,7 +536,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#感知机"><span class="nav-number">1.</span> <span class="nav-text">感知机</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#先验知识"><span class="nav-number">1.</span> <span class="nav-text">先验知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#决策树"><span class="nav-number">1.1.</span> <span class="nav-text">决策树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本流程"><span class="nav-number">1.1.1.</span> <span class="nav-text">基本流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#划分选择"><span class="nav-number">1.1.2.</span> <span class="nav-text">划分选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#连续值处理"><span class="nav-number">1.1.3.</span> <span class="nav-text">连续值处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#回归树的生成"><span class="nav-number">1.1.4.</span> <span class="nav-text">回归树的生成</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集成学习"><span class="nav-number">1.2.</span> <span class="nav-text">集成学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Adaboost"><span class="nav-number">1.2.1.</span> <span class="nav-text">Adaboost</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Boosting-Tree"><span class="nav-number">1.2.2.</span> <span class="nav-text">Boosting Tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GBDT"><span class="nav-number">1.2.3.</span> <span class="nav-text">GBDT</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#论文开始"><span class="nav-number">2.</span> <span class="nav-text">论文开始</span></a></li></ol></div>
             
 
           </div>
