@@ -225,7 +225,12 @@ Given any instance G = (V,E) of the graph coloring problem. We construct an inst
 <img src="/images/paper/lgb24.png"/>
 训练速度对比，可以看到lightgbm速度很快，并且最后精度也很不错
 <img src="/images/paper/lgb25.png"/>
+### 分析goss ###
 
+<img src="/images/paper/lgb27.png"/>
+对goss和SGB使用相同采样率，发现goss总是比sgb表现好
+
+从表2EFB_only（即没有goss的lightgbm）和lightgbm对比发现在每个数据上速度都带了一定倍数的提升
 ## 未来工作 ##
 1. 研究基于梯度的one-side采样中a和b的最佳选择
 2. 继续提升EFB性能，来处理大量特征，无论特征是否稀疏
