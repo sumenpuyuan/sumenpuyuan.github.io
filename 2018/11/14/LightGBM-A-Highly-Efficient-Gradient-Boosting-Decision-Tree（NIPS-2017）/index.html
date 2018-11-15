@@ -79,12 +79,12 @@
 
 
 
-<meta name="description" content="无敌超级详细版 先验知识决策树基本流程决策树是一种常见的机器学习算法。其基本思想很是简单，如下图所示我们判断一个西瓜是否是好瓜，根据生活经验，我们首先判断色泽是什么？判断色泽完后再判断根蒂是否蜷缩？然后再判断敲声是否浊响，最后我们根据这些特征的取值一步一步走到最后的叶子节点，判断它是否是好瓜 其决策树的基本算法如下图所示 显然决策树的生成是一个递归过程，在决策树算法中有三种情况会导致递归返回  当">
+<meta name="description" content="先验知识决策树基本流程决策树是一种常见的机器学习算法。其基本思想很是简单，如下图所示我们判断一个西瓜是否是好瓜，根据生活经验，我们首先判断色泽是什么？判断色泽完后再判断根蒂是否蜷缩？然后再判断敲声是否浊响，最后我们根据这些特征的取值一步一步走到最后的叶子节点，判断它是否是好瓜 其决策树的基本算法如下图所示 显然决策树的生成是一个递归过程，在决策树算法中有三种情况会导致递归返回  当前节点包含的样本">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LightGBM: A Highly Efficient Gradient Boosting Decision Tree（NIPS 2017）">
 <meta property="og:url" content="http://yoursite.com/2018/11/14/LightGBM-A-Highly-Efficient-Gradient-Boosting-Decision-Tree（NIPS-2017）/index.html">
 <meta property="og:site_name" content="苏门蒲沅">
-<meta property="og:description" content="无敌超级详细版 先验知识决策树基本流程决策树是一种常见的机器学习算法。其基本思想很是简单，如下图所示我们判断一个西瓜是否是好瓜，根据生活经验，我们首先判断色泽是什么？判断色泽完后再判断根蒂是否蜷缩？然后再判断敲声是否浊响，最后我们根据这些特征的取值一步一步走到最后的叶子节点，判断它是否是好瓜 其决策树的基本算法如下图所示 显然决策树的生成是一个递归过程，在决策树算法中有三种情况会导致递归返回  当">
+<meta property="og:description" content="先验知识决策树基本流程决策树是一种常见的机器学习算法。其基本思想很是简单，如下图所示我们判断一个西瓜是否是好瓜，根据生活经验，我们首先判断色泽是什么？判断色泽完后再判断根蒂是否蜷缩？然后再判断敲声是否浊响，最后我们根据这些特征的取值一步一步走到最后的叶子节点，判断它是否是好瓜 其决策树的基本算法如下图所示 显然决策树的生成是一个递归过程，在决策树算法中有三种情况会导致递归返回  当前节点包含的样本">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/images/paper/lgb01.png">
 <meta property="og:image" content="http://yoursite.com/images/paper/lgb02.png">
@@ -92,10 +92,31 @@
 <meta property="og:image" content="http://yoursite.com/images/paper/lgb04.png">
 <meta property="og:image" content="http://yoursite.com/images/paper/lgb05.png">
 <meta property="og:image" content="http://yoursite.com/images/paper/lgb06.png">
-<meta property="og:updated_time" content="2018-11-14T14:32:06.776Z">
+<meta property="og:image" content="http://yoursite.com/images/paper/lgb07.png">
+<meta property="og:image" content="http://yoursite.com/images/paper/lgb08.png">
+<meta property="og:image" content="http://yoursite.com/images/paper/lgb09.png">
+<meta property="og:image" content="http://yoursite.com/images/paper/lgb10.png">
+<meta property="og:image" content="http://yoursite.com/images/paper/lgb11.png">
+<meta property="og:image" content="http://yoursite.com/images/paper/lgb17.png">
+<meta property="og:image" content="http://yoursite.com/images/paper/lgb12.png">
+<meta property="og:image" content="http://yoursite.com/images/paper/lgb13.png">
+<meta property="og:image" content="http://yoursite.com/images/paper/lgb14.png">
+<meta property="og:image" content="http://yoursite.com/images/paper/lgb15.png">
+<meta property="og:image" content="http://yoursite.com/images/paper/lgb16.png">
+<meta property="og:image" content="http://yoursite.com/images/paper/lgb18.png">
+<meta property="og:image" content="http://yoursite.com/images/paper/lgb19.png">
+<meta property="og:image" content="http://yoursite.com/images/paper/lgb20.png">
+<meta property="og:image" content="http://yoursite.com/images/paper/lgb21.png">
+<meta property="og:image" content="http://yoursite.com/images/paper/lgb22.png">
+<meta property="og:image" content="http://yoursite.com/images/paper/lgb23.png">
+<meta property="og:image" content="http://yoursite.com/images/paper/lgb24.png">
+<meta property="og:image" content="http://yoursite.com/images/paper/lgb25.png">
+<meta property="og:image" content="http://yoursite.com/images/paper/lgb27.png">
+<meta property="og:image" content="http://yoursite.com/images/paper/lgb26.png">
+<meta property="og:updated_time" content="2018-11-15T07:35:25.948Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LightGBM: A Highly Efficient Gradient Boosting Decision Tree（NIPS 2017）">
-<meta name="twitter:description" content="无敌超级详细版 先验知识决策树基本流程决策树是一种常见的机器学习算法。其基本思想很是简单，如下图所示我们判断一个西瓜是否是好瓜，根据生活经验，我们首先判断色泽是什么？判断色泽完后再判断根蒂是否蜷缩？然后再判断敲声是否浊响，最后我们根据这些特征的取值一步一步走到最后的叶子节点，判断它是否是好瓜 其决策树的基本算法如下图所示 显然决策树的生成是一个递归过程，在决策树算法中有三种情况会导致递归返回  当">
+<meta name="twitter:description" content="先验知识决策树基本流程决策树是一种常见的机器学习算法。其基本思想很是简单，如下图所示我们判断一个西瓜是否是好瓜，根据生活经验，我们首先判断色泽是什么？判断色泽完后再判断根蒂是否蜷缩？然后再判断敲声是否浊响，最后我们根据这些特征的取值一步一步走到最后的叶子节点，判断它是否是好瓜 其决策树的基本算法如下图所示 显然决策树的生成是一个递归过程，在决策树算法中有三种情况会导致递归返回  当前节点包含的样本">
 <meta name="twitter:image" content="http://yoursite.com/images/paper/lgb01.png">
 
 
@@ -348,8 +369,7 @@
       
 
       
-        <p><font color="red">无敌超级详细版</font></p>
-<h1 id="先验知识"><a href="#先验知识" class="headerlink" title="先验知识"></a>先验知识</h1><h2 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h2><h3 id="基本流程"><a href="#基本流程" class="headerlink" title="基本流程"></a>基本流程</h3><p>决策树是一种常见的机器学习算法。其基本思想很是简单，如下图所示<br><img src="/images/paper/lgb01.png" width="640/"><br>我们判断一个西瓜是否是好瓜，根据生活经验，我们首先判断色泽是什么？判断色泽完后再判断根蒂是否蜷缩？然后再判断敲声是否浊响，最后我们根据这些特征的取值一步一步走到最后的叶子节点，判断它是否是好瓜</p>
+        <h1 id="先验知识"><a href="#先验知识" class="headerlink" title="先验知识"></a>先验知识</h1><h2 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h2><h3 id="基本流程"><a href="#基本流程" class="headerlink" title="基本流程"></a>基本流程</h3><p>决策树是一种常见的机器学习算法。其基本思想很是简单，如下图所示<br><img src="/images/paper/lgb01.png" width="640/"><br>我们判断一个西瓜是否是好瓜，根据生活经验，我们首先判断色泽是什么？判断色泽完后再判断根蒂是否蜷缩？然后再判断敲声是否浊响，最后我们根据这些特征的取值一步一步走到最后的叶子节点，判断它是否是好瓜</p>
 <p>其决策树的基本算法如下图所示<br><img src="/images/paper/lgb02.png" width="640/"></p>
 <p>显然决策树的生成是一个递归过程，在决策树算法中有三种情况会导致递归返回</p>
 <ol>
@@ -363,16 +383,106 @@
 <h3 id="连续值处理"><a href="#连续值处理" class="headerlink" title="连续值处理"></a>连续值处理</h3><p>之前我们的属性值都是离散的，但是现实生活中很多属性值都是连续的，接下来讨论属性是连续值的解决方法，<strong>采用二分法对连续属性进行处理，这正是C4.5决策树算法采用的机制</strong></p>
 <p>假定样本集D和连续属性a，假定a在D上出现了n个不同的取值，<font color="red">将这些值从小到大排序</font>,记为\({a^1,a^2……，a^n}\)，基于划分点t将D分为两部分，一部分大于t一部分小于等于t。对于连续值属性，对相邻的属性取值ai与ai+1l来说，t在区间[ai,ai+1）的划分结果相同，所以产生n-1个划分点集合</p>
 <script type="math/tex; mode=display">T_a=\{\frac {a^i+a^{i+1}}{2} | 1 \leq i \leq n-1\}</script><p>我们取\(a^i,a^{i+1}\)的中位点\(\frac{a^i+a^{i+1}}{2}\)作为候选划分点，然后就可以像离散值一样来考察这些划分点。</p>
-<h3 id="回归树的生成"><a href="#回归树的生成" class="headerlink" title="回归树的生成"></a>回归树的生成</h3><p><font color="red">这里要重点看！！！,因为最原始的gbdt是基于回归树来说明的</font>，我们用CART算法来说明一颗回归树的生成过程，这是回归树算法流程<br><img src="/images/paper/lgb03.png" width="640/"><br>直接看算法不太容易看懂，我们来举一个例子进行理解</p>
+<h3 id="回归树的生成"><a href="#回归树的生成" class="headerlink" title="回归树的生成"></a>回归树的生成</h3><p><strong>这里要重点看！！！,因为最原始的gbdt是基于回归树来说明的</strong></p>
+<p>，我们用CART算法来说明一颗回归树的生成过程，这是回归树算法流程<br><img src="/images/paper/lgb03.png" width="640/"><br>直接看算法不太容易看懂，我们来举一个例子进行理解</p>
 <p>假设我们有训练数据如下，目标是得到一颗最小二乘回归树<br><img src="/images/paper/lgb04.png"></p>
 <ol>
 <li>选择最优划分属性j与划分点s<br>因为只有一个属性x，因此最优切分变量就是x</li>
 </ol>
 <p>接下来考虑9个切分点[1.5,2.5,3.5,4.5,5.5,6.5,7.5,8.5,9.5],损失函数定义为\(Loss=(y,f(x))=(f(x)-y)^2\),将9个切分点一一代入下个式子，其中\(c_m=ave(y_i|x_i \in R_m)\)(即我们通过切割点将数据集分为两部分，每部分我们的预测值就是这一部分所有样本取值的平均值)</p>
 <script type="math/tex; mode=display">\min_{j,s}[\min_{c_1} \sum_{x_i \in R_1(j,s)}(y_i -c_1)^2+\min_{c_2}\sum_{x_i \in R_2(j,s)}(y_i-c_2)^2]</script><p>例如我们取s=1.5，R1={1},R2={2,3,4,5,6,7,8,9,10},这两个区域的输出值分别是<br>c1=5.56，c2=1/9（5.7+5.91+6.4+6.8+7.05+8.9+8.7+9+9.05）=7.50，得到下表<br><img src="/images/paper/lgb05.png"><br>将以上各个c1 c2带入平方误差损失函数可得下表<br><img src="/images/paper/lgb06.png"><br>显然s=6.5是，m(s)最小，因此第一个划分变量是j=x，s=6.5</p>
-<p>用选定的（j,s）对数据进行划分，并决定输出值。目前我们分的两个区域分别是R1={1,2,3,4,5,6}，R2={7,8,9,10}输出值\(c_m=ave(y_i|x_i \in R_m)\)，c1=6.24，c2=8.91，对两个子区域继续重复上述步骤，直到满足停止条件（如限制深度或叶子结点个数）</p>
-<p><font color="red">可以看出我们每次划分最优属性与最优切割点，都需要遍历所有属性，所有切割点，所有训练样本，这一步骤是很耗时的</font></p>
-<h2 id="集成学习"><a href="#集成学习" class="headerlink" title="集成学习"></a>集成学习</h2><h3 id="Adaboost"><a href="#Adaboost" class="headerlink" title="Adaboost"></a>Adaboost</h3><h3 id="Boosting-Tree"><a href="#Boosting-Tree" class="headerlink" title="Boosting Tree"></a>Boosting Tree</h3><h3 id="GBDT"><a href="#GBDT" class="headerlink" title="GBDT"></a>GBDT</h3><h1 id="论文开始"><a href="#论文开始" class="headerlink" title="论文开始"></a>论文开始</h1>
+<p>用选定的（j,s）对数据进行划分，并决定输出值。目前我们分的两个区域分别是R1={1,2,3,4,5,6}，R2={7,8,9,10}输出值\(c_m=ave(y_i|x_i \in R_m)\)，c1=6.24，c2=8.91，对两个子区域继续重复上述步骤，直到满足停止条件（如限制深度或叶子结点个数）<br><strong>可以看出我们每次划分最优属性与最优切割点，都需要遍历所有属性，所有切割点，所有训练样本，这一步骤是很耗时的</strong></p>
+<h2 id="集成学习"><a href="#集成学习" class="headerlink" title="集成学习"></a>集成学习</h2><p><img src="/images/paper/lgb07.png"><br>上图很好的总结了集成学习的基本思想，即通过将多个学习器进行结合，常可获得比单一学习器显著优越的泛化性能，这对‘弱学习器’尤为明显，因此集成学习的很多理论研究都是针对弱学习器的。有些类似常说的三个臭皮匠顶个诸葛亮。</p>
+<p>根据个体学习器的生成方式不同，目前集成学习主要分为以下两类算法</p>
+<ol>
+<li>个体学习器存在强依赖关系，必须串行生成的序列化方法。代表：Boosting（通俗讲，就是每个个体学习器的生成都要在上一个学习器生成完后进行）</li>
+<li>个体学习器之间不存在强依赖关系，可同时生成的并行化方法。代表：Bagging和随机森林</li>
+</ol>
+<h3 id="Bagging与随机森林"><a href="#Bagging与随机森林" class="headerlink" title="Bagging与随机森林"></a>Bagging与随机森林</h3><p><strong>Bagging</strong></p>
+<p>是并行式集成学习方法的著名代表，它基于自助采样法。关于自助采样法看这里：<a href="https://sumenpuyuan.github.io/2018/11/08/%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/" target="_blank" rel="noopener">https://sumenpuyuan.github.io/2018/11/08/%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9/</a></p>
+<p>照这样，我们可采样出T个含有m个样本的采样集，然后基于每个采样集训练出一个个体学习器，然后再将这些学习器进行结合，这就是Bagging的基本流程</p>
+<p>因为采样导致了数据预测的多样性，所以Bagging是用高偏差换低方差，是用一堆高偏差，低方差的决策树去结合得到一个低偏差，低方差的分类器</p>
+<p><strong>随机森林</strong><br>随机森林在bagging的基础上进一步加上了随机属性选择，具体来说，传统决策树在寻找最有属性划分时，需要遍历所有属性集合，二随机森林，对决策树的每个要划分的节点，从该节点的属性集合中随机选择一个属性的子集，然后再从这个子集中选择一个最优属性划分。这里k控制了随机性的引入程度，k=d，则随机森林与传统决策树相同，k=1，则随机选取一个属性进行划分，一般情况推荐\(k=log_2d\) </p>
+<p>再一次用高偏差换低方差</p>
+<h3 id="Adaboost"><a href="#Adaboost" class="headerlink" title="Adaboost"></a>Adaboost</h3><p>booting算法系列最著名的算法就是Adaboost算法<br>这是Adaboost的一个直观介绍</p>
+<p><img src="/images/paper/lgb08.png"><br><img src="/images/paper/lgb09.png"><br>假设弱分类器有x &lt; v,x&gt;v或y&gt;v,y&lt;v组成，反映在图上就是只能使用水平线或垂直线进行分割，图（1）是我们的最原始数据集，我们找到一条垂直线，发现这条线可以时损失函数最小，得到图（2），发现右边有三个正值被错分为负值，于是增加这些错分样本的权重，形成图（3）的数据，再次找到损失函数最小的直线，如图（4），发现左边有三个负值被错分为正值，增大这几个错分样本的权重，形成图（5），然后再进行划分，最后进行组合，便可得到一个非常好的集成分类器</p>
+<p>从上述图片描述，我们可以看出Adaboost主要有两个点要注意</p>
+<ol>
+<li>提高那些被前一轮弱分类器错误分类的样本的权值，而降低那些被正确分类的样本的权值</li>
+<li>加大分类误差率小的弱分类器的权值，使其在表决中其较大的作用，减小分类误差率大的分类器的权值，使其在表决中其较小的作用</li>
+</ol>
+<p>这是Adaboost的基本思想，下面给出Adabosot的一个算法<br><img src="/images/paper/lgb10.png"><br><img src="/images/paper/lgb11.png"><br>我们主要关注算法中两个点</p>
+<ol>
+<li>权重的更新公式<br>根据式子8.4可得出一下公式<script type="math/tex; mode=display">w_{m+1,i}=
+\begin{cases}
+    \frac{ W_{mi}}{Z_m} e^{-\alpha_m},  & G_m(x_i)=y_i \\
+     \frac{ W_{mi}}{Z_m} e^{\alpha_m}, & G_m(x_i) \neq y_i
+     \end{cases}</script>正确分类与错误分类两项比较，错误分类样本放大了\( e^{2𝛼_m }=\frac{e_m}{1-e_m} \)  倍<br>体现了我们需要注意的第一个点</li>
+<li>个体分类器前面的比例系数</li>
+</ol>
+<p>由8.6式子可知，每个个体分类器前面有个比例权重\(\alpha=\frac{1}{2}log\frac{1-e_m}{e_m} \),em是分类错误率，可知em越小，\(\alpha越大\),体现了我们需要注意的第二点</p>
+<h3 id="Boosting-Tree"><a href="#Boosting-Tree" class="headerlink" title="Boosting Tree"></a>Boosting Tree</h3><p>我们先看一个直观的图介绍</p>
+<p><img src="/images/paper/lgb17.png"></p>
+<p>图中我们想要预测男人或者老人的年龄值，我们先用一颗回归树去拟合他们年龄，得到左侧的一颗树，发现男人预测年龄与真实年龄相差+2，老人预测年龄与真实年龄相差-1，接下来我们再去构造一颗回归树去拟合上一步得到的残差，直到满足停止条件，图中最后男孩预测就是2+0.9=2.9</p>
+<p>提升树采用加法模型（即个体分类器的线性组合）与前向分布算法，以决策树为基函数的提升方法称为提升树0。算法如下<br><img src="/images/paper/lgb12.png"><br>我们举个例子进行说明,依旧是上面那个例子<br><img src="/images/paper/lgb13.png"><br><img src="/images/paper/lgb14.png"><br><img src="/images/paper/lgb15.png"></p>
+<h3 id="GBDT-Gradient-decent-Booting-Tree"><a href="#GBDT-Gradient-decent-Booting-Tree" class="headerlink" title="GBDT(Gradient decent +Booting Tree)"></a>GBDT(Gradient decent +Booting Tree)</h3><p>提升树利用加法模型与前向分布算法实现学习的过程，当损失函数是平方损失函数和指数损失函数时，每一步的优化时很简单的，但对一般的损失函数而言，往往每一步优化并不那么容易，针对这一问题，Freidman提出了梯度提升方法<br><img src="/images/paper/lgb16.png"></p>
+<h3 id="为什么用负梯度替代残差"><a href="#为什么用负梯度替代残差" class="headerlink" title="为什么用负梯度替代残差"></a>为什么用负梯度替代残差</h3><p>残差=真值-预测值，明明可以直接计算。<br>为什么要引入麻烦的梯度？有什么用吗？</p>
+<p>知乎上一个比较令人信服的解释是：（1）可以扩展到更复杂的损失函数。因为我们一般采用结构风险最小化防止过拟合（在经验风险上加入正则项），所以此时的损失函数不是y^ =y时最小，所以我们需要计算损失函数的梯度，而不能用分模型来拟合残差[1]</p>
+<p>链接地址：[1]<a href="https://www.zhihu.com/question/63560633" target="_blank" rel="noopener">https://www.zhihu.com/question/63560633</a></p>
+<h1 id="论文开始"><a href="#论文开始" class="headerlink" title="论文开始"></a>论文开始</h1><ol>
+<li>思考一：Gradient Boosting Decision Tree (GBDT)非常流行，当特征维度较高和数据量巨大的时候，其实现中仍然存在效率和可扩展性的问题。一个主要原因就是对于每一个特征的每一个分裂点，都需要遍历全部数据计算信息增益，这一过程非常耗时。</li>
+<li>思考二：在真实的应用中，高维度特征具有稀疏性，这样可以设计一个减少有效特征数量的无损的方法，特别是在稀疏特征中，许多特征是互斥的，出现大量0，例如one-hot。</li>
+<li>改进一：Gradient-based One-Side Sampling (GOSS) （基于梯度的one-side采样）</li>
+<li>改进二：Exclusive Feature Bundling (EFB) （互斥的特征捆绑）</li>
+</ol>
+<h2 id="Gradient-based-One-Side-Sampling-GOSS-（基于梯度的one-side采样）"><a href="#Gradient-based-One-Side-Sampling-GOSS-（基于梯度的one-side采样）" class="headerlink" title="Gradient-based One-Side Sampling (GOSS) （基于梯度的one-side采样）"></a>Gradient-based One-Side Sampling (GOSS) （基于梯度的one-side采样）</h2><p>分析一：为了减小训练数据集，通常做法是下采样。例如过滤掉权重小于阈值的数据。我们首先想到Adaboost中有样本权重这一属性，可以根据权重大小取设置阈值，但是GBDT中并没有样本权重这一属性，作者想到GBDT是有梯度这一属性的，梯度越小，说明预测值与真实值之间相差较小，说明已经训练的很好了，这部分就可以去除掉，但是直接去掉又会改变原始数据集的分布。所以作者提出了一种新的方法叫goss</p>
+<p><strong>GOSS是一种在减少数据量和保证精度上平衡的算法。</strong></p>
+<p>GOSS基本思路</p>
+<ol>
+<li>保留梯度大的实例，top-a</li>
+<li>对梯度小的实例进行随机采样</li>
+</ol>
+<h3 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤"></a>详细步骤</h3><p>假设训练集有n个实例\(𝑥_1, 𝑥_2, 𝑥_3,…… 𝑥_n\)，特征维度为s。每次梯度迭时，模型数据变量的损失函数的负梯度方向表示为\(g_1, g_2, g_3…… g_n\), ，决策树通过最优切分点（最大信息增益点）将数据分到各个节点。GBDT通过分割后的方差衡量信息增益。</p>
+<p><img src="/images/paper/lgb18.png"></p>
+<p><strong>Goss的做法</strong></p>
+<p>GOSS保留所有的梯度较大的实例，在梯度小的实例上使用随机采样。为了抵消对数据分布的影响，计算信息增益的时候，GOSS对小梯度的数据引入常量乘数。GOSS首先根据数据的梯度绝对值排序，选取top a个实例。然后在剩余的数据中随机采样b个实例。接着计算信息增益时为采样出的小梯度数据乘以(1-a)/b，这样算法就会更关注训练不足的实例，而不会过多改变原数据集的分布</p>
+<p><img src="/images/paper/lgb19.png"></p>
+<h2 id="Exclusive-Feature-Bundling-EFB-（互斥的特征捆绑）"><a href="#Exclusive-Feature-Bundling-EFB-（互斥的特征捆绑）" class="headerlink" title="Exclusive Feature Bundling (EFB) （互斥的特征捆绑）"></a>Exclusive Feature Bundling (EFB) （互斥的特征捆绑）</h2><p>思考1：我们可以通过减少特征量来缩短训练时间。通常用主成分分析或者投影法。当然，这些方法依赖于一个假设-特征包含高度的冗余，但实际中往往不是。（设计特征来自于其独特的贡献，移除任何一维度都可以某种程度上影响精度）。</p>
+<p>思考二：高位的数据通常是稀疏的，这种稀疏性启发我们设计一种无损地方法来减少特征的维度。特别的，稀疏特征空间中，许多特征是互斥的，例如他们从不同时为非零值（类似one-hot编码）。我们可以绑定互斥的特征为单一特征,可以显着加快GBDT的训练，而不会影响准确性。从而引出了两个问题：</p>
+<h3 id="Q1：怎么判定那些特征应该绑在一起（build-bundled）？"><a href="#Q1：怎么判定那些特征应该绑在一起（build-bundled）？" class="headerlink" title="Q1：怎么判定那些特征应该绑在一起（build bundled）？"></a>Q1：怎么判定那些特征应该绑在一起（build bundled）？</h3><p>图着色问题</p>
+<p>图的m色优化问题:给定无向连通图G,为图G的各顶点着色, 使图中任2邻接点着不同颜色,问最少需要几种颜色。所需的最少颜色的数目m称为该图的色数。</p>
+<p>关于图的着色问题，一种解法是，如果给定我们无向图的边，贪心做法就是任选一顶点着色1，在图中尽可能多的用颜色1着色；<br>当不能用颜色1着色时，转用颜色2将未着色的顶点尽可能多的着色···<br>直到所有顶点都被着色停止。</p>
+<p>另一种解法，我们对于无向图的边还不是很清楚，那么我们可以直接从集合出发（某一个集合可以归结于无向图中的不相邻的点的集合）去构造许多的集合。</p>
+<p>理论1 将特征分割为最小数量的互斥特征群是NP难的。<br>证明：将图着色问题归约为此问题，而图着色是NP难的，所以此问题就是NP难的。</p>
+<p>Proof: We will reduce the graph coloring problem[25] toour problem. Since graph coloring problem is NP-hard, we can then deduce our conclusion.</p>
+<p>思考一：理论1说明多项式时间中求解这个NP难问题不可行。为了寻找好的近似算法，我们将最优捆绑问题归结为图着色问题，<strong>给定图着色实例G=(V, E)。以G的关联矩阵的每一行为特征，得到我们问题的一个实例有|V|个特征。 很容易看到，在我们的问题中，一个独特的特征包与一组具有相同颜色的顶点相对应，反之亦然。这就是他们归结到图着色问题的一个说明</strong></p>
+<p>Given any instance G = (V,E) of the graph coloring problem. We construct an instance of our problem as follows. Take each row of the incidence matrix of G as a feature, and get an instance of our problem with|V|features. It is easy to see that an exclusive bundle of features in our problem corresponds to a set of vertices with the same color, and vice versa.</p>
+<p>如果两个特征之间不是相互排斥，那么我们用一个边将他们连接，然后用合理的贪婪算法用于图着色来做特征捆绑。</p>
+<p>思考二：注意到通常有很多特征，尽管不是100％相互排斥的，也很少同时取非零值。 如果我们的算法可以允许一小部分的冲突，我们可以得到更少的特征包，进一步提高计算效率。</p>
+<p>根据以上分析，他们提出了一下思路的算法</p>
+<ol>
+<li>建立一个图，每个点代表特征，每个边有权重，其权重和特征之间总体冲突相关。</li>
+<li>按照降序排列图中的度数来排序特征。</li>
+<li>检查排序之后的每个特征，对他进行特征绑定或者建立新的绑定使得操作之后的总体冲突最小。</li>
+</ol>
+<p><img src="/images/paper/lgb20.png"></p>
+<h3 id="Q2-怎么进行merging-features-特征合并"><a href="#Q2-怎么进行merging-features-特征合并" class="headerlink" title="Q2:怎么进行merging features(特征合并)"></a>Q2:怎么进行merging features(特征合并)</h3><p>如何合并同一个bundle的特征来降低训练时间复杂度。关键在于原始特征值可以从bundle中区分出来。鉴于直方图算法存储离散值而不是连续特征值，我们通过将互斥特征放在不同的箱中来构建bundle。这可以通过将偏移量添加到特征原始值中实现，例如，假设bundle中有两个特征，原始特征A取值[0, 10]，B取值[0, 20]。我们添加偏移量10到B中，因此B取值[10, 30]。通过这种做法，就可以安全地将A、B特征合并，使用一个取值[0, 30]的特征取代AB。算法见算法4，<strong>这边没看懂，所以组会也没讲，等xgboost论文看懂后再来补坑</strong></p>
+<p><img src="/images/paper/lgb21.png"></p>
+<h2 id="实验部分"><a href="#实验部分" class="headerlink" title="实验部分"></a>实验部分</h2><p>数据集介绍<br><img src="/images/paper/lgb22.png"><br>一次迭代时间对比<br><img src="/images/paper/lgb23.png"><br>评判结果对比<br><img src="/images/paper/lgb24.png"><br>训练速度对比，可以看到lightgbm速度很快，并且最后精度也很不错<br><img src="/images/paper/lgb25.png"></p>
+<h3 id="分析goss"><a href="#分析goss" class="headerlink" title="分析goss"></a>分析goss</h3><p><img src="/images/paper/lgb27.png"><br>对goss和SGB使用相同采样率，发现goss总是比sgb表现好</p>
+<p>从表2EFB_only（即没有goss的lightgbm）和lightgbm对比发现在每个数据上速度都带了一定倍数的提升</p>
+<h2 id="未来工作"><a href="#未来工作" class="headerlink" title="未来工作"></a>未来工作</h2><ol>
+<li>研究基于梯度的one-side采样中a和b的最佳选择</li>
+<li>继续提升EFB性能，来处理大量特征，无论特征是否稀疏</li>
+</ol>
+<h2 id="使用lightgbm的竞赛方案"><a href="#使用lightgbm的竞赛方案" class="headerlink" title="使用lightgbm的竞赛方案"></a>使用lightgbm的竞赛方案</h2><p><img src="/images/paper/lgb26.png"></p>
+<p>连接地址：<a href="https://github.com/Microsoft/LightGBM/blob/master/examples/README.md#machine-learning-challenge-winning-solutions" target="_blank" rel="noopener">https://github.com/Microsoft/LightGBM/blob/master/examples/README.md#machine-learning-challenge-winning-solutions</a></p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p>[1]<a href="https://www.zhihu.com/question/63560633" target="_blank" rel="noopener">https://www.zhihu.com/question/63560633</a></p>
+<p>[2]<a href="http://www.ccs.neu.edu/home/vip/teach/MLcourse/4_boosting/slides/gradient_boosting.pdf" target="_blank" rel="noopener">http://www.ccs.neu.edu/home/vip/teach/MLcourse/4_boosting/slides/gradient_boosting.pdf</a></p>
+<p>[3]《 The Elements of Statistical Learning》</p>
+<p>[4]《统计学习方法》李航</p>
+<p>[5]《机器学习》周志华</p>
+
       
     </div>
     
@@ -536,7 +646,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#先验知识"><span class="nav-number">1.</span> <span class="nav-text">先验知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#决策树"><span class="nav-number">1.1.</span> <span class="nav-text">决策树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本流程"><span class="nav-number">1.1.1.</span> <span class="nav-text">基本流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#划分选择"><span class="nav-number">1.1.2.</span> <span class="nav-text">划分选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#连续值处理"><span class="nav-number">1.1.3.</span> <span class="nav-text">连续值处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#回归树的生成"><span class="nav-number">1.1.4.</span> <span class="nav-text">回归树的生成</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集成学习"><span class="nav-number">1.2.</span> <span class="nav-text">集成学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Adaboost"><span class="nav-number">1.2.1.</span> <span class="nav-text">Adaboost</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Boosting-Tree"><span class="nav-number">1.2.2.</span> <span class="nav-text">Boosting Tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GBDT"><span class="nav-number">1.2.3.</span> <span class="nav-text">GBDT</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#论文开始"><span class="nav-number">2.</span> <span class="nav-text">论文开始</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#先验知识"><span class="nav-number">1.</span> <span class="nav-text">先验知识</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#决策树"><span class="nav-number">1.1.</span> <span class="nav-text">决策树</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本流程"><span class="nav-number">1.1.1.</span> <span class="nav-text">基本流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#划分选择"><span class="nav-number">1.1.2.</span> <span class="nav-text">划分选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#连续值处理"><span class="nav-number">1.1.3.</span> <span class="nav-text">连续值处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#回归树的生成"><span class="nav-number">1.1.4.</span> <span class="nav-text">回归树的生成</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#集成学习"><span class="nav-number">1.2.</span> <span class="nav-text">集成学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Bagging与随机森林"><span class="nav-number">1.2.1.</span> <span class="nav-text">Bagging与随机森林</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Adaboost"><span class="nav-number">1.2.2.</span> <span class="nav-text">Adaboost</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Boosting-Tree"><span class="nav-number">1.2.3.</span> <span class="nav-text">Boosting Tree</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GBDT-Gradient-decent-Booting-Tree"><span class="nav-number">1.2.4.</span> <span class="nav-text">GBDT(Gradient decent +Booting Tree)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么用负梯度替代残差"><span class="nav-number">1.2.5.</span> <span class="nav-text">为什么用负梯度替代残差</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#论文开始"><span class="nav-number">2.</span> <span class="nav-text">论文开始</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Gradient-based-One-Side-Sampling-GOSS-（基于梯度的one-side采样）"><span class="nav-number">2.1.</span> <span class="nav-text">Gradient-based One-Side Sampling (GOSS) （基于梯度的one-side采样）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#详细步骤"><span class="nav-number">2.1.1.</span> <span class="nav-text">详细步骤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exclusive-Feature-Bundling-EFB-（互斥的特征捆绑）"><span class="nav-number">2.2.</span> <span class="nav-text">Exclusive Feature Bundling (EFB) （互斥的特征捆绑）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Q1：怎么判定那些特征应该绑在一起（build-bundled）？"><span class="nav-number">2.2.1.</span> <span class="nav-text">Q1：怎么判定那些特征应该绑在一起（build bundled）？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Q2-怎么进行merging-features-特征合并"><span class="nav-number">2.2.2.</span> <span class="nav-text">Q2:怎么进行merging features(特征合并)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验部分"><span class="nav-number">2.3.</span> <span class="nav-text">实验部分</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分析goss"><span class="nav-number">2.3.1.</span> <span class="nav-text">分析goss</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#未来工作"><span class="nav-number">2.4.</span> <span class="nav-text">未来工作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用lightgbm的竞赛方案"><span class="nav-number">2.5.</span> <span class="nav-text">使用lightgbm的竞赛方案</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">3.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
