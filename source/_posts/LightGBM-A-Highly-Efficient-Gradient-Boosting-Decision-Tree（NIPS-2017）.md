@@ -223,6 +223,18 @@ Given any instance G = (V,E) of the graph coloring problem. We construct an inst
 
 连接地址：https://github.com/Microsoft/LightGBM/blob/master/examples/README.md#machine-learning-challenge-winning-solutions
 
+# 参考资料 #
+[1]https://www.zhihu.com/question/63560633
+
+[2]http://www.ccs.neu.edu/home/vip/teach/MLcourse/4_boosting/slides/gradient_boosting.pdf
+
+[3]《 The Elements of Statistical Learning》
+
+[4]《统计学习方法》李航
+
+[5]《机器学习》周志华
+
+
 
 
 
