@@ -79,25 +79,20 @@
 
 
 
-<meta name="description" content="朴素贝叶斯法朴素贝叶斯基本原理  朴素贝叶斯基本算法 处理连续属性对连续属性可考虑概率密度函数，假定\(p(x_i|c)~N(\mu_{c,i},\sigma^2_{c,i})\),其中\(\mu_{c,i},\sigma^2_{c,i}\)分别是第c类样本在第i个属性上取值的均值和平方，则有 p(x_i|c)=\frac{1}{\sqrt{2\pi}\sigma_{c,i}} exp(-\fra">
+<meta name="description" content="激活函数关于激活函数，首先要搞清楚的问题是，激活函数是什么，有什么用？不用激活函数可不可以？答案是不可以。激活函数的主要作用是提供网络的非线性建模能力。如果没有激活函数，那么该网络仅能够表达线性映射，此时即便有再多的隐藏层，其整个网络跟单层神经网络也是等价的。因此也可以认为，只有加入了激活函数之后，深度神经网络才具备了分层的非线性映射学习能力。 那么激活函数应该具有什么样的性质呢？  可微性： 当">
 <meta property="og:type" content="article">
-<meta property="og:title" content="贝叶斯分类器">
-<meta property="og:url" content="http://yoursite.com/2018/11/08/贝叶斯分类器/index.html">
+<meta property="og:title" content="激活函数和损失函数">
+<meta property="og:url" content="http://yoursite.com/2018/12/02/激活函数和损失函数/index.html">
 <meta property="og:site_name" content="苏门蒲沅">
-<meta property="og:description" content="朴素贝叶斯法朴素贝叶斯基本原理  朴素贝叶斯基本算法 处理连续属性对连续属性可考虑概率密度函数，假定\(p(x_i|c)~N(\mu_{c,i},\sigma^2_{c,i})\),其中\(\mu_{c,i},\sigma^2_{c,i}\)分别是第c类样本在第i个属性上取值的均值和平方，则有 p(x_i|c)=\frac{1}{\sqrt{2\pi}\sigma_{c,i}} exp(-\fra">
+<meta property="og:description" content="激活函数关于激活函数，首先要搞清楚的问题是，激活函数是什么，有什么用？不用激活函数可不可以？答案是不可以。激活函数的主要作用是提供网络的非线性建模能力。如果没有激活函数，那么该网络仅能够表达线性映射，此时即便有再多的隐藏层，其整个网络跟单层神经网络也是等价的。因此也可以认为，只有加入了激活函数之后，深度神经网络才具备了分层的非线性映射学习能力。 那么激活函数应该具有什么样的性质呢？  可微性： 当">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/images/bayes1.jpg">
-<meta property="og:image" content="http://yoursite.com/images/bayes2.png">
-<meta property="og:image" content="http://yoursite.com/images/xishi1.png">
-<meta property="og:image" content="http://yoursite.com/images/xishi2.png">
-<meta property="og:image" content="http://yoursite.com/images/xishi3.png">
-<meta property="og:image" content="http://yoursite.com/images/tongshi1.png">
-<meta property="og:image" content="http://yoursite.com/images/tongshi2.png">
-<meta property="og:updated_time" content="2018-11-08T08:33:51.850Z">
+<meta property="og:image" content="http://yoursite.com/2018/12/02/激活函数和损失函数/images/DL/001.jpg">
+<meta property="og:image" content="http://yoursite.com/2018/12/02/激活函数和损失函数/images/paper/alex7.png">
+<meta property="og:updated_time" content="2018-12-02T14:08:32.243Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="贝叶斯分类器">
-<meta name="twitter:description" content="朴素贝叶斯法朴素贝叶斯基本原理  朴素贝叶斯基本算法 处理连续属性对连续属性可考虑概率密度函数，假定\(p(x_i|c)~N(\mu_{c,i},\sigma^2_{c,i})\),其中\(\mu_{c,i},\sigma^2_{c,i}\)分别是第c类样本在第i个属性上取值的均值和平方，则有 p(x_i|c)=\frac{1}{\sqrt{2\pi}\sigma_{c,i}} exp(-\fra">
-<meta name="twitter:image" content="http://yoursite.com/images/bayes1.jpg">
+<meta name="twitter:title" content="激活函数和损失函数">
+<meta name="twitter:description" content="激活函数关于激活函数，首先要搞清楚的问题是，激活函数是什么，有什么用？不用激活函数可不可以？答案是不可以。激活函数的主要作用是提供网络的非线性建模能力。如果没有激活函数，那么该网络仅能够表达线性映射，此时即便有再多的隐藏层，其整个网络跟单层神经网络也是等价的。因此也可以认为，只有加入了激活函数之后，深度神经网络才具备了分层的非线性映射学习能力。 那么激活函数应该具有什么样的性质呢？  可微性： 当">
+<meta name="twitter:image" content="http://yoursite.com/2018/12/02/激活函数和损失函数/images/DL/001.jpg">
 
 
 
@@ -127,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/11/08/贝叶斯分类器/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/12/02/激活函数和损失函数/"/>
 
 
 
 
 
-  <title>贝叶斯分类器 | 苏门蒲沅</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>激活函数和损失函数 | 苏门蒲沅</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -260,7 +255,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/08/贝叶斯分类器/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/02/激活函数和损失函数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -277,7 +272,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">贝叶斯分类器</h1>
+          <h1 class="post-title" itemprop="name headline">激活函数和损失函数</h1>
         
 
         <div class="post-meta">
@@ -289,8 +284,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-08T15:36:37+08:00">
-                2018-11-08
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-02T21:52:05+08:00">
+                2018-12-02
               </time>
             
 
@@ -312,8 +307,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
+                  <a href="/categories/深度学习/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习</span>
                   </a>
                 </span>
 
@@ -349,13 +344,16 @@
       
 
       
-        <h1 id="朴素贝叶斯法"><a href="#朴素贝叶斯法" class="headerlink" title="朴素贝叶斯法"></a>朴素贝叶斯法</h1><h2 id="朴素贝叶斯基本原理"><a href="#朴素贝叶斯基本原理" class="headerlink" title="朴素贝叶斯基本原理"></a>朴素贝叶斯基本原理</h2><p> <img src="/images/bayes1.jpg" width="640"></p>
-<h2 id="朴素贝叶斯基本算法"><a href="#朴素贝叶斯基本算法" class="headerlink" title="朴素贝叶斯基本算法"></a>朴素贝叶斯基本算法</h2><p><img src="/images/bayes2.png" width="640"></p>
-<h3 id="处理连续属性"><a href="#处理连续属性" class="headerlink" title="处理连续属性"></a>处理连续属性</h3><p>对连续属性可考虑概率密度函数，假定\(p(x_i|c)~N(\mu_{c,i},\sigma^2_{c,i})\),其中\(\mu_{c,i},\sigma^2_{c,i}\)分别是第c类样本在第i个属性上取值的均值和平方，则有</p>
-<script type="math/tex; mode=display">p(x_i|c)=\frac{1}{\sqrt{2\pi}\sigma_{c,i}} exp(-\frac{(x_i-\mu_c,i)^2}{2\sigma^2_{c,i}})</script><h3 id="西瓜书实例"><a href="#西瓜书实例" class="headerlink" title="西瓜书实例"></a>西瓜书实例</h3><p><img src="/images/xishi1.png" width="640"><br><img src="/images/xishi2.png" width="640"><br><img src="/images/xishi3.png" width="640"></p>
-<h3 id="统计学习实例"><a href="#统计学习实例" class="headerlink" title="统计学习实例"></a>统计学习实例</h3><p><img src="/images/tongshi1.png" width="640"><br><img src="/images/tongshi2.png" width="640"></p>
-<h3 id="拉普拉斯修正"><a href="#拉普拉斯修正" class="headerlink" title="拉普拉斯修正"></a>拉普拉斯修正</h3><p>用极大似然估计可能会出现所要估计的概率值为0的情况，这回影响到后验概率的计算结果，是分类产生偏差。在估计概率时通常进行‘平滑’，常用拉普拉斯修正。具体来说，令N表示训练集D中可能的类别数，Ni表示第i个属性可能的取值数，则</p>
-<script type="math/tex; mode=display">\hat P(c)=\frac{|D_c|+1}{|D|+N}</script><script type="math/tex; mode=display">\hat P(x_i|c)=\frac{|D_{c,x_i}|+1}{|D_c|+N_i}</script>
+        <h1 id="激活函数"><a href="#激活函数" class="headerlink" title="激活函数"></a>激活函数</h1><p>关于激活函数，首先要搞清楚的问题是，激活函数是什么，有什么用？不用激活函数可不可以？答案是不可以。激活函数的主要作用是提供网络的非线性建模能力。如果没有激活函数，那么该网络仅能够表达线性映射，此时即便有再多的隐藏层，其整个网络跟单层神经网络也是等价的。因此也可以认为，只有加入了激活函数之后，深度神经网络才具备了分层的非线性映射学习能力。 那么激活函数应该具有什么样的性质呢？</p>
+<ul>
+<li>可微性： 当优化方法是基于梯度的时候，这个性质是必须的。 </li>
+<li>单调性： 当激活函数是单调的时候，单层网络能够保证是凸函数。 </li>
+<li>输出值的范围： 当激活函数输出值是 有限 的时候，基于梯度的优化方法会更加 稳定，因为特征的表示受有限权值的影响更显著;当激活函数的输出是 无限 的时候，模型的训练会更加高效，不过在这种情况小，一般需要更小的learning rate</li>
+</ul>
+<p>从目前来看，常见的激活函数多是分段线性和具有指数形状的非线性函数</p>
+<h2 id="sigmoid-函数"><a href="#sigmoid-函数" class="headerlink" title="sigmoid 函数"></a>sigmoid 函数</h2><script type="math/tex; mode=display">f(x)=\frac{1}{1+e^{-x}}</script><p> <img src="images/DL/001.jpg" alt="img"></p>
+<p>sigmoid 是使用范围最广的一类激活函数，具有指数函数形状，它在物理意义上最为接近生物神经元。此外，(0, 1) 的输出还可以被表示作概率，或用于输入的归一化，代表性的如Sigmoid交叉熵损失函数。<br>缺点：容易产生梯度消失于爆炸问题<br>从下图sigmoid的导数函数可知，其最大值是0.25。反向链式求导网络过深时会出现问题。<br> <img src="images/paper/alex7.png" alt="img"></p>
+<h2 id="ReLU函数"><a href="#ReLU函数" class="headerlink" title="ReLU函数"></a>ReLU函数</h2>
       
     </div>
     
@@ -379,8 +377,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/01/vijosP1006晴天小猪历险记/" rel="next" title="vijosP1006晴天小猪历险记">
-                <i class="fa fa-chevron-left"></i> vijosP1006晴天小猪历险记
+              <a href="/2018/12/01/分割技术/" rel="next" title="分割技术">
+                <i class="fa fa-chevron-left"></i> 分割技术
               </a>
             
           </div>
@@ -388,10 +386,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/11/08/模型评估与选择/" rel="prev" title="模型评估与选择">
-                模型评估与选择 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -523,7 +517,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#朴素贝叶斯法"><span class="nav-number">1.</span> <span class="nav-text">朴素贝叶斯法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#朴素贝叶斯基本原理"><span class="nav-number">1.1.</span> <span class="nav-text">朴素贝叶斯基本原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#朴素贝叶斯基本算法"><span class="nav-number">1.2.</span> <span class="nav-text">朴素贝叶斯基本算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#处理连续属性"><span class="nav-number">1.2.1.</span> <span class="nav-text">处理连续属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#西瓜书实例"><span class="nav-number">1.2.2.</span> <span class="nav-text">西瓜书实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#统计学习实例"><span class="nav-number">1.2.3.</span> <span class="nav-text">统计学习实例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拉普拉斯修正"><span class="nav-number">1.2.4.</span> <span class="nav-text">拉普拉斯修正</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#激活函数"><span class="nav-number">1.</span> <span class="nav-text">激活函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#sigmoid-函数"><span class="nav-number">1.1.</span> <span class="nav-text">sigmoid 函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ReLU函数"><span class="nav-number">1.2.</span> <span class="nav-text">ReLU函数</span></a></li></ol></li></ol></div>
             
 
           </div>
