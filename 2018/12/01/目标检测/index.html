@@ -79,17 +79,21 @@
 
 
 
-<meta name="description" content="感知机">
+<meta name="description" content="目标检测就是分类+定位在分类的基础上不仅输出概率，而且输出四个坐标，中心坐标和宽高定义输出标签，第一个Pc表示是否含有目标，接着是中心坐标和宽高，然后是每类的概率，如果y1=1，即含有目标，损失就是各个值得均方误差，如果y1=0，即不含有目标，损失就是y1与\(\hat {y_1}\)的均方误差">
 <meta property="og:type" content="article">
-<meta property="og:title" content="神经网络">
-<meta property="og:url" content="http://yoursite.com/2018/11/08/神经网络/index.html">
+<meta property="og:title" content="目标检测">
+<meta property="og:url" content="http://yoursite.com/2018/12/01/目标检测/index.html">
 <meta property="og:site_name" content="苏门蒲沅">
-<meta property="og:description" content="感知机">
+<meta property="og:description" content="目标检测就是分类+定位在分类的基础上不仅输出概率，而且输出四个坐标，中心坐标和宽高定义输出标签，第一个Pc表示是否含有目标，接着是中心坐标和宽高，然后是每类的概率，如果y1=1，即含有目标，损失就是各个值得均方误差，如果y1=0，即不含有目标，损失就是y1与\(\hat {y_1}\)的均方误差">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-08T14:19:30.441Z">
+<meta property="og:image" content="http://yoursite.com/images/deepai/001.jpg">
+<meta property="og:image" content="http://yoursite.com/images/deepai/002.jpg">
+<meta property="og:image" content="http://yoursite.com/images/deepai/003.jpg">
+<meta property="og:updated_time" content="2018-12-01T10:54:27.349Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="神经网络">
-<meta name="twitter:description" content="感知机">
+<meta name="twitter:title" content="目标检测">
+<meta name="twitter:description" content="目标检测就是分类+定位在分类的基础上不仅输出概率，而且输出四个坐标，中心坐标和宽高定义输出标签，第一个Pc表示是否含有目标，接着是中心坐标和宽高，然后是每类的概率，如果y1=1，即含有目标，损失就是各个值得均方误差，如果y1=0，即不含有目标，损失就是y1与\(\hat {y_1}\)的均方误差">
+<meta name="twitter:image" content="http://yoursite.com/images/deepai/001.jpg">
 
 
 
@@ -119,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/11/08/神经网络/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/12/01/目标检测/"/>
 
 
 
 
 
-  <title>神经网络 | 苏门蒲沅</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>目标检测 | 苏门蒲沅</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -252,7 +256,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/08/神经网络/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/01/目标检测/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -269,7 +273,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">神经网络</h1>
+          <h1 class="post-title" itemprop="name headline">目标检测</h1>
         
 
         <div class="post-meta">
@@ -281,8 +285,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-08T19:02:07+08:00">
-                2018-11-08
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-01T14:27:02+08:00">
+                2018-12-01
               </time>
             
 
@@ -304,8 +308,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
+                  <a href="/categories/吴恩达深度学习课程/" itemprop="url" rel="index">
+                    <span itemprop="name">吴恩达深度学习课程</span>
                   </a>
                 </span>
 
@@ -341,7 +345,8 @@
       
 
       
-        <h1 id="感知机"><a href="#感知机" class="headerlink" title="感知机"></a>感知机</h1>
+        <p>目标检测就是分类+定位<br><img src="/images/deepai/001.jpg"><br>在分类的基础上不仅输出概率，而且输出四个坐标，中心坐标和宽高<br><img src="/images/deepai/002.jpg"><br>定义输出标签，第一个Pc表示是否含有目标，接着是中心坐标和宽高，然后是每类的概率，如果y1=1，即含有目标，损失就是各个值得均方误差，如果y1=0，即不含有目标，损失就是y1与\(\hat {y_1}\)的均方误差<br><img src="/images/deepai/003.jpg"></p>
+
       
     </div>
     
@@ -365,8 +370,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/08/模型评估与选择/" rel="next" title="模型评估与选择">
-                <i class="fa fa-chevron-left"></i> 模型评估与选择
+              <a href="/2018/12/01/You-only-Look-Once-Unified-Real-Time-Object-Detection-Yolo/" rel="next" title="You only Look Once Unified,Real-Time Object Detection(Yolo)">
+                <i class="fa fa-chevron-left"></i> You only Look Once Unified,Real-Time Object Detection(Yolo)
               </a>
             
           </div>
@@ -375,8 +380,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/11/09/ArcFace-Additive-Angular-Margain-Loss-for-Deep-Face-Recogniton（CVPR-2018）/" rel="prev" title="ArcFace:Additive Angular Margain Loss for Deep Face Recogniton（CVPR 2018）">
-                ArcFace:Additive Angular Margain Loss for Deep Face Recogniton（CVPR 2018） <i class="fa fa-chevron-right"></i>
+              <a href="/2018/12/01/分割技术/" rel="prev" title="分割技术">
+                分割技术 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -429,17 +434,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -499,22 +495,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#感知机"><span class="nav-number">1.</span> <span class="nav-text">感知机</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
