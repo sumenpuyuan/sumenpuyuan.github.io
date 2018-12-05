@@ -96,7 +96,10 @@
 <meta property="og:image" content="http://yoursite.com/images/deepai/010.jpg">
 <meta property="og:image" content="http://yoursite.com/images/deepai/007.jpg">
 <meta property="og:image" content="http://yoursite.com/images/deepai/008.jpg">
-<meta property="og:updated_time" content="2018-12-04T14:54:43.946Z">
+<meta property="og:image" content="http://yoursite.com/images/deepai/011.jpg">
+<meta property="og:image" content="http://yoursite.com/images/deepai/012.jpg">
+<meta property="og:image" content="http://yoursite.com/images/deepai/013.jpg">
+<meta property="og:updated_time" content="2018-12-05T03:00:09.086Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="目标检测">
 <meta name="twitter:description" content="定义目标检测就是分类+定位在分类的基础上不仅输出概率，而且输出四个坐标，中心坐标和宽高定义输出标签，第一个Pc表示是否含有目标，接着是中心坐标和宽高，然后是每类的概率，如果y1=1，即含有目标，损失就是各个值得均方误差，如果y1=0，即不含有目标，损失就是y1与\(\hat {y_1}\)的均方误差 全连接转卷积层全连接网络转换换成卷积神经网络，乘个卷积核，编成固定大小overfeat论文，通过全">
@@ -357,7 +360,13 @@
 <h1 id="anchor-box"><a href="#anchor-box" class="headerlink" title="anchor box"></a>anchor box</h1><p><img src="/images/deepai/006.jpg"><br>我们上面讨论的都是一个网格只能检测一个目标，如果想要一个网格检测出多个对象，比如下图中汽车和人的中心点在同一个格子内，我们需要在一个格子内同时检测出汽车和人，那么我们就需要使用anchor box这个概念。Anchor box的思路是这样的，预先定义两个不同形状的anchor box，我们要做的是将预测结果同anchor box关联起来，在实际过程中我们会使用更多的anchor box，如5个或更多，这里为了简单介绍，我们只用两个anchor box。AnchorBox1用来检测人，anchor box2用来检测车。也就是说，每个网格多加了一层输出，原来我们输出维度是3<em>3</em>8，现在是3<em>3</em>2<em>8，我们也可以写成3</em>3*16，这里的2表示两个anchor box。之前我们物体的中心点只分配到一个格子，因为之前一个格子里只有一个对象，现在有多个物体中心在同一个格子，物体的中点不仅分配给了一个格子，而且分配给了一组anchor box（这里我们分配给了两个anchor box），每个anchor box都有一个p_c值，这里若anchor box1的p_c值大于阈值，则代表检测到了人，anchor box2的p_c值大于阈值，则代表检测到了汽车，若两个p_c值都大于阈值，则同时检测到了汽车和人。<br><img src="/images/deepai/009.jpg"><br><img src="/images/deepai/010.jpg"><br>这个算法有两种情况处理不是太很好，一是如果同一个格子里有三个对象，这种情况算法处理不好。二是两个对象都分配到一个格子中，并且他们的anchor box形状也一样，这种情况算法也处理不好，我们需要引入一些打破僵局的默认手段，专门处理这几种情况。但是实际情况中，这种情况不是很多，因为在网格足够精细的情况下，两个对象同时出现在一个格子中的频率不是很高。<br>Anchorbox 的选择，一般手工指定anchor box的形状，可以选择5个到10个anchor box形状，覆盖到多种不同的的形状，可以涵盖我们想要检测的对象的各种形状。也可以使用其他机器学习算法，例如k聚类算法对待检测的所有目标进行形状分类，选择主要形状作为Anchor Boxes。</p>
 <h1 id="非极大值抑制"><a href="#非极大值抑制" class="headerlink" title="非极大值抑制"></a>非极大值抑制</h1><p><img src="/images/deepai/007.jpg"></p>
 <p>在对象检测算法中我们会碰到一样一个问题，我们的算法可能对同一个对象作出多次检测，所以算法不是对某个对象检测出一次，而是检测出多次，下图中三个绿色网格和三个红色网格分别检测的都是同一目标。那如何判断哪个网格最为准确呢？方法是使用非最大值抑制算法。<br>非最大值抑制（Non-max Suppression）做法很简单，我们知道每个检测结果相关的概率p_c，pc值得大小反映了该网格包含中心目标的可信度，首先我们找到概率最大那个，所有和这个最大的边界框有很高交并比，高度重叠的其他边界框，那么这些输出就会被抑制，如下图中左侧车辆方框概率最大为0.8，那么0.7的那个方框就会被抑制。所以这就是非最大值抑制，非最大值意味着你只输出概率最大的分类结果，但抑制接近，但不是最大的其他预测结果。<br>我们来总结一下算法<br><img src="/images/deepai/008.jpg"><br>1去掉所有p_c小于等于某个阈值的边界框，比如0.6的边界框去掉<br>2.选取p_c值最大的网格，利用loU将和该网格具有高重叠的网格去掉<br>3对剩下的网格，重复步骤2</p>
+<p><div id="yolo"></div></p>
 <h1 id="YOLO总结"><a href="#YOLO总结" class="headerlink" title="YOLO总结"></a>YOLO总结</h1><p>Yolo的CNN网络将输入的图片分割成 S* S 网格，然后每个单元格负责去检测那些中心点落在该格子内的目标，每个单元格会预测 B 个边界框（bounding box），去掉不含对象的边界框，对于每种分类都单独进行非极大值抑制操作，从而得到最终结果。</p>
+<p>构建训练集：遍历每个格子构建标签向量<br><img src="/images/deepai/011.jpg"></p>
+<p>预测：输入图像，得到标签向量</p>
+<p><img src="/images/deepai/012.jpg"></p>
+<p>先删掉p_c小于某个值得边界框，（即网络不认为这个边界框含有对象）对每个类单独进行非极大值抑制</p>
+<p><img src="/images/deepai/013.jpg"></p>
 
       
     </div>
