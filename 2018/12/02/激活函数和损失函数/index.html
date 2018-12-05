@@ -86,13 +86,13 @@
 <meta property="og:site_name" content="苏门蒲沅">
 <meta property="og:description" content="激活函数关于激活函数，首先要搞清楚的问题是，激活函数是什么，有什么用？不用激活函数可不可以？答案是不可以。激活函数的主要作用是提供网络的非线性建模能力。如果没有激活函数，那么该网络仅能够表达线性映射，此时即便有再多的隐藏层，其整个网络跟单层神经网络也是等价的。因此也可以认为，只有加入了激活函数之后，深度神经网络才具备了分层的非线性映射学习能力。 那么激活函数应该具有什么样的性质呢？  可微性： 当">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2018/12/02/激活函数和损失函数/images/DL/001.jpg">
-<meta property="og:image" content="http://yoursite.com/2018/12/02/激活函数和损失函数/images/paper/alex7.png">
-<meta property="og:updated_time" content="2018-12-02T14:08:32.243Z">
+<meta property="og:image" content="http://yoursite.com/images/DL/001.jpg">
+<meta property="og:image" content="http://yoursite.com/images/paper/alex7.png">
+<meta property="og:updated_time" content="2018-12-05T03:34:13.274Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="激活函数和损失函数">
 <meta name="twitter:description" content="激活函数关于激活函数，首先要搞清楚的问题是，激活函数是什么，有什么用？不用激活函数可不可以？答案是不可以。激活函数的主要作用是提供网络的非线性建模能力。如果没有激活函数，那么该网络仅能够表达线性映射，此时即便有再多的隐藏层，其整个网络跟单层神经网络也是等价的。因此也可以认为，只有加入了激活函数之后，深度神经网络才具备了分层的非线性映射学习能力。 那么激活函数应该具有什么样的性质呢？  可微性： 当">
-<meta name="twitter:image" content="http://yoursite.com/2018/12/02/激活函数和损失函数/images/DL/001.jpg">
+<meta name="twitter:image" content="http://yoursite.com/images/DL/001.jpg">
 
 
 
@@ -351,9 +351,12 @@
 <li>输出值的范围： 当激活函数输出值是 有限 的时候，基于梯度的优化方法会更加 稳定，因为特征的表示受有限权值的影响更显著;当激活函数的输出是 无限 的时候，模型的训练会更加高效，不过在这种情况小，一般需要更小的learning rate</li>
 </ul>
 <p>从目前来看，常见的激活函数多是分段线性和具有指数形状的非线性函数</p>
-<h2 id="sigmoid-函数"><a href="#sigmoid-函数" class="headerlink" title="sigmoid 函数"></a>sigmoid 函数</h2><script type="math/tex; mode=display">f(x)=\frac{1}{1+e^{-x}}</script><p> <img src="images/DL/001.jpg" alt="img"></p>
-<p>sigmoid 是使用范围最广的一类激活函数，具有指数函数形状，它在物理意义上最为接近生物神经元。此外，(0, 1) 的输出还可以被表示作概率，或用于输入的归一化，代表性的如Sigmoid交叉熵损失函数。<br>缺点：容易产生梯度消失于爆炸问题<br>从下图sigmoid的导数函数可知，其最大值是0.25。反向链式求导网络过深时会出现问题。<br> <img src="images/paper/alex7.png" alt="img"></p>
-<h2 id="ReLU函数"><a href="#ReLU函数" class="headerlink" title="ReLU函数"></a>ReLU函数</h2>
+<h2 id="sigmoid-函数"><a href="#sigmoid-函数" class="headerlink" title="sigmoid 函数"></a>sigmoid 函数</h2><script type="math/tex; mode=display">f(x)=\frac{1}{1+e^{-x}}</script><p><img src="/images/DL/001.jpg" width="440/"></p>
+<p>sigmoid 是使用范围最广的一类激活函数，具有指数函数形状，它在物理意义上最为接近生物神经元。此外，(0, 1) 的输出还可以被表示作概率，或用于输入的归一化，代表性的如Sigmoid交叉熵损失函数。<br>缺点：容易产生梯度消失于爆炸问题<br>\(f’(x)=f(x)(1-f(x))\)从下图sigmoid的导数函数可知，其最大值是0.25。反向链式求导网络过深时会出现问题。<br><img src="/images/paper/alex7.png"></p>
+<h2 id="ReLU及其衍生函数"><a href="#ReLU及其衍生函数" class="headerlink" title="ReLU及其衍生函数"></a>ReLU及其衍生函数</h2><script type="math/tex; mode=display">f(x)= \begin
+{cases} 0, & \text {if $x$ <0} 
+\\ x, & \text{if $x$ >=0} 
+\end{cases}</script><script type="math/tex; mode=display">f(x)=max(0,x)</script>
       
     </div>
     
@@ -517,7 +520,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#激活函数"><span class="nav-number">1.</span> <span class="nav-text">激活函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#sigmoid-函数"><span class="nav-number">1.1.</span> <span class="nav-text">sigmoid 函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ReLU函数"><span class="nav-number">1.2.</span> <span class="nav-text">ReLU函数</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#激活函数"><span class="nav-number">1.</span> <span class="nav-text">激活函数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#sigmoid-函数"><span class="nav-number">1.1.</span> <span class="nav-text">sigmoid 函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ReLU及其衍生函数"><span class="nav-number">1.2.</span> <span class="nav-text">ReLU及其衍生函数</span></a></li></ol></li></ol></div>
             
 
           </div>
