@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="1.1 训练/开发/测试集小数据的时候我们一般7 3分，或者6 2 2分，但是大数据后，我们只需要其中的一部分作为验证机和测试集有一条经验法则，尽量确保你的训练集和测试集来自同一分布 1.2 偏差与方差从做到右是高偏差（欠拟合），ok，高方差（过拟合）列举了一些可能情况高方差，过拟合，训练误差小，测试误差大高偏差，欠拟合，训练误差大，测试误差大高方差，高偏差图上表示为一部分过拟合，一部分欠拟合，偏">
+<meta property="og:type" content="article">
+<meta property="og:title" content="改善神经网络：第一周深度学习的实用层面">
+<meta property="og:url" content="http://yoursite.com/2018/12/05/改善神经网络：第一周深度学习的实用层面/index.html">
+<meta property="og:site_name" content="苏门蒲沅">
+<meta property="og:description" content="1.1 训练/开发/测试集小数据的时候我们一般7 3分，或者6 2 2分，但是大数据后，我们只需要其中的一部分作为验证机和测试集有一条经验法则，尽量确保你的训练集和测试集来自同一分布 1.2 偏差与方差从做到右是高偏差（欠拟合），ok，高方差（过拟合）列举了一些可能情况高方差，过拟合，训练误差小，测试误差大高偏差，欠拟合，训练误差大，测试误差大高方差，高偏差图上表示为一部分过拟合，一部分欠拟合，偏">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/images/deepai/014.jpg">
+<meta property="og:image" content="http://yoursite.com/images/deepai/015.png">
+<meta property="og:image" content="http://yoursite.com/images/deepai/015.jpg">
+<meta property="og:image" content="http://yoursite.com/images/deepai/016.jpg">
+<meta property="og:image" content="http://yoursite.com/images/deepai/017.jpg">
+<meta property="og:image" content="http://yoursite.com/images/deepai/018.jpg">
+<meta property="og:image" content="http://yoursite.com/images/deepai/019.jpg">
+<meta property="og:image" content="http://yoursite.com/images/deepai/020.jpg">
+<meta property="og:image" content="http://yoursite.com/images/deepai/021.jpg">
+<meta property="og:image" content="http://yoursite.com/images/deepai/022.jpg">
+<meta property="og:image" content="http://yoursite.com/images/deepai/023.jpg">
+<meta property="og:image" content="http://yoursite.com/images/deepai/024.jpg">
+<meta property="og:image" content="http://yoursite.com/images/paper/alex5.jpg">
+<meta property="og:image" content="http://yoursite.com/images/paper/alex6.jpg">
+<meta property="og:image" content="http://yoursite.com/images/paper/alex7.png">
+<meta property="og:image" content="http://yoursite.com/images/paper/alex8.jpg">
+<meta property="og:image" content="http://yoursite.com/images/paper/alex9.jpg">
+<meta property="og:updated_time" content="2018-12-06T07:54:41.960Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="改善神经网络：第一周深度学习的实用层面">
+<meta name="twitter:description" content="1.1 训练/开发/测试集小数据的时候我们一般7 3分，或者6 2 2分，但是大数据后，我们只需要其中的一部分作为验证机和测试集有一条经验法则，尽量确保你的训练集和测试集来自同一分布 1.2 偏差与方差从做到右是高偏差（欠拟合），ok，高方差（过拟合）列举了一些可能情况高方差，过拟合，训练误差小，测试误差大高偏差，欠拟合，训练误差大，测试误差大高方差，高偏差图上表示为一部分过拟合，一部分欠拟合，偏">
+<meta name="twitter:image" content="http://yoursite.com/images/deepai/014.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/12/05/改善神经网络：第一周深度学习的实用层面/"/>
+
+
+
+
+
+  <title>改善神经网络：第一周深度学习的实用层面 | 苏门蒲沅</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">苏门蒲沅</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/05/改善神经网络：第一周深度学习的实用层面/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="苏门蒲沅">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">改善神经网络：第一周深度学习的实用层面</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-05T23:53:39+08:00">
+                2018-12-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/吴恩达深度学习课程/" itemprop="url" rel="index">
+                    <span itemprop="name">吴恩达深度学习课程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="1-1-训练-开发-测试集"><a href="#1-1-训练-开发-测试集" class="headerlink" title="1.1 训练/开发/测试集"></a>1.1 训练/开发/测试集</h1><p>小数据的时候我们一般7 3分，或者6 2 2分，但是大数据后，我们只需要其中的一部分作为验证机和测试集<br><img src="/images/deepai/014.jpg" width="640/"><br><strong>有一条经验法则，尽量确保你的训练集和测试集来自同一分布</strong></p>
+<h1 id="1-2-偏差与方差"><a href="#1-2-偏差与方差" class="headerlink" title="1.2 偏差与方差"></a>1.2 偏差与方差</h1><p>从做到右是高偏差（欠拟合），ok，高方差（过拟合）<br><img src="/images/deepai/015.png" width="640/"><br>列举了一些可能情况<br>高方差，过拟合，训练误差小，测试误差大<br>高偏差，欠拟合，训练误差大，测试误差大<br><img src="/images/deepai/015.jpg" width="640/"><br>高方差，高偏差图上表示为一部分过拟合，一部分欠拟合<br><img src="/images/deepai/016.jpg" width="640/"><br>，偏差是机器学习模型中预测值与实际值之间的差异，而方差则是这些预测值的分布情况。<br>偏差：泛华误差的这部分误差是由于错误的假设决定的。例如实际是一个二次模型，你却假设了一个线性模型，一个高偏差的模型最容易出欠拟合<br>方差：这部分误差由于模型对微小变化较为敏感，一个多自由度的模型更容易有高的方差（例如高阶多项式）因此容易过拟合</p>
+<h1 id="1-3机器学习基础"><a href="#1-3机器学习基础" class="headerlink" title="1.3机器学习基础"></a>1.3机器学习基础</h1><p>（1）如果高偏差，即欠拟合（针对训练误差）：可以A：增加更多的特征个数  B：使用更复杂的模型，使用更复杂的网络 C：新的激活函数 D 自适应学习率<br>（2）如果高方差，即过拟合（针对测试误差）：可以A：增加更多的数据   B:正则化 C:早停 D：dropout</p>
+<h1 id="1-4-正则化"><a href="#1-4-正则化" class="headerlink" title="1.4  正则化"></a>1.4  正则化</h1><h2 id="L2范数"><a href="#L2范数" class="headerlink" title="L2范数"></a>L2范数</h2><p>在损失函数加上超参数乘以L2范数<br><img src="/images/deepai/017.jpg" width="640/"><br>加上L2范数后的梯度更新公式，最后在权重前面加了个小于1的参数，那么每次迭代权重都会逐渐变小，所以也叫权重衰减<br><img src="/images/deepai/018.jpg" width="640/"><br>why？<br>更小的权值w，从某种意义上说，表示网络的复杂度更低，对数据的拟合刚刚好（这个法则也叫做奥卡姆剃刀），而在实际应用中，也验证了这一点，L2正则化的效果往往好于未经正则化的效果。</p>
+<h2 id="L1范数"><a href="#L1范数" class="headerlink" title="L1范数"></a>L1范数</h2><p><img src="/images/deepai/019.jpg" width="640/"><br>比原始的更新规则多出了η <em> λ </em> sgn(w)/n这一项。当w为正时，更新后的w变小。当w为负时，更新后的w变大——因此它的效果就是让w往0靠，使网络中的权重尽可能为0，也就相当于减小了网络复杂度，防止过拟合。<br><img src="/images/deepai/020.jpg" width="640/"></p>
+<h1 id="1-5-为什么正则化可以减少过拟合"><a href="#1-5-为什么正则化可以减少过拟合" class="headerlink" title="1.5 为什么正则化可以减少过拟合"></a>1.5 为什么正则化可以减少过拟合</h1><h2 id="说法一"><a href="#说法一" class="headerlink" title="说法一"></a>说法一</h2><p>箭头的方向就是lamda逐渐变大，w逐渐变小的过程</p>
+<h2 id="说法二"><a href="#说法二" class="headerlink" title="说法二"></a>说法二</h2><p>以tanh激活函数为例，因为lamda变大，w变小，导致输入到激活函数的值z变小，整体函数近似线性，线性函数模型简单。<br><img src="/images/deepai/021.jpg" width="640/"><br><strong>L1比L2更容易获得稀疏解</strong><br>A：图表解释<br>首先我们要明白，L1或L2等值线上与平方误差等值线相切的点，是该等值线上可以使总损失函数最小的点。理由，我们那图中L1举例，任取一点w2和相切点w1，</p>
+<p><img src="/images/deepai/022.jpg" width="640/"><br>w1损失=w1平方误差+w1 L2函数值<br>w2损失=W2平方误差+ w2 L2函数值<br>因为处于等值线上，所以L2函数值是相等的。但是w1平方误差&lt;w2平方误差，所以相切点总损失函数最小<br>然后，我们通过图表就可以发现，平方损失函数与两个损失函数相切点，L1更容易使0点，即更容易稀疏<br>B：公式解释<br>（2）公式形式</p>
+<p>假设只有一个参数为w，损失函数为L(w)，分别加上L1正则项和L2正则项后有：<br>\(J_{L1} (𝑤)=𝐿(𝑤)+𝜆|w|\)<br>\(J_{𝐿2} (𝑤)=𝐿(𝑤)+ 𝜆w^2\)<br>假设L(w)在0处的导数为d_0，即\((𝜕L(W))/𝜕w |_(w=0)=d_0\)，分别求下使用L1正则化和L2正则化的导数<br>L2正则化在0处的导数：\((𝜕L2(W))/𝜕w |_{(w=0)}=d_0+2 𝜆w=d_0\)</p>
+<p>L1正则化在0处的导数：\((𝜕L1(W))/𝜕w |_{(w=0^− )}=d_0- 𝜆\)</p>
+<script type="math/tex; mode=display">(𝜕L1(W))/𝜕w |_{(w=0^+ )}=d_0+ 𝜆</script><p>可见，引入L2正则时，代价函数在0的导数仍是\(d_0\)，无变化。而引入L1正则化后，代价函数在0处的导数有一个突变，如果\(d_0-\lambda<0,d_0+\lambda>0\),则在0处会是一个极小值点，因此优化时，很可能优化到该极小值电商，即w=0处<br>这里只解释了只有一个参数的情况，如果有更多的参数，也是类似的，因此用L1正则更容易产生稀疏解。</0,d_0+\lambda></p>
+<h1 id="1-6-dropout正则化"><a href="#1-6-dropout正则化" class="headerlink" title="1.6 dropout正则化"></a>1.6 dropout正则化</h1><p>dropout是指在深度学习网络的训练过程中，对于神经网络单元，按照一定的概率将其暂时从网络中丢弃。注意是暂时，对于随机梯度下降来说，由于是随机丢弃，故而每一个mini-batch都在训练不同的网络。</p>
+<h1 id="1-7-理解dropout"><a href="#1-7-理解dropout" class="headerlink" title="1.7 理解dropout"></a>1.7 理解dropout</h1><p>下图，紫色点这个神经元，不愿意把赌注放给任意输入（或特征），因为他们随时可能被删除，不愿给任何一个输入加上太多权重，因此该单元通过这种方法积极的传播开来，并为四个输入增加一点权重，通过传播所有权重，dropout将产生收缩平方范数的效果？<br><img src="/images/deepai/023.jpg" width="640/"></p>
+<h1 id="1-8其他正则化方法"><a href="#1-8其他正则化方法" class="headerlink" title="1.8其他正则化方法"></a>1.8其他正则化方法</h1><ul>
+<li>数据增强</li>
+<li>早停技术，不用向L2正则化那样去尝试大量lamba参数</li>
+</ul>
+<h1 id="1-9正则化输入"><a href="#1-9正则化输入" class="headerlink" title="1.9正则化输入"></a>1.9正则化输入</h1><p>训练神经网络，其中一个加速训练的方法就是归一化输入<br>数据的标准化（normalization）是将数据按比例缩放，使之落入一个小的特定区间。在一些数据比较和评价中常用到。典型的有归一化法，还有比如极值法、标准差法。</p>
+<p>归一化方法的主要有两种形式：一种是把数变为（0，1）之间的小数，一种是把有量纲表达式变为无量纲表达式。在数字信号处理中是简化计算的有效方式。</p>
+<h2 id="归一化处理的好处："><a href="#归一化处理的好处：" class="headerlink" title="归一化处理的好处："></a>归一化处理的好处：</h2><p>1 加快梯度下降的求解速度，即提升模型的收敛速度<br>两个特征区间相差非常大时，如左图中的x1[0-2000]和x2[1-5]，形成的等高线偏椭圆，迭代时很有可能走“之字型”路线（垂直长轴），从而导致需要迭代很多次才能收敛。<br>而右图对两个特征进行了归一化，对应的等高线就会变圆，在梯度下降进行求解时能较快的收敛。<br>因此在机器学习中使用梯度下降法求最优解时，归一化也很有必要，否则模型很难收敛甚至有时不能收敛。<br><img src="/images/deepai/024.jpg" width="640/"><br>2 有可能提高模型的精度<br>一些分类器需要计算样本之间的距离，如果一个特征的值域范围非常大，那么距离计算就会主要取决于这个特征，有时就会偏离实际情况</p>
+<h2 id="标准化-归一化处理的类型及含义："><a href="#标准化-归一化处理的类型及含义：" class="headerlink" title="标准化/归一化处理的类型及含义："></a>标准化/归一化处理的类型及含义：</h2><ul>
+<li>线性归一化（min-max normalization）<script type="math/tex; mode=display">x'=\frac{x-min(x)}{max(x)-min(x)}</script>这种归一化适合数值比较集中的情况，缺陷就是如果max和min不稳定，很容易使得归一化结果不稳定，使得后续的效果不稳定，实际使用中可以用经验常量来代替max和min。</li>
+<li>标准差标准化（z-score standardization）<script type="math/tex; mode=display">x'=\frac{x-u}{\sigma}</script>经过处理的数据符合标准正态分布，均值为0，标准差为1。</li>
+<li>非线性归一化<br>经常用在数据分化较大的场景，有些数值大，有些很小。通过一些数学函数，将原始值进行映射。该方法包括log、指数、反正切等。需要根据数据分布的情况，决定非线性函数的曲线。<br>log函数：x = lg(x)/lg(max)；反正切函数：x = atan(x)*2/pi<h1 id="梯度消失于梯度爆炸"><a href="#梯度消失于梯度爆炸" class="headerlink" title="梯度消失于梯度爆炸"></a>梯度消失于梯度爆炸</h1><img src="/images/paper/alex5.jpg" width="640/"><br>如上图所示的网络结构，我们在进行反向传播更新w1权值的时候，公式如下<br><img src="/images/paper/alex6.jpg" width="640/"></li>
+</ul>
+<p>sigmod函数导数如下图所示<br><img src="/images/paper/alex7.png" width="640/"><br>从图中可以看出最大值是0.25，所以存在一下两种现象<br><img src="/images/paper/alex8.jpg" width="640/"></p>
+<h2 id="ReLu函数"><a href="#ReLu函数" class="headerlink" title="ReLu函数"></a>ReLu函数</h2><p>relu函数解决问题的方式很简单，如果偏导数是1的话就不存在爆炸与消失的问题了，relu函数图像如下<br><img src="/images/paper/alex9.jpg" width="640/"><br>从上图中，我们可以很容易看出，relu函数的导数在正数部分是恒等于1的，因此在深层网络中使用relu激活函数就不会导致梯度消失和爆炸的问题。</p>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><ol>
+<li><a href="https://zhuanlan.zhihu.com/p/21560667?refer=intelligentunit" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/21560667?refer=intelligentunit</a></li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/02/激活函数和损失函数/" rel="next" title="激活函数和损失函数">
+                <i class="fa fa-chevron-left"></i> 激活函数和损失函数
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">John Doe</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-1-训练-开发-测试集"><span class="nav-number">1.</span> <span class="nav-text">1.1 训练/开发/测试集</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-2-偏差与方差"><span class="nav-number">2.</span> <span class="nav-text">1.2 偏差与方差</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-3机器学习基础"><span class="nav-number">3.</span> <span class="nav-text">1.3机器学习基础</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-4-正则化"><span class="nav-number">4.</span> <span class="nav-text">1.4  正则化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#L2范数"><span class="nav-number">4.1.</span> <span class="nav-text">L2范数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#L1范数"><span class="nav-number">4.2.</span> <span class="nav-text">L1范数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-5-为什么正则化可以减少过拟合"><span class="nav-number">5.</span> <span class="nav-text">1.5 为什么正则化可以减少过拟合</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#说法一"><span class="nav-number">5.1.</span> <span class="nav-text">说法一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说法二"><span class="nav-number">5.2.</span> <span class="nav-text">说法二</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-6-dropout正则化"><span class="nav-number">6.</span> <span class="nav-text">1.6 dropout正则化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-7-理解dropout"><span class="nav-number">7.</span> <span class="nav-text">1.7 理解dropout</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-8其他正则化方法"><span class="nav-number">8.</span> <span class="nav-text">1.8其他正则化方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-9正则化输入"><span class="nav-number">9.</span> <span class="nav-text">1.9正则化输入</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#归一化处理的好处："><span class="nav-number">9.1.</span> <span class="nav-text">归一化处理的好处：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标准化-归一化处理的类型及含义："><span class="nav-number">9.2.</span> <span class="nav-text">标准化/归一化处理的类型及含义：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#梯度消失于梯度爆炸"><span class="nav-number">10.</span> <span class="nav-text">梯度消失于梯度爆炸</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ReLu函数"><span class="nav-number">10.1.</span> <span class="nav-text">ReLu函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文献"><span class="nav-number">11.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>
