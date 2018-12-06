@@ -69,20 +69,7 @@ AlexNet成功使用ReLU作为CNN的激活函数，并验证其效果在较深的
 ##5.1训练速度##
 使用ReLu的四层卷积神经网络在CIFAR-10数据集上达到25%的训练误差比使用tanh神经元的等价网络（虚线）快六倍
 <img src='/images/paper/alex4.png' width="640"/>
-##5.2梯度消失和梯度爆炸##
-<img src="/images/paper/alex5.jpg" width='640'/>
-如上图所示的网络结构，我们在进行反向传播更新w1权值的时候，公式如下
-<img src='/images/paper/alex6.jpg' width='640'/>
 
-sigmod函数导数如下图所示
-<img src="/images/paper/alex7.png" width='640'/>
-从图中可以看出最大值是0.25，所以存在一下两种现象
-<img src="/images/paper/alex8.jpg" width="640"/>
-##5.3 ReLu函数##
-
-relu函数解决问题的方式很简单，如果偏导数是1的话就不存在爆炸与消失的问题了，relu函数图像如下
-<img src="/images/paper/alex9.jpg" width="640"/>
-从上图中，我们可以很容易看出，relu函数的导数在正数部分是恒等于1的，因此在深层网络中使用relu激活函数就不会导致梯度消失和爆炸的问题。
 #6.动量#
 在物理世界，球体运动是有惯性的，所以可能翻过山头达到全局最优解
 <img src="/images/paper/alex10.png" width="640"/>
