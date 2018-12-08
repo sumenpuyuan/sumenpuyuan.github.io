@@ -79,17 +79,26 @@
 
 
 
-<meta name="description" content="评估方法留出法将数据集D分成两个互斥的子集，一个作为训练集，一个作为测试集 交叉验证法交叉验证法先将数据集分成k个大小相似的互斥子集，每个子集尽可能保持数据分布的一致性。 然后每次使用k-1个的子集作为训练集，剩下那个作为测试集，可获得k组训练集/测试集。最后去均值 自助法直接以自助采样法作为基础（bootsrap） 对于数据样本个数为m的数据集D，对他采样产生D‘。详细规则如下：每次随机从D中抽">
+<meta name="description" content="小批量梯度下降一共500 000个数据，每批数据1000个，需要5000批，小批量梯度下降过程 函数假设  批量梯度下降（1）函数求导（2）theta更新公式可以看到每次更新都需要用到全部训练数据，计算量很大123456789eta = 0.1 # 学习率n_iterations = 1000m = 100theta = np.random.randn(2,1) # 随机初始值for iterat">
 <meta property="og:type" content="article">
-<meta property="og:title" content="模型评估与选择">
-<meta property="og:url" content="http://yoursite.com/2018/11/08/模型评估与选择/index.html">
+<meta property="og:title" content="改善深层神经网络：第二周优化算法">
+<meta property="og:url" content="http://yoursite.com/2018/12/08/改善深层神经网络：第二周优化算法/index.html">
 <meta property="og:site_name" content="苏门蒲沅">
-<meta property="og:description" content="评估方法留出法将数据集D分成两个互斥的子集，一个作为训练集，一个作为测试集 交叉验证法交叉验证法先将数据集分成k个大小相似的互斥子集，每个子集尽可能保持数据分布的一致性。 然后每次使用k-1个的子集作为训练集，剩下那个作为测试集，可获得k组训练集/测试集。最后去均值 自助法直接以自助采样法作为基础（bootsrap） 对于数据样本个数为m的数据集D，对他采样产生D‘。详细规则如下：每次随机从D中抽">
+<meta property="og:description" content="小批量梯度下降一共500 000个数据，每批数据1000个，需要5000批，小批量梯度下降过程 函数假设  批量梯度下降（1）函数求导（2）theta更新公式可以看到每次更新都需要用到全部训练数据，计算量很大123456789eta = 0.1 # 学习率n_iterations = 1000m = 100theta = np.random.randn(2,1) # 随机初始值for iterat">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-11-08T10:16:03.833Z">
+<meta property="og:image" content="http://yoursite.com/images/deepai/027.jpg">
+<meta property="og:image" content="http://yoursite.com/images/deepai/028.jpg">
+<meta property="og:image" content="http://yoursite.com/images/deepai/029.jpg">
+<meta property="og:image" content="http://yoursite.com/images/deepai/030.jpg">
+<meta property="og:image" content="http://yoursite.com/images/deepai/031.jpg">
+<meta property="og:image" content="http://yoursite.com/images/deepai/032.jpg">
+<meta property="og:image" content="http://yoursite.com/images/deepai/033.jpg">
+<meta property="og:image" content="http://yoursite.com/images/deepai/034.jpg">
+<meta property="og:updated_time" content="2018-12-08T14:27:26.508Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="模型评估与选择">
-<meta name="twitter:description" content="评估方法留出法将数据集D分成两个互斥的子集，一个作为训练集，一个作为测试集 交叉验证法交叉验证法先将数据集分成k个大小相似的互斥子集，每个子集尽可能保持数据分布的一致性。 然后每次使用k-1个的子集作为训练集，剩下那个作为测试集，可获得k组训练集/测试集。最后去均值 自助法直接以自助采样法作为基础（bootsrap） 对于数据样本个数为m的数据集D，对他采样产生D‘。详细规则如下：每次随机从D中抽">
+<meta name="twitter:title" content="改善深层神经网络：第二周优化算法">
+<meta name="twitter:description" content="小批量梯度下降一共500 000个数据，每批数据1000个，需要5000批，小批量梯度下降过程 函数假设  批量梯度下降（1）函数求导（2）theta更新公式可以看到每次更新都需要用到全部训练数据，计算量很大123456789eta = 0.1 # 学习率n_iterations = 1000m = 100theta = np.random.randn(2,1) # 随机初始值for iterat">
+<meta name="twitter:image" content="http://yoursite.com/images/deepai/027.jpg">
 
 
 
@@ -119,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/11/08/模型评估与选择/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/12/08/改善深层神经网络：第二周优化算法/"/>
 
 
 
 
 
-  <title>模型评估与选择 | 苏门蒲沅</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>改善深层神经网络：第二周优化算法 | 苏门蒲沅</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -252,7 +261,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/08/模型评估与选择/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/08/改善深层神经网络：第二周优化算法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="John Doe">
@@ -269,7 +278,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">模型评估与选择</h1>
+          <h1 class="post-title" itemprop="name headline">改善深层神经网络：第二周优化算法</h1>
         
 
         <div class="post-meta">
@@ -281,8 +290,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-08T17:55:49+08:00">
-                2018-11-08
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-08T21:58:21+08:00">
+                2018-12-08
               </time>
             
 
@@ -304,8 +313,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
+                  <a href="/categories/吴恩达深度学习课程/" itemprop="url" rel="index">
+                    <span itemprop="name">吴恩达深度学习课程</span>
                   </a>
                 </span>
 
@@ -341,14 +350,16 @@
       
 
       
-        <h1 id="评估方法"><a href="#评估方法" class="headerlink" title="评估方法"></a>评估方法</h1><h2 id="留出法"><a href="#留出法" class="headerlink" title="留出法"></a>留出法</h2><p>将数据集D分成两个互斥的子集，一个作为训练集，一个作为测试集</p>
-<h2 id="交叉验证法"><a href="#交叉验证法" class="headerlink" title="交叉验证法"></a>交叉验证法</h2><p>交叉验证法先将数据集分成k个大小相似的互斥子集，每个子集尽可能保持数据分布的一致性。</p>
-<p>然后每次使用k-1个的子集作为训练集，剩下那个作为测试集，可获得k组训练集/测试集。最后去均值</p>
-<h2 id="自助法"><a href="#自助法" class="headerlink" title="自助法"></a>自助法</h2><p>直接以自助采样法作为基础（bootsrap）</p>
-<p>对于数据样本个数为m的数据集D，对他采样产生D‘。详细规则如下：每次随机从D中抽一个样本放入D’，并将这个样本再放回去D，保证它下次还可能被抽到，重复m次得到包含m个样本的D‘。显然，D中一部分样本会在D’出现，一部分不会，样本m次采样都没有被采到的概率是\((1-\frac{1}{m})^m\),取极限得到</p>
-<script type="math/tex; mode=display">\lim_{m->\infty}(1-\frac{1}{m})^m \approx 0.368</script><p>我们通过自助采样，数据集D仍有36.8%的样本不会出现在D‘中，我们用D’做训练集，D-D‘作为测试集。</p>
-<p>自助法在数据集较小，难以有效划分训练测试集时很有用。</p>
-<p>自助法改变了数据集的分布，会引入估计偏差，因此数据量充足时，留出法和交叉验证更常用</p>
+        <h1 id="小批量梯度下降"><a href="#小批量梯度下降" class="headerlink" title="小批量梯度下降"></a>小批量梯度下降</h1><p>一共500 000个数据，每批数据1000个，需要5000批，<br><img src="/images/deepai/027.jpg" width="640/"><br>小批量梯度下降过程<br><img src="/images/deepai/028.jpg" width="640/"><br><strong> 函数假设 </strong><br><img src="/images/deepai/029.jpg"></p>
+<h2 id="批量梯度下降"><a href="#批量梯度下降" class="headerlink" title="批量梯度下降"></a>批量梯度下降</h2><p>（1）函数求导<br><img src="/images/deepai/030.jpg"><br>（2）theta更新公式<br><img src="/images/deepai/031.jpg" width="640/"><br>可以看到每次更新都需要用到全部训练数据，计算量很大<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">eta = <span class="number">0.1</span> <span class="comment"># 学习率</span></span><br><span class="line">n_iterations = <span class="number">1000</span></span><br><span class="line">m = <span class="number">100</span></span><br><span class="line"></span><br><span class="line">theta = np.random.randn(<span class="number">2</span>,<span class="number">1</span>) <span class="comment"># 随机初始值</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> iteration <span class="keyword">in</span> range(n_iterations):</span><br><span class="line">    gradients = <span class="number">2</span>/m * X_b.T.dot(X_b.dot(theta) - y)</span><br><span class="line">    theta = theta - eta * gradiens</span><br></pre></td></tr></table></figure></p>
+<h2 id="随机梯度下降"><a href="#随机梯度下降" class="headerlink" title="随机梯度下降"></a>随机梯度下降</h2><p>theta更新公式<br><img src="/images/deepai/032.jpg"><br>批量梯度下降的最要问题是计算每一步的梯度时都需要使用整个训练集，这导致在规模较大的数据集上，其会变得非常的慢。与其完全相反的随机梯度下降，在每一步的梯度计算上只随机选取训练集中的一个样本。很明显，由于每一次的操作都使用了非常少的数据，这样使得算法变得非常快。由于每一次迭代，只需要在内存中有一个实例，这使随机梯度算法可以在大规模训练集上使用。</p>
+<p>另一方面，由于它的随机性，与批量梯度下降相比，其呈现出更多的不规律性：它到达最小值不是平缓的下降，损失函数会忽高忽低，只是在大体上呈下降趋势。随着时间的推移，它会非常的靠近最小值，但是它不会停止在一个值上，它会一直在这个值附近摆动。因此，当算法停止的时候，最后的参数还不错，但不是最优值。<br><strong>当损失函数很不规则时（如图 4-6），随机梯度下降算法能够跳过局部最小值。因此，随机梯度下降在寻找全局最小值上比批量梯度下降表现要好。</strong><br>虽然随机性可以很好的跳过局部最优值，但同时它却不能达到最小值。解决这个难题的一个办法是逐渐降低学习率。 开始时，走的每一步较大（这有助于快速前进同时跳过局部最小值），然后变得越来越小，从而使算法到达全局最小值。 这个过程被称为模拟退火，因为它类似于熔融金属慢慢冷却的冶金学退火过程。 决定每次迭代的学习率的函数称为learning schedule。 如果学习速度降低得过快，你可能会陷入局部最小值，甚至在到达最小值的半路就停止了。 如果学习速度降低得太慢，你可能在最小值的附近长时间摆动，同时如果过早停止训练，最终只会出现次优解。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">n_epochs = <span class="number">50</span> </span><br><span class="line">t0, t1 = <span class="number">5</span>, <span class="number">50</span>  <span class="comment">#learning_schedule的超参数</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">learning_schedule</span><span class="params">(t)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> t0 / (t + t1)</span><br><span class="line"></span><br><span class="line">theta = np.random.randn(<span class="number">2</span>,<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> range(n_epochs):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(m):</span><br><span class="line">        random_index = np.random.randint(m)</span><br><span class="line">        xi = X_b[random_index:random_index+<span class="number">1</span>]</span><br><span class="line">        yi = y[random_index:random_index+<span class="number">1</span>]</span><br><span class="line">        gradients = <span class="number">2</span> * xi.T.dot(xi,dot(theta)-yi)</span><br><span class="line">        eta = learning_schedule(epoch * m + i)</span><br><span class="line">        theta = theta - eta * gradiens</span><br></pre></td></tr></table></figure></p>
+<h2 id="小批量梯度下降-1"><a href="#小批量梯度下降-1" class="headerlink" title="小批量梯度下降"></a>小批量梯度下降</h2><p>小批量梯度下降在参数空间上的表现比随机梯度下降要好的多，尤其在有大量的小型实例集时。作为结果，小批量梯度下降会比随机梯度更靠近最小值。但是，另一方面，它有可能陷在局部最小值中（在遇到局部最小值问题的情况下，和我们之前看到的线性回归不一样）。 图4-11显示了训练期间三种梯度下降算法在参数空间中所采用的路径。 他们都接近最小值，但批量梯度的路径最后停在了最小值，而随机梯度和小批量梯度最后都在最小值附近摆动。 但是，不要忘记，批次梯度需要花费大量时间来完成每一步，但是，如果你使用了一个较好的learning schedule，随机梯度和小批量梯度也可以得到最小值。<br><img src="/images/deepai/033.jpg" width="640/"></p>
+<h1 id="理解小批量梯度下降"><a href="#理解小批量梯度下降" class="headerlink" title="理解小批量梯度下降"></a>理解小批量梯度下降</h1><p>噪声原因，maybe x{1}y{1}是比较容易计算的，x{2}y{2}却是难以计算的<br>随机梯度下降永远不会收敛，一直在最小值附近波动，使用减小学习率可以改善噪声，但有一缺点，会失去所有向量化带给你的加速，因为每次只处理一个样本。<br><img src="/images/deepai/034.jpg" width="640/"><br>batch的选择，</p>
+<ul>
+<li>样本数据小于2000，用批量梯度下降</li>
+<li>大数据，用2的幂设置，64-512</li>
+</ul>
 
       
     </div>
@@ -373,8 +384,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/08/贝叶斯分类器/" rel="next" title="贝叶斯分类器">
-                <i class="fa fa-chevron-left"></i> 贝叶斯分类器
+              <a href="/2018/12/05/改善神经网络：第一周深度学习的实用层面/" rel="next" title="改善神经网络：第一周深度学习的实用层面">
+                <i class="fa fa-chevron-left"></i> 改善神经网络：第一周深度学习的实用层面
               </a>
             
           </div>
@@ -382,10 +393,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/11/08/神经网络/" rel="prev" title="神经网络">
-                神经网络 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -517,7 +524,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#评估方法"><span class="nav-number">1.</span> <span class="nav-text">评估方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#留出法"><span class="nav-number">1.1.</span> <span class="nav-text">留出法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#交叉验证法"><span class="nav-number">1.2.</span> <span class="nav-text">交叉验证法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自助法"><span class="nav-number">1.3.</span> <span class="nav-text">自助法</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#小批量梯度下降"><span class="nav-number">1.</span> <span class="nav-text">小批量梯度下降</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#批量梯度下降"><span class="nav-number">1.1.</span> <span class="nav-text">批量梯度下降</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#随机梯度下降"><span class="nav-number">1.2.</span> <span class="nav-text">随机梯度下降</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小批量梯度下降-1"><span class="nav-number">1.3.</span> <span class="nav-text">小批量梯度下降</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#理解小批量梯度下降"><span class="nav-number">2.</span> <span class="nav-text">理解小批量梯度下降</span></a></li></ol></div>
             
 
           </div>

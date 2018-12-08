@@ -103,7 +103,9 @@
 <meta property="og:image" content="http://yoursite.com/images/paper/alex7.png">
 <meta property="og:image" content="http://yoursite.com/images/paper/alex8.jpg">
 <meta property="og:image" content="http://yoursite.com/images/paper/alex9.jpg">
-<meta property="og:updated_time" content="2018-12-06T07:54:41.960Z">
+<meta property="og:image" content="http://yoursite.com/images/deepai/025.jpg">
+<meta property="og:image" content="http://yoursite.com/images/deepai/026.jpg">
+<meta property="og:updated_time" content="2018-12-08T13:56:48.679Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="改善神经网络：第一周深度学习的实用层面">
 <meta name="twitter:description" content="1.1 训练/开发/测试集小数据的时候我们一般7 3分，或者6 2 2分，但是大数据后，我们只需要其中的一部分作为验证机和测试集有一条经验法则，尽量确保你的训练集和测试集来自同一分布 1.2 偏差与方差从做到右是高偏差（欠拟合），ok，高方差（过拟合）列举了一些可能情况高方差，过拟合，训练误差小，测试误差大高偏差，欠拟合，训练误差大，测试误差大高方差，高偏差图上表示为一部分过拟合，一部分欠拟合，偏">
@@ -386,7 +388,8 @@
 </ul>
 <p>sigmod函数导数如下图所示<br><img src="/images/paper/alex7.png" width="640/"><br>从图中可以看出最大值是0.25，所以存在一下两种现象<br><img src="/images/paper/alex8.jpg" width="640/"></p>
 <h2 id="ReLu函数"><a href="#ReLu函数" class="headerlink" title="ReLu函数"></a>ReLu函数</h2><p>relu函数解决问题的方式很简单，如果偏导数是1的话就不存在爆炸与消失的问题了，relu函数图像如下<br><img src="/images/paper/alex9.jpg" width="640/"><br>从上图中，我们可以很容易看出，relu函数的导数在正数部分是恒等于1的，因此在深层网络中使用relu激活函数就不会导致梯度消失和爆炸的问题。</p>
-<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><ol>
+<h1 id="神经网络权重初始化"><a href="#神经网络权重初始化" class="headerlink" title="神经网络权重初始化"></a>神经网络权重初始化</h1><h1 id="梯度的数值逼近"><a href="#梯度的数值逼近" class="headerlink" title="梯度的数值逼近"></a>梯度的数值逼近</h1><p>假设导函数是3 theta 平方，如果使用单边求导，误差是0.3<br><img src="/images/deepai/025.jpg" width="640/"><br>如果是双边误差，误差是0.0001<br><img src="/images/deepai/026.jpg" width="640/"></p>
+<h1 id="梯度检验"><a href="#梯度检验" class="headerlink" title="梯度检验"></a>梯度检验</h1><h1 id="梯度检验笔记"><a href="#梯度检验笔记" class="headerlink" title="梯度检验笔记"></a>梯度检验笔记</h1><h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><ol>
 <li><a href="https://zhuanlan.zhihu.com/p/21560667?refer=intelligentunit" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/21560667?refer=intelligentunit</a></li>
 </ol>
 
@@ -422,6 +425,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/08/改善深层神经网络：第二周优化算法/" rel="prev" title="改善深层神经网络：第二周优化算法">
+                改善深层神经网络：第二周优化算法 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -498,7 +505,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -553,7 +560,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-1-训练-开发-测试集"><span class="nav-number">1.</span> <span class="nav-text">1.1 训练/开发/测试集</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-2-偏差与方差"><span class="nav-number">2.</span> <span class="nav-text">1.2 偏差与方差</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-3机器学习基础"><span class="nav-number">3.</span> <span class="nav-text">1.3机器学习基础</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-4-正则化"><span class="nav-number">4.</span> <span class="nav-text">1.4  正则化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#L2范数"><span class="nav-number">4.1.</span> <span class="nav-text">L2范数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#L1范数"><span class="nav-number">4.2.</span> <span class="nav-text">L1范数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-5-为什么正则化可以减少过拟合"><span class="nav-number">5.</span> <span class="nav-text">1.5 为什么正则化可以减少过拟合</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#说法一"><span class="nav-number">5.1.</span> <span class="nav-text">说法一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说法二"><span class="nav-number">5.2.</span> <span class="nav-text">说法二</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-6-dropout正则化"><span class="nav-number">6.</span> <span class="nav-text">1.6 dropout正则化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-7-理解dropout"><span class="nav-number">7.</span> <span class="nav-text">1.7 理解dropout</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-8其他正则化方法"><span class="nav-number">8.</span> <span class="nav-text">1.8其他正则化方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-9正则化输入"><span class="nav-number">9.</span> <span class="nav-text">1.9正则化输入</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#归一化处理的好处："><span class="nav-number">9.1.</span> <span class="nav-text">归一化处理的好处：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标准化-归一化处理的类型及含义："><span class="nav-number">9.2.</span> <span class="nav-text">标准化/归一化处理的类型及含义：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#梯度消失于梯度爆炸"><span class="nav-number">10.</span> <span class="nav-text">梯度消失于梯度爆炸</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ReLu函数"><span class="nav-number">10.1.</span> <span class="nav-text">ReLu函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文献"><span class="nav-number">11.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-1-训练-开发-测试集"><span class="nav-number">1.</span> <span class="nav-text">1.1 训练/开发/测试集</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-2-偏差与方差"><span class="nav-number">2.</span> <span class="nav-text">1.2 偏差与方差</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-3机器学习基础"><span class="nav-number">3.</span> <span class="nav-text">1.3机器学习基础</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-4-正则化"><span class="nav-number">4.</span> <span class="nav-text">1.4  正则化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#L2范数"><span class="nav-number">4.1.</span> <span class="nav-text">L2范数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#L1范数"><span class="nav-number">4.2.</span> <span class="nav-text">L1范数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-5-为什么正则化可以减少过拟合"><span class="nav-number">5.</span> <span class="nav-text">1.5 为什么正则化可以减少过拟合</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#说法一"><span class="nav-number">5.1.</span> <span class="nav-text">说法一</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说法二"><span class="nav-number">5.2.</span> <span class="nav-text">说法二</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-6-dropout正则化"><span class="nav-number">6.</span> <span class="nav-text">1.6 dropout正则化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-7-理解dropout"><span class="nav-number">7.</span> <span class="nav-text">1.7 理解dropout</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-8其他正则化方法"><span class="nav-number">8.</span> <span class="nav-text">1.8其他正则化方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-9正则化输入"><span class="nav-number">9.</span> <span class="nav-text">1.9正则化输入</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#归一化处理的好处："><span class="nav-number">9.1.</span> <span class="nav-text">归一化处理的好处：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标准化-归一化处理的类型及含义："><span class="nav-number">9.2.</span> <span class="nav-text">标准化/归一化处理的类型及含义：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#梯度消失于梯度爆炸"><span class="nav-number">10.</span> <span class="nav-text">梯度消失于梯度爆炸</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ReLu函数"><span class="nav-number">10.1.</span> <span class="nav-text">ReLu函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#神经网络权重初始化"><span class="nav-number">11.</span> <span class="nav-text">神经网络权重初始化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#梯度的数值逼近"><span class="nav-number">12.</span> <span class="nav-text">梯度的数值逼近</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#梯度检验"><span class="nav-number">13.</span> <span class="nav-text">梯度检验</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#梯度检验笔记"><span class="nav-number">14.</span> <span class="nav-text">梯度检验笔记</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文献"><span class="nav-number">15.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
             
 
           </div>
