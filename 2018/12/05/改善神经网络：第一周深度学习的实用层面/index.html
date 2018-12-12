@@ -105,7 +105,7 @@
 <meta property="og:image" content="http://yoursite.com/images/paper/alex9.jpg">
 <meta property="og:image" content="http://yoursite.com/images/deepai/025.jpg">
 <meta property="og:image" content="http://yoursite.com/images/deepai/026.jpg">
-<meta property="og:updated_time" content="2018-12-08T13:56:48.679Z">
+<meta property="og:updated_time" content="2018-12-12T03:51:47.700Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="改善神经网络：第一周深度学习的实用层面">
 <meta name="twitter:description" content="1.1 训练/开发/测试集小数据的时候我们一般7 3分，或者6 2 2分，但是大数据后，我们只需要其中的一部分作为验证机和测试集有一条经验法则，尽量确保你的训练集和测试集来自同一分布 1.2 偏差与方差从做到右是高偏差（欠拟合），ok，高方差（过拟合）列举了一些可能情况高方差，过拟合，训练误差小，测试误差大高偏差，欠拟合，训练误差大，测试误差大高方差，高偏差图上表示为一部分过拟合，一部分欠拟合，偏">
@@ -364,6 +364,7 @@
         <h1 id="1-1-训练-开发-测试集"><a href="#1-1-训练-开发-测试集" class="headerlink" title="1.1 训练/开发/测试集"></a>1.1 训练/开发/测试集</h1><p>小数据的时候我们一般7 3分，或者6 2 2分，但是大数据后，我们只需要其中的一部分作为验证机和测试集<br><img src="/images/deepai/014.jpg" width="640/"><br><strong>有一条经验法则，尽量确保你的训练集和测试集来自同一分布</strong></p>
 <h1 id="1-2-偏差与方差"><a href="#1-2-偏差与方差" class="headerlink" title="1.2 偏差与方差"></a>1.2 偏差与方差</h1><p>从做到右是高偏差（欠拟合），ok，高方差（过拟合）<br><img src="/images/deepai/015.png" width="640/"><br>列举了一些可能情况<br>高方差，过拟合，训练误差小，测试误差大<br>高偏差，欠拟合，训练误差大，测试误差大<br><img src="/images/deepai/015.jpg" width="640/"><br>高方差，高偏差图上表示为一部分过拟合，一部分欠拟合<br><img src="/images/deepai/016.jpg" width="640/"><br>，偏差是机器学习模型中预测值与实际值之间的差异，而方差则是这些预测值的分布情况。<br>偏差：泛华误差的这部分误差是由于错误的假设决定的。例如实际是一个二次模型，你却假设了一个线性模型，一个高偏差的模型最容易出欠拟合<br>方差：这部分误差由于模型对微小变化较为敏感，一个多自由度的模型更容易有高的方差（例如高阶多项式）因此容易过拟合</p>
 <h1 id="1-3机器学习基础"><a href="#1-3机器学习基础" class="headerlink" title="1.3机器学习基础"></a>1.3机器学习基础</h1><p>（1）如果高偏差，即欠拟合（针对训练误差）：可以A：增加更多的特征个数  B：使用更复杂的模型，使用更复杂的网络 C：新的激活函数 D 自适应学习率<br>（2）如果高方差，即过拟合（针对测试误差）：可以A：增加更多的数据   B:正则化 C:早停 D：dropout</p>
+<p><div id="zhengze"></div></p>
 <h1 id="1-4-正则化"><a href="#1-4-正则化" class="headerlink" title="1.4  正则化"></a>1.4  正则化</h1><h2 id="L2范数"><a href="#L2范数" class="headerlink" title="L2范数"></a>L2范数</h2><p>在损失函数加上超参数乘以L2范数<br><img src="/images/deepai/017.jpg" width="640/"><br>加上L2范数后的梯度更新公式，最后在权重前面加了个小于1的参数，那么每次迭代权重都会逐渐变小，所以也叫权重衰减<br><img src="/images/deepai/018.jpg" width="640/"><br>why？<br>更小的权值w，从某种意义上说，表示网络的复杂度更低，对数据的拟合刚刚好（这个法则也叫做奥卡姆剃刀），而在实际应用中，也验证了这一点，L2正则化的效果往往好于未经正则化的效果。</p>
 <h2 id="L1范数"><a href="#L1范数" class="headerlink" title="L1范数"></a>L1范数</h2><p><img src="/images/deepai/019.jpg" width="640/"><br>比原始的更新规则多出了η <em> λ </em> sgn(w)/n这一项。当w为正时，更新后的w变小。当w为负时，更新后的w变大——因此它的效果就是让w往0靠，使网络中的权重尽可能为0，也就相当于减小了网络复杂度，防止过拟合。<br><img src="/images/deepai/020.jpg" width="640/"></p>
 <h1 id="1-5-为什么正则化可以减少过拟合"><a href="#1-5-为什么正则化可以减少过拟合" class="headerlink" title="1.5 为什么正则化可以减少过拟合"></a>1.5 为什么正则化可以减少过拟合</h1><h2 id="说法一"><a href="#说法一" class="headerlink" title="说法一"></a>说法一</h2><p>箭头的方向就是lamda逐渐变大，w逐渐变小的过程</p>
@@ -505,7 +506,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
