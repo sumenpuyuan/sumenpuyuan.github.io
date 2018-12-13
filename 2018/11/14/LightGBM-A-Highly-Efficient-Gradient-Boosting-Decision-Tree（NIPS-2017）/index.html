@@ -113,7 +113,7 @@
 <meta property="og:image" content="http://yoursite.com/images/paper/lgb25.png">
 <meta property="og:image" content="http://yoursite.com/images/paper/lgb27.png">
 <meta property="og:image" content="http://yoursite.com/images/paper/lgb26.png">
-<meta property="og:updated_time" content="2018-11-15T07:35:25.948Z">
+<meta property="og:updated_time" content="2018-12-13T07:34:48.387Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LightGBM: A Highly Efficient Gradient Boosting Decision Tree（NIPS 2017）">
 <meta name="twitter:description" content="先验知识决策树基本流程决策树是一种常见的机器学习算法。其基本思想很是简单，如下图所示我们判断一个西瓜是否是好瓜，根据生活经验，我们首先判断色泽是什么？判断色泽完后再判断根蒂是否蜷缩？然后再判断敲声是否浊响，最后我们根据这些特征的取值一步一步走到最后的叶子节点，判断它是否是好瓜 其决策树的基本算法如下图所示 显然决策树的生成是一个递归过程，在决策树算法中有三种情况会导致递归返回  当前节点包含的样本">
@@ -383,6 +383,7 @@
 <h3 id="连续值处理"><a href="#连续值处理" class="headerlink" title="连续值处理"></a>连续值处理</h3><p>之前我们的属性值都是离散的，但是现实生活中很多属性值都是连续的，接下来讨论属性是连续值的解决方法，<strong>采用二分法对连续属性进行处理，这正是C4.5决策树算法采用的机制</strong></p>
 <p>假定样本集D和连续属性a，假定a在D上出现了n个不同的取值，<font color="red">将这些值从小到大排序</font>,记为\({a^1,a^2……，a^n}\)，基于划分点t将D分为两部分，一部分大于t一部分小于等于t。对于连续值属性，对相邻的属性取值ai与ai+1l来说，t在区间[ai,ai+1）的划分结果相同，所以产生n-1个划分点集合</p>
 <script type="math/tex; mode=display">T_a=\{\frac {a^i+a^{i+1}}{2} | 1 \leq i \leq n-1\}</script><p>我们取\(a^i,a^{i+1}\)的中位点\(\frac{a^i+a^{i+1}}{2}\)作为候选划分点，然后就可以像离散值一样来考察这些划分点。</p>
+<p><div id="huigui"></div></p>
 <h3 id="回归树的生成"><a href="#回归树的生成" class="headerlink" title="回归树的生成"></a>回归树的生成</h3><p><strong>这里要重点看！！！,因为最原始的gbdt是基于回归树来说明的</strong></p>
 <p>，我们用CART算法来说明一颗回归树的生成过程，这是回归树算法流程<br><img src="/images/paper/lgb03.png" width="640/"><br>直接看算法不太容易看懂，我们来举一个例子进行理解</p>
 <p>假设我们有训练数据如下，目标是得到一颗最小二乘回归树<br><img src="/images/paper/lgb04.png"></p>

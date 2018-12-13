@@ -94,7 +94,10 @@
 <meta property="og:image" content="http://yoursite.com/images/deepai/032.jpg">
 <meta property="og:image" content="http://yoursite.com/images/deepai/033.jpg">
 <meta property="og:image" content="http://yoursite.com/images/deepai/034.jpg">
-<meta property="og:updated_time" content="2018-12-08T14:27:26.508Z">
+<meta property="og:image" content="http://yoursite.com/images/deepai/035.jpg">
+<meta property="og:image" content="http://yoursite.com/images/deepai/036.jpg">
+<meta property="og:image" content="http://yoursite.com/images/deepai/037.jpg">
+<meta property="og:updated_time" content="2018-12-13T06:36:26.999Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="改善深层神经网络：第二周优化算法">
 <meta name="twitter:description" content="小批量梯度下降一共500 000个数据，每批数据1000个，需要5000批，小批量梯度下降过程 函数假设  批量梯度下降（1）函数求导（2）theta更新公式可以看到每次更新都需要用到全部训练数据，计算量很大123456789eta = 0.1 # 学习率n_iterations = 1000m = 100theta = np.random.randn(2,1) # 随机初始值for iterat">
@@ -360,7 +363,9 @@
 <li>样本数据小于2000，用批量梯度下降</li>
 <li>大数据，用2的幂设置，64-512</li>
 </ul>
-
+<h1 id="指数加权平均"><a href="#指数加权平均" class="headerlink" title="指数加权平均"></a>指数加权平均</h1><p><img src="/images/deepai/035.jpg" width="640/"><br>Vt可以近似等于前\(\frac{1}{1-B}\)天的平均值？B越大，平均的天数越多，则曲线越平滑<br><img src="/images/deepai/036.jpg" width="640/"></p>
+<h1 id="指数加权平均修正偏差"><a href="#指数加权平均修正偏差" class="headerlink" title="指数加权平均修正偏差"></a>指数加权平均修正偏差</h1><p>理想是绿色的线，但是实际画的是紫色的线，发现前期偏差会更大，因为最开始我们设置V0=0，如图中左半部分所示，导致偏差，现在我们不用Vt，用\(\frac{V_t}{1-B_t}\),我们就可以修正偏差，并且随着t（天数的增加），Bt会逐渐趋向于0，最终拟合绿色那条线可以很好<br><img src="/images/deepai/037.jpg" width="640/"></p>
+<h1 id="动量梯度下降法"><a href="#动量梯度下降法" class="headerlink" title="动量梯度下降法"></a>动量梯度下降法</h1>
       
     </div>
     
@@ -384,8 +389,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/05/改善神经网络：第一周深度学习的实用层面/" rel="next" title="改善神经网络：第一周深度学习的实用层面">
-                <i class="fa fa-chevron-left"></i> 改善神经网络：第一周深度学习的实用层面
+              <a href="/2018/12/05/改善神经网络：第一周深度学习的实用层面/" rel="next" title="改善深层神经网络：第一周深度学习的实用层面">
+                <i class="fa fa-chevron-left"></i> 改善深层神经网络：第一周深度学习的实用层面
               </a>
             
           </div>
@@ -528,7 +533,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#小批量梯度下降"><span class="nav-number">1.</span> <span class="nav-text">小批量梯度下降</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#批量梯度下降"><span class="nav-number">1.1.</span> <span class="nav-text">批量梯度下降</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#随机梯度下降"><span class="nav-number">1.2.</span> <span class="nav-text">随机梯度下降</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小批量梯度下降-1"><span class="nav-number">1.3.</span> <span class="nav-text">小批量梯度下降</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#理解小批量梯度下降"><span class="nav-number">2.</span> <span class="nav-text">理解小批量梯度下降</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#小批量梯度下降"><span class="nav-number">1.</span> <span class="nav-text">小批量梯度下降</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#批量梯度下降"><span class="nav-number">1.1.</span> <span class="nav-text">批量梯度下降</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#随机梯度下降"><span class="nav-number">1.2.</span> <span class="nav-text">随机梯度下降</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#小批量梯度下降-1"><span class="nav-number">1.3.</span> <span class="nav-text">小批量梯度下降</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#理解小批量梯度下降"><span class="nav-number">2.</span> <span class="nav-text">理解小批量梯度下降</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#指数加权平均"><span class="nav-number">3.</span> <span class="nav-text">指数加权平均</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#指数加权平均修正偏差"><span class="nav-number">4.</span> <span class="nav-text">指数加权平均修正偏差</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#动量梯度下降法"><span class="nav-number">5.</span> <span class="nav-text">动量梯度下降法</span></a></li></ol></div>
             
 
           </div>
