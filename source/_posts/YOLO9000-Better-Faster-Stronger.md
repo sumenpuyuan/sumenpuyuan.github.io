@@ -21,11 +21,11 @@ $$ d(box,centroid)=1-IOU(box,centroid) $$
 聚类结果比使用手工选择的先验结果要好
 ## Direaction location prediction
 直接位置预测，使用anchorbox，遇到一个问题，模型不稳定，早期迭代过程中，大部分不稳定来自预测边界框位置，在区域提出网络中，边界框实际中心位置（x,y），预测偏移值\\(（t_x,t_y）\\),先验框尺度\\((w_a,h_a)\\)中心坐标\\((x_a,y_a)\\)
-<img src="/images/paper/yolov202.jpg"/>
+<img src="/images/ML/yolov202.jpg"/>
 
 这个公式是不受限制的，所以任何锚盒都可以在图像任一点结束，而不管在哪个位置预测该边界框。随机初始化模型需要很长时间才能稳定以预测合理的偏移量。
 所以，YOLOv2弃用了这种预测方式，而是沿用YOLOv1的方法，就是预测边界框中心点相对于对应cell左上角位置的相对偏移值，为了将边界框中心点约束在当前cell中，使用sigmoid函数处理偏移值，这样预测的偏移值在(0,1)范围内（每个cell的尺度看做1）。网络预测每个边界框的4个偏移\\(t_x，t_y,t_w,t_h\\)
-<img src="/images/paper/yolov203.jpg"/>
+<img src="/images/ML/yolov203.jpg"/>
 从这个图可以很好理解上难免公式
 <img src="/images/paper/yolov204.jpg"/>
 ## 细粒度功能。##
