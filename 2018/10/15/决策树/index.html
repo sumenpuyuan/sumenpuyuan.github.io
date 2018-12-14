@@ -86,17 +86,17 @@
 <meta property="og:site_name" content="苏门蒲沅">
 <meta property="og:description" content="信息论基础 信息熵：是一个随机变量不确定性的度量，对于一个离散型随机变量 X~ p(x) ，其离散熵可以定义为：H(x)=-\sum_{x\in \chi} p(x)log(p(x)) 联合熵：分布为 p(x,y) 的一对随机变量  (X,Y) ,其联合熵定义为：H(X,Y)-=\sum_{x\in \chi}\sum_{y\in y} p(x,y)logp(x,y)=H(X)+H(Y|X)表示输">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://pgmz9e1an.bkt.clouddn.com/2018-10-17_221227.png">
+<meta property="og:image" content="http://yoursite.com/images/ML/010.jpg">
 <meta property="og:image" content="http://pgmz9e1an.bkt.clouddn.com/2018-10-18_152827.png">
 <meta property="og:image" content="http://yoursite.com/images/ML/006.jpg">
 <meta property="og:image" content="http://yoursite.com/images/ML/007.jpg">
 <meta property="og:image" content="http://yoursite.com/images/ML/008.jpg">
 <meta property="og:image" content="http://yoursite.com/images/ML/009.jpg">
-<meta property="og:updated_time" content="2018-12-13T08:04:50.682Z">
+<meta property="og:updated_time" content="2018-12-14T12:14:28.675Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="决策树">
 <meta name="twitter:description" content="信息论基础 信息熵：是一个随机变量不确定性的度量，对于一个离散型随机变量 X~ p(x) ，其离散熵可以定义为：H(x)=-\sum_{x\in \chi} p(x)log(p(x)) 联合熵：分布为 p(x,y) 的一对随机变量  (X,Y) ,其联合熵定义为：H(X,Y)-=\sum_{x\in \chi}\sum_{y\in y} p(x,y)logp(x,y)=H(X)+H(Y|X)表示输">
-<meta name="twitter:image" content="http://pgmz9e1an.bkt.clouddn.com/2018-10-17_221227.png">
+<meta name="twitter:image" content="http://yoursite.com/images/ML/010.jpg">
 
 
 
@@ -353,7 +353,7 @@
 <li>联合熵：分布为 p(x,y) 的一对随机变量  (X,Y) ,其联合熵定义为：<script type="math/tex; mode=display">H(X,Y)-=\sum_{x\in \chi}\sum_{y\in y} p(x,y)logp(x,y)=H(X)+H(Y|X)</script>表示输入为Ｘ，输出为Ｙ时，整个系统所具有的不确定程度</li>
 <li>条件熵，表示表示已知编码输入集为X时，编码输出集为Y所剩余的不确定性。 <script type="math/tex; mode=display">H(Y|X)=-\sum_{x\in \chi}\sum_{y\in y}p(x,y)logp(y|x)</script><h1 id="基本流程"><a href="#基本流程" class="headerlink" title="基本流程"></a>基本流程</h1></li>
 </ul>
-<p><img src="http://pgmz9e1an.bkt.clouddn.com/2018-10-17_221227.png" width="640"><br>三种情况导致递归返回</p>
+<p><img src="/images/ML/010.jpg" width="640"><br>三种情况导致递归返回</p>
 <ol>
 <li>当前节点包含的样本完全属于同一类别，无需划分</li>
 <li>当前属性集为空，或是所有样本在所有属性上取值相同，无法划分</li>
@@ -415,6 +415,17 @@
 <p>假定我们为每一个样本x赋予一个权重\(w_x\)，并定义</p>
 <script type="math/tex; mode=display">\rho = \frac {\Sigma_{x \in D^\- }w_x}{\Sigma_{x \in D}w_x}</script><script type="math/tex; mode=display">p^-_k=\frac {\Sigma_{x \in D^-_k}w_x}{\Sigma_{x \in D^-}w_x} \qquad (1 \leq k \leq |y|)</script><script type="math/tex; mode=display">r^-_v=\frac {\Sigma_{x \in D^-_k}w_x}{\Sigma_{x \in D^-}w_x} \qquad (1 \leq k \leq V)</script><p>基于上述定义，我们将信息增益的计算式推广为，</p>
 <script type="math/tex; mode=display">Gain(D,a)=\rho *Gain(D^-,a)</script><script type="math/tex; mode=display">=\rho *(Ent(D^-)-\sum^V_{v=1}r^-_vEnt(D^-v))</script><script type="math/tex; mode=display">Ent(D^-)=-\sum^{|y|}_{k=1}p^-_klog_2p^-_k</script><p><strong>解决第二个问题</strong><br>划分属性是a，样本x在属性a的取值未知，则将x同时划入所有子节点，且样本权值在属性值a v对应的子节点调整为\(r^-_v*w_x\)，直观的看，就是让同一个样本以不同的概率划入到不同子节点中去</p>
+<h1 id="sklearn参数"><a href="#sklearn参数" class="headerlink" title="sklearn参数"></a>sklearn参数</h1><p>criterion:string类型，可选（默认为”gini”）<br>   衡量分类的质量。支持的标准有”gini”代表的是Gini impurity(不纯度)与”entropy”代表的是information gain（信息增益）。</p>
+<p>splitter:string类型，可选（默认为”best”）<br>   一种用来在节点中选择分类的策略。支持的策略有”best”，选择最好的分类，”random”选择最好的随机分类。</p>
+<p>max_features:int,float,string or None 可选（默认为None）<br>   在进行分类时需要考虑的特征数。</p>
+<p>max_depth:int or None,可选（默认为”None”）<br>   表示树的最大深度。如果是”None”,则节点会一直扩展直到所有的叶子都是纯的或者所有的叶子节点都包含少于min_samples_split个样本点。忽视max_leaf_nodes是不是为None。</p>
+<p>min_samples_split:int,float,可选（默认为2）<br>   区分一个内部节点需要的最少的样本数。<br>    1.如果是int，将其最为最小的样本数。<br>    2.如果是float，min_samples_split是一个百分率并且ceil(min_samples_split*n_samples)是每个分类需要的样本数。ceil是取大于或等于指定表达式的最小整数。</p>
+<p>min_samples_leaf:int,float,可选（默认为1）<br>   一个叶节点所需要的最小样本数：<br>    1.如果是int，则其为最小样本数<br>    2.如果是float，则它是一个百分率并且ceil(min_samples_leaf*n_samples)是每个节点所需的样本数。</p>
+<p>min_weight_fraction_leaf:float,可选（默认为0）<br>   一个叶节点的输入样本所需要的最小的加权分数。</p>
+<p>max_leaf_nodes:int,None 可选（默认为None）<br>   在最优方法中使用max_leaf_nodes构建一个树。最好的节点是在杂质相对减少。如果是None则对叶节点的数目没有限制。如果不是None则不考虑max_depth.</p>
+<p>class_weight:dict,list of dicts,”Banlanced” or None,可选（默认为None）<br>   表示在表{class_label:weight}中的类的关联权值。如果没有指定，所有类的权值都为1。对于多输出问题，一列字典的顺序可以与一列y的次序相同。<br>   “balanced”模型使用y的值去自动适应权值，并且是以输入数据中类的频率的反比例。如：n_samples/(n_classes*np.bincount(y))。<br>   对于多输出，每列y的权值都会想乘。<br>   如果sample_weight已经指定了，这些权值将于samples以合适的方法相乘。</p>
+<p>random_state:int,RandomState instance or None<br>   如果是int,random_state 是随机数字发生器的种子；如果是RandomState，random_state是随机数字发生器，如果是None，随机数字发生器是np.random使用的RandomState instance.</p>
+<p>persort:bool,可选（默认为False）<br>   是否预分类数据以加速训练时最好分类的查找。在有大数据集的决策树中，如果设为true可能会减慢训练的过程。当使用一个小数据集或者一个深度受限的决策树中，可以减速训练的过程。</p>
 
       
     </div>
@@ -583,7 +594,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#信息论基础"><span class="nav-number">1.</span> <span class="nav-text">信息论基础</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本流程"><span class="nav-number">2.</span> <span class="nav-text">基本流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#划分选择"><span class="nav-number">3.</span> <span class="nav-text">划分选择</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#信息增益"><span class="nav-number">3.1.</span> <span class="nav-text">信息增益</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#增益率"><span class="nav-number">3.2.</span> <span class="nav-text">增益率</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基尼指数"><span class="nav-number">3.3.</span> <span class="nav-text">基尼指数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ID3算法"><span class="nav-number">4.</span> <span class="nav-text">ID3算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#流程"><span class="nav-number">4.1.</span> <span class="nav-text">流程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#C4-5算法"><span class="nav-number">5.</span> <span class="nav-text">C4.5算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CART分类与回归树"><span class="nav-number">6.</span> <span class="nav-text">CART分类与回归树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#回归树生成流程"><span class="nav-number">6.1.</span> <span class="nav-text">回归树生成流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分类树"><span class="nav-number">6.2.</span> <span class="nav-text">分类树</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#剪枝处理"><span class="nav-number">7.</span> <span class="nav-text">剪枝处理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#连续与缺失值"><span class="nav-number">8.</span> <span class="nav-text">连续与缺失值</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#连续值处理"><span class="nav-number">8.1.</span> <span class="nav-text">连续值处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缺失值处理"><span class="nav-number">8.2.</span> <span class="nav-text">缺失值处理</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#信息论基础"><span class="nav-number">1.</span> <span class="nav-text">信息论基础</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本流程"><span class="nav-number">2.</span> <span class="nav-text">基本流程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#划分选择"><span class="nav-number">3.</span> <span class="nav-text">划分选择</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#信息增益"><span class="nav-number">3.1.</span> <span class="nav-text">信息增益</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#增益率"><span class="nav-number">3.2.</span> <span class="nav-text">增益率</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基尼指数"><span class="nav-number">3.3.</span> <span class="nav-text">基尼指数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ID3算法"><span class="nav-number">4.</span> <span class="nav-text">ID3算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#流程"><span class="nav-number">4.1.</span> <span class="nav-text">流程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#C4-5算法"><span class="nav-number">5.</span> <span class="nav-text">C4.5算法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CART分类与回归树"><span class="nav-number">6.</span> <span class="nav-text">CART分类与回归树</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#回归树生成流程"><span class="nav-number">6.1.</span> <span class="nav-text">回归树生成流程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分类树"><span class="nav-number">6.2.</span> <span class="nav-text">分类树</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#剪枝处理"><span class="nav-number">7.</span> <span class="nav-text">剪枝处理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#连续与缺失值"><span class="nav-number">8.</span> <span class="nav-text">连续与缺失值</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#连续值处理"><span class="nav-number">8.1.</span> <span class="nav-text">连续值处理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缺失值处理"><span class="nav-number">8.2.</span> <span class="nav-text">缺失值处理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#sklearn参数"><span class="nav-number">9.</span> <span class="nav-text">sklearn参数</span></a></li></ol></div>
             
 
           </div>
