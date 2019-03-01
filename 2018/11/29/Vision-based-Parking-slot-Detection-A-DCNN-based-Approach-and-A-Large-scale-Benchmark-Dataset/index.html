@@ -95,7 +95,7 @@
 <meta property="og:image" content="http://yoursite.com/images/paper/che07.jpg">
 <meta property="og:image" content="http://yoursite.com/images/paper/che08.jpg">
 <meta property="og:image" content="http://yoursite.com/images/paper/che09.jpg">
-<meta property="og:updated_time" content="2018-11-30T12:36:57.000Z">
+<meta property="og:updated_time" content="2018-12-23T14:44:29.458Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Vision-based Parking-slot Detection:A DCNN-based Approach and A Large-scale Benchmark Dataset">
 <meta name="twitter:description" content="摘要两个贡献，1.提出了基于深度卷积神经网络的停车位检测方法，以环绕图像作为输入，主要有两个步骤，识别标记点，根据标记点形成的局部图像进行分类2.建立了一个大规模标记数据集，是目前停车领域中最大的，包含12165个环绕图像 介绍A基于视觉的停车位检测车停位检测方法主要分为两种，基于自由空间和基于视觉的。基于自由空间的方法通过识别相邻车辆之间的适当空置空间来指定目标停车位置。这是最广泛使用的方法，基">
@@ -359,7 +359,7 @@
 <h2 id="B局部图像模式分类"><a href="#B局部图像模式分类" class="headerlink" title="B局部图像模式分类"></a>B局部图像模式分类</h2><p>在测试图像上应用标记点检测器D后，具有大于δ1的置信度得分的点将被视为标记点。假设p1和p2是两个检测到的标记点。我们需要验证它们是否可以形成有效的入口线。首先，如果—-→p1p2可以是有效的入口线候选者，则p1和p2之间的距离应该满足一些约束。如果—-→p1p2是平行停车位的入口线候选者，则需要满足t1 &lt;∥p1p2∥&lt;t2;如果—-→p1p2是垂直或倾斜停车槽的入口线候选者，它应该满足t3 &lt;∥p1p2∥&lt;t4。参数t1，t2，t3和t4基于关于各种类型的停车位的入口线长度的先验知识来设置。<br>然后，我们需要进一步处理满足距离约束的标记点对。首先，对于一对标记点，尽管它可以满足距离约束，但很可能它们仍然不能形成有效的入口线。例如，在图6中，p1和p2之间的距离满足作为平行停车槽入口线的距离约束;然而，很明显—-→p1p2不是有效的入口线，因为它通过另一个标记点。另外，假设—-→p1p2是有效的入口线。我们需要确定相关的停车槽是在其顺时针侧还是在其逆时针侧，并确定该停车槽是直角还是倾斜1。所有这些问题都可以通过将由p1和p2定义的局部图像模式分类为预定类之一来解决。如图7（a）所示，如下提取由环绕视图像上的两个标记点p1和p22定义的局部图像图案。首先，建立局部坐标系，以p1和p2的中点为原点，以—-→p1p2为X轴。因此可以确定其Y轴。在该坐标系中，我们定义了矩形区域R，其对应于X轴和Y轴。对于R，沿X轴的边长设定为∥p1p2∥+Δx，沿Y轴的边长设定为Δy。我们从环绕视图图像中提取由R覆盖的图像区域，将其标准化为尺寸w×h，并将得到的图像块视为由p1和p2定义的局部图像图案。<br>在训练阶段，基于标签数据，我们可以获得包括由成对标记点定义的所有局部图像图案的集合C.根据相关停车位的特点，我们将C中的样本分为7类，“直角逆时针3”，“逆时针倾斜，急停车角4”，“逆时针倾斜，钝角停车”，“右 - 顺时针方向“，”顺时针倾斜，有一个钝角停车角“，”顺时针方向倾斜，有一个急停车角“，”无效“。属于这些类别的代表性范例分别如图7（b）〜（h）所示。在构造C时，我们遇到了一个实际问题，即类不平衡，这意味着特定类相对于其他类具有非常少量的实例。在我们的例子中，这个问题的根本原因是，在我们收集的数据集中，倾斜停车位的数量远小于直角停车位的数量。为了解决这个问题，我们采用了SMOTE [58]对少数民族进行过度抽样。从C开始，我们可以训练分类模型M来预测从测试环绕视图图像中提取的看不见的局部图像模式的类标签。</p>
 <p><img src="/images/paper/che04.png"></p>
 <p><img src="/images/paper/che05.jpg"><br>定制的DCNN架构旨在解决我们的分类任务。如图8所示，我们的网络采用灰度48×192图像作为输入，输出层有7个节点，对应于7类本地图像模式。在图8中，“conv”表示它是卷积层，“ReLU”表示它是一个完整的线性单元[60]层，“max-pool”表示它是一个最大池层，“BN”表示它是一个批量标准化层，“FC”表示它是完全连接层。对于每个“conv”，“max-pool”和“FC”层，其参数设置及其输出的维度（该层的特征映射）如表I所示。“kernel：[kernel h，kernel w] “指定每个滤波器的高度和宽度，”pad：[pad h，pad w]“指定要添加到输入每一侧的像素数，”stride：[stride h，stride w]“指定应用滤波器的时间间隔输入和“num output”指定过滤器的数量。<strong>定制的DCNN模型首先在ImageNet 2012分类数据集上进行了训练，然后针对我们的特定任务进行了调整。对于微调，将mini-batchsize设置为256;学习率从0.002开始，每5000次迭代除以2。我们使用了0.0005的重量衰减和0.9的动量。</strong></p>
-<h2 id="C停车位推断"><a href="#C停车位推断" class="headerlink" title="C停车位推断"></a>C停车位推断</h2><p>在自助泊车系统中，停车位通常被认为是平行四边形，并且通常由其四个顶点的坐标表示。在大多数情况下，两个非标记点顶点是不可见的，它们的坐标只能通过推理获得。为此，我们需要假设停车位的“深度”事先已知为先验知识。如图9所示，假设垂直，平行和倾斜的停车槽的深度分别为d1，d2和d3。支持p1和p2被改为标记点，并且由p1和p2定义的局部图像模式被分类为“顺时针顺时针”或“直角逆时针”。如果是这种情况，则可以容易地计算两个非标记点顶点p3和p4的坐标。例如，在图9（a）中，由p1和p2定义的局部图像模式是“顺时针直角”和长度—-→p1p2表示该停车槽应该是垂直的（不是平行的），因此它的“深度”是d1。因此，它的p3和p4被推断为，<br><img src="/images/paper/che06.jpg"><br><img src="/images/paper/che07.jpg"><br> 在图9（c）中，由p1和p2定义的局部图像模式被分类为“具有急性停车角的逆时针倾斜”; 为了估计两个非标记点顶点的位置，需要估计停车角α。 为解决此问题，使用基于模板匹配的策略。 如图9（d）所示的一组理想的“T形”模板\(\{T_θ_j\}^M_{j=1}\)，其中θj是模板j的两条线之间的角度，M是总数模板。 每个模板的大小为s×s，为零均值。 在测试阶段，分别提取以p1和p2为中心的两个s×s图像块I1和I2。 I1和I2都与—-→p1p2对称。 然后，停车角α可以自然地估计为，<br><img src="/images/paper/che08.jpg"><br>在计算了停车角度之后，可以直接计算两个非标记点的坐标。例如，在图9（c）中，p3和p4的坐标可以表示为，<br><img src="/images/paper/che09.jpg"></p>
+<h2 id="C停车位推断"><a href="#C停车位推断" class="headerlink" title="C停车位推断"></a>C停车位推断</h2><p>在自助泊车系统中，停车位通常被认为是平行四边形，并且通常由其四个顶点的坐标表示。在大多数情况下，两个非标记点顶点是不可见的，它们的坐标只能通过推理获得。为此，我们需要假设停车位的“深度”事先已知为先验知识。如图9所示，假设垂直，平行和倾斜的停车槽的深度分别为d1，d2和d3。支持p1和p2被改为标记点，并且由p1和p2定义的局部图像模式被分类为“顺时针顺时针”或“直角逆时针”。如果是这种情况，则可以容易地计算两个非标记点顶点p3和p4的坐标。例如，在图9（a）中，由p1和p2定义的局部图像模式是“顺时针直角”和长度—-→p1p2表示该停车槽应该是垂直的（不是平行的），因此它的“深度”是d1。因此，它的p3和p4被推断为，<br><img src="/images/paper/che06.jpg"><br><img src="/images/paper/che07.jpg"><br> 在图9（c）中，由p1和p2定义的局部图像模式被分类为“具有急性停车角的逆时针倾斜”; 为了估计两个非标记点顶点的位置，需要估计停车角α。 为解决此问题，使用基于模板匹配的策略。 如图9（d）所示的一组理想的“T形”模板\(\{T_{θ_j}\}^M_{j=1}\)，其中θj是模板j的两条线之间的角度，M是总数模板。 每个模板的大小为s×s，为零均值。 在测试阶段，分别提取以p1和p2为中心的两个s×s图像块I1和I2。 I1和I2都与—-→p1p2对称。 然后，停车角α可以自然地估计为，<br><img src="/images/paper/che08.jpg"><br>在计算了停车角度之后，可以直接计算两个非标记点的坐标。例如，在图9（c）中，p3和p4的坐标可以表示为，<br><img src="/images/paper/che09.jpg"></p>
 <p><div id="all"><br><strong>训练阶段</strong><br><strong>输入</strong>：一个集合S，包括带有标记标记点和停车位的环绕视图图像<br><strong>输出</strong>：标记点检测器D和图像模式分类器M<br>1.数据增强：通过图像旋转得到增强数据集S’<br>2.对于每个标记点\(p_i\)，生成一个p×p的边界框\(B_i\)<br>3.resize到416 × 416，输入S’和\({B_i}\)给yoloV2，进行训练，得到分类器D<br>4.得到数据集C，进行7类图像模式划分（以p1 p2重点为原点，p1-p2作为x轴，矩形框x轴长∥p1p2∥+Δx，y轴边长Δy，切割形成局部图像，标准化尺寸为w×h）<br>5.使用SMOTE对C的少数类进行过采样<br>6.C输入DCNN,开始训练，得到分类器M</div></p>
 <p><strong>测试阶段</strong><br><strong>输入</strong>：一个环绕图像I，标记点检测器D，图像分类器M<br><strong>输出</strong>：一个包含从I得到的停车位集合P<br>1.I输入给D，得到一个标记点集合\(\{p_i\}^L_{i=1}\)<br>2.<br>for i=1:L-1<br>&emsp;&emsp;for j =i+1:L<br>&emsp;&emsp;&emsp;&emsp;if ||\(p_i,p_j\)||不满足有效入口线的条件（如果是平行停车位，t1&lt;||\(p_i,p_j\)||&lt;t2,如果是垂直或者倾斜，t3&lt;||\(p_i,p_j\)||&lt;t4）<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;continue<br>&emsp;&emsp;&emsp;&emsp;end if<br>&emsp;&emsp;&emsp;&emsp;根据pi，pj提取局部图像，使用M进行分类得到结果c<br>&emsp;&emsp;&emsp;&emsp;if c == “invalid”<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;continue<br>&emsp;&emsp;&emsp;&emsp;end if<br>&emsp;&emsp;&emsp;&emsp;if c==”直角顺时针” or “直角逆时针”<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;根据公式1得到非标记点\(p_{ij}^3\)和\(p_{ij}^4\)<br>&emsp;&emsp;&emsp;&emsp;else<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;根据公式2估计停车角度\(\alpha\)<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;根据公式3得到非标记点\(p_{ij}^3\)和\(p_{ij}^4\)<br>&emsp;&emsp;&emsp;&emsp;end if<br>&emsp;&emsp;&emsp;&emsp;\(ps=[p_i,p_j,p_{ij}^3,p_{ij}^4]\)<br>&emsp;&emsp;&emsp;&emsp;if 如果ps中的顶点按逆时针顺序排列<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;\(ps=[p_j,p_i,p_{ij}^4,p_{ij}^3]\)<br>&emsp;&emsp;&emsp;&emsp;end if<br>&emsp;&emsp;&emsp;&emsp;ps加入P<br>&emsp;&emsp;end for<br>end for</p>
 
@@ -475,7 +475,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -550,7 +550,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
